@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn the truth about misunderstood animals. Debunk myths with science-backed facts.">
+  <title>Animal Detail — Misunderstood</title>
+  <link rel="stylesheet" href="design-system/main.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦈</text></svg>">
+</head>
+<body>
+  <!-- Site Header -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <div class="site-header__inner">
+        <a href="index.html" class="site-logo">Misunderstood</a>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav">
+          <span aria-hidden="true">☰</span>
+        </button>
+        <nav id="main-nav" class="main-nav" role="navigation" aria-label="Main navigation">
+          <a href="index.html" class="main-nav__link">Home</a>
+          <a href="browse.html" class="main-nav__link">Browse</a>
+          <a href="quiz.html" class="main-nav__link">Quiz</a>
+          <a href="submit.html" class="main-nav__link">Submit</a>
+          <a href="about.html" class="main-nav__link">About</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Animal Detail Content -->
+  <main class="section" id="animal-detail" role="main" aria-live="polite">
+    <div class="container">
+      <div class="loading">
+        <div class="spinner"></div>
+      </div>
+      <div id="animal-content" class="hidden">
+        <!-- Content will be loaded here by JavaScript -->
+      </div>
+      <div id="not-found" class="hidden">
+        <div class="empty-state">
+          <div class="empty-state__icon">❌</div>
+          <h2 class="empty-state__text">Animal not found</h2>
+          <p class="mb-lg">The animal you're looking for doesn't exist.</p>
+          <a href="browse.html" class="btn btn--primary">Browse Animals</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="site-footer__inner">
+        <p class="site-footer__text">© 2025 Misunderstood — Debunking Animal Myths</p>
+        <p class="site-footer__text">
+          <a href="about.html" class="site-footer__link">About</a> | 
+          <a href="about.html#sources" class="site-footer__link">Sources</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/detail.js"></script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Debunking myths about the world's most misunderstood animals through science-backed facts.">
+  <meta name="keywords" content="animals, myths, facts, wildlife, education, sharks, bats, spiders">
+  <title>Misunderstood — Debunking Animal Myths</title>
+  <link rel="stylesheet" href="design-system/main.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦈</text></svg>">
+</head>
+<body>
+  <!-- Site Header -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <div class="site-header__inner">
+        <a href="index.html" class="site-logo">Misunderstood</a>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav">
+          <span aria-hidden="true">☰</span>
+        </button>
+        <nav id="main-nav" class="main-nav" role="navigation" aria-label="Main navigation">
+          <a href="index.html" class="main-nav__link" aria-current="page">Home</a>
+          <a href="browse.html" class="main-nav__link">Browse</a>
+          <a href="quiz.html" class="main-nav__link">Quiz</a>
+          <a href="submit.html" class="main-nav__link">Submit</a>
+          <a href="about.html" class="main-nav__link">About</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" role="banner">
+    <div class="container">
+      <h1 class="hero__title">Misunderstood</h1>
+      <p class="hero__subtitle">Transforming fear into understanding, one myth at a time. Discover the truth about the world's most misunderstood animals through science-backed facts.</p>
+      <a href="browse.html" class="btn btn--outline btn--lg" style="background-color: rgba(255,255,255,0.2); color: white; border-color: white;">Explore Animals</a>
+    </div>
+  </section>
+
+  <!-- Featured Animals Section -->
+  <section class="section" aria-labelledby="featured-heading">
+    <div class="container">
+      <h2 id="featured-heading" class="text-center mb-xl">Featured Animals</h2>
+      <div class="grid grid--3" id="featured-animals">
+        <!-- Animals will be loaded here by JavaScript -->
+        <div class="loading">
+          <div class="spinner"></div>
+        </div>
+      </div>
+      <div class="text-center mt-xl">
+        <a href="browse.html" class="btn btn--primary btn--lg">View All Animals</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission Section -->
+  <section class="section section--sm" style="background-color: var(--color-bg-alt);" aria-labelledby="mission-heading">
+    <div class="container">
+      <div class="text-center" style="max-width: 800px; margin: 0 auto;">
+        <h2 id="mission-heading" class="mb-lg">Our Mission</h2>
+        <p class="mb-md" style="font-size: var(--font-size-lg);">
+          This project reframes the world's "most hated" animals through science-backed facts. Instead of fear or stigma, we highlight ecological benefits and clear up common myths.
+        </p>
+        <p class="mb-md">
+          <strong>Our goals:</strong>
+        </p>
+        <ul style="text-align: left; max-width: 600px; margin: 0 auto; list-style: none;">
+          <li style="padding: var(--spacing-sm) 0; padding-left: var(--spacing-xl); position: relative;">
+            <span style="position: absolute; left: 0; color: var(--color-success); font-weight: bold;">✓</span>
+            Debunk persistent myths about commonly feared animals
+          </li>
+          <li style="padding: var(--spacing-sm) 0; padding-left: var(--spacing-xl); position: relative;">
+            <span style="position: absolute; left: 0; color: var(--color-success); font-weight: bold;">✓</span>
+            Teach credible interpretation of wildlife facts and sources
+          </li>
+          <li style="padding: var(--spacing-sm) 0; padding-left: var(--spacing-xl); position: relative;">
+            <span style="position: absolute; left: 0; color: var(--color-success); font-weight: bold;">✓</span>
+            Model responsible source attribution and fact-checking
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section" aria-labelledby="cta-heading">
+    <div class="container">
+      <div class="text-center">
+        <h2 id="cta-heading" class="mb-lg">Test Your Knowledge</h2>
+        <p class="mb-xl" style="font-size: var(--font-size-lg); color: var(--color-text-light);">
+          Think you know the facts? Take our 5-question quiz to separate myth from reality.
+        </p>
+        <a href="quiz.html" class="btn btn--secondary btn--lg">Take the Quiz</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Site Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="site-footer__inner">
+        <p class="site-footer__text">© 2025 Misunderstood — Debunking Animal Myths</p>
+        <p class="site-footer__text">
+          <a href="about.html" class="site-footer__link">About</a> | 
+          <a href="about.html#sources" class="site-footer__link">Sources</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

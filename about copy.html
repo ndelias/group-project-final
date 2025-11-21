@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn about the Misunderstood project, its mission, and view sources for animal facts.">
+  <title>About — Misunderstood</title>
+  <link rel="stylesheet" href="design-system/main.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦈</text></svg>">
+</head>
+<body>
+  <!-- Site Header -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <div class="site-header__inner">
+        <a href="index.html" class="site-logo">Misunderstood</a>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav">
+          <span aria-hidden="true">☰</span>
+        </button>
+        <nav id="main-nav" class="main-nav" role="navigation" aria-label="Main navigation">
+          <a href="index.html" class="main-nav__link">Home</a>
+          <a href="browse.html" class="main-nav__link">Browse</a>
+          <a href="quiz.html" class="main-nav__link">Quiz</a>
+          <a href="submit.html" class="main-nav__link">Submit</a>
+          <a href="about.html" class="main-nav__link" aria-current="page">About</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <main class="section" role="main">
+    <div class="container" style="max-width: 800px;">
+      <h1 class="text-center mb-xl">About This Project</h1>
+
+      <section class="mb-3xl" aria-labelledby="mission-heading">
+        <h2 id="mission-heading" class="mb-lg">Our Mission</h2>
+        <p class="mb-md">
+          <strong>Misunderstood — Debunking Animal Myths</strong> reframes the world's "most hated" animals through science-backed facts. Instead of fear or stigma, we highlight ecological benefits and clear up common myths.
+        </p>
+        <p class="mb-md">
+          This project aims to transform fear into understanding by presenting credible, scientific information about animals that are often misunderstood or feared.
+        </p>
+      </section>
+
+      <section class="mb-3xl" aria-labelledby="goals-heading">
+        <h2 id="goals-heading" class="mb-lg">Goals</h2>
+        <ul class="impact-list">
+          <li class="impact-list__item">
+            <strong>Debunk persistent myths</strong> about commonly feared animals through science-backed facts
+          </li>
+          <li class="impact-list__item">
+            <strong>Teach credible interpretation</strong> of wildlife facts and sources to help readers become better fact-checkers
+          </li>
+          <li class="impact-list__item">
+            <strong>Model responsible source attribution</strong> by clearly citing all scientific sources and references
+          </li>
+          <li class="impact-list__item">
+            <strong>Highlight ecological benefits</strong> that these animals provide to their ecosystems
+          </li>
+        </ul>
+      </section>
+
+      <section class="mb-3xl" aria-labelledby="audience-heading">
+        <h2 id="audience-heading" class="mb-lg">Target Audience</h2>
+        <p class="mb-md">
+          This site is designed for learners age 12+ including students, parents, teachers, and curious readers who want to learn the truth about misunderstood animals.
+        </p>
+      </section>
+
+      <section class="mb-3xl" aria-labelledby="animals-heading">
+        <h2 id="animals-heading" class="mb-lg">Featured Animals</h2>
+        <p class="mb-md">
+          Our project features 9 commonly misunderstood animals:
+        </p>
+        <div class="grid grid--2" style="gap: var(--spacing-md);">
+          <div class="fact-card">
+            <div class="fact-card__title">Dangerous</div>
+            <div class="fact-card__content">Sharks, Spiders, Hyenas, Wolves, Snakes</div>
+          </div>
+          <div class="fact-card">
+            <div class="fact-card__title">Dirty/Diseased</div>
+            <div class="fact-card__content">Bats, Vultures, Opossums, Rats</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="sources" class="sources-section" aria-labelledby="sources-heading">
+        <h2 id="sources-heading" class="mb-lg">Sources & References</h2>
+        <p class="mb-md">
+          All information on this site is backed by credible scientific sources. We prioritize peer-reviewed research, established wildlife organizations, and respected scientific institutions.
+        </p>
+        <p class="mb-md">
+          Sources are provided on each animal's detail page. Key organizations we reference include:
+        </p>
+        <ul class="sources-list">
+          <li class="sources-list__item">
+            <strong>National Geographic</strong> — Comprehensive wildlife information and photography
+          </li>
+          <li class="sources-list__item">
+            <strong>Smithsonian Institution</strong> — Scientific research and educational resources
+          </li>
+          <li class="sources-list__item">
+            <strong>National Wildlife Federation</strong> — Conservation and wildlife education
+          </li>
+          <li class="sources-list__item">
+            <strong>Audubon Society</strong> — Bird and wildlife conservation
+          </li>
+          <li class="sources-list__item">
+            <strong>Bat Conservation International</strong> — Bat research and conservation
+          </li>
+          <li class="sources-list__item">
+            <strong>International Wolf Center</strong> — Wolf education and research
+          </li>
+          <li class="sources-list__item">
+            <strong>Oceana</strong> — Marine conservation and research
+          </li>
+        </ul>
+        <p class="mt-lg" style="font-size: var(--font-size-sm); color: var(--color-text-light);">
+          For specific citations, please visit individual animal detail pages where sources are listed for each fact and myth debunked.
+        </p>
+      </section>
+
+      <section class="mt-3xl" aria-labelledby="tech-heading">
+        <h2 id="tech-heading" class="mb-lg">Technical Details</h2>
+        <p class="mb-md">
+          This site is built with semantic HTML5, responsive CSS (Grid/Flexbox), and vanilla JavaScript. It's designed to be:
+        </p>
+        <ul class="impact-list">
+          <li class="impact-list__item">
+            <strong>Fast</strong> — Optimized for quick loading and smooth performance
+          </li>
+          <li class="impact-list__item">
+            <strong>Accessible</strong> — Full keyboard navigation, ARIA support, and screen reader compatibility
+          </li>
+          <li class="impact-list__item">
+            <strong>Responsive</strong> — Works beautifully on all devices from mobile to desktop
+          </li>
+          <li class="impact-list__item">
+            <strong>Educational</strong> — Clear information architecture and engaging interactive elements
+          </li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="site-footer__inner">
+        <p class="site-footer__text">© 2025 Misunderstood — Debunking Animal Myths</p>
+        <p class="site-footer__text">
+          <a href="about.html" class="site-footer__link">About</a> | 
+          <a href="about.html#sources" class="site-footer__link">Sources</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

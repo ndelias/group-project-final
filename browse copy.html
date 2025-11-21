@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse and filter misunderstood animals by myth category: Dangerous, Dirty/Diseased, or Useless/Nuisance.">
+  <title>Browse Animals — Misunderstood</title>
+  <link rel="stylesheet" href="design-system/main.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦈</text></svg>">
+</head>
+<body>
+  <!-- Site Header -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <div class="site-header__inner">
+        <a href="index.html" class="site-logo">Misunderstood</a>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav">
+          <span aria-hidden="true">☰</span>
+        </button>
+        <nav id="main-nav" class="main-nav" role="navigation" aria-label="Main navigation">
+          <a href="index.html" class="main-nav__link">Home</a>
+          <a href="browse.html" class="main-nav__link" aria-current="page">Browse</a>
+          <a href="quiz.html" class="main-nav__link">Quiz</a>
+          <a href="submit.html" class="main-nav__link">Submit</a>
+          <a href="about.html" class="main-nav__link">About</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section class="section section--sm page-header">
+    <div class="container">
+      <h1 class="text-center mb-md">Browse Animals</h1>
+      <p class="text-center" style="max-width: 600px; margin: 0 auto;">
+        Explore our collection of misunderstood animals. Filter by myth category to learn the truth behind common misconceptions.
+      </p>
+    </div>
+  </section>
+
+  <!-- Filters Section -->
+  <section class="section section--sm">
+    <div class="container">
+      <div class="filters">
+        <input 
+          type="search" 
+          id="search-input" 
+          class="search-box" 
+          placeholder="Search animals..." 
+          aria-label="Search animals"
+        >
+        <div class="chip-group" role="group" aria-label="Filter by category">
+          <button class="chip chip--active" data-category="all" aria-pressed="true">All</button>
+          <button class="chip" data-category="dangerous" aria-pressed="false">Dangerous</button>
+          <button class="chip" data-category="dirty-diseased" aria-pressed="false">Dirty/Diseased</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Animals Grid -->
+  <section class="section" aria-live="polite" aria-atomic="true">
+    <div class="container">
+      <div id="animals-grid" class="grid grid--3">
+        <!-- Animals will be loaded here by JavaScript -->
+        <div class="loading">
+          <div class="spinner"></div>
+        </div>
+      </div>
+      <div id="empty-state" class="empty-state hidden">
+        <div class="empty-state__icon">🔍</div>
+        <p class="empty-state__text">No animals found matching your search.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Site Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="site-footer__inner">
+        <p class="site-footer__text">© 2025 Misunderstood — Debunking Animal Myths</p>
+        <p class="site-footer__text">
+          <a href="about.html" class="site-footer__link">About</a> | 
+          <a href="about.html#sources" class="site-footer__link">Sources</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/browse.js"></script>
+</body>
+</html>
