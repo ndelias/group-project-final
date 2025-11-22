@@ -1,0 +1,27 @@
+[
+  {
+    "question": "Sharks actively seek out humans as prey.",
+    "answer": "myth",
+    "explanation": "Humans are not natural prey. Most shark bites are cases of mistaken identity and sharks quickly swim away."
+  },
+  {
+    "question": "Bats are essential pollinators and pest controllers.",
+    "answer": "fact",
+    "explanation": "Many bats pollinate night-blooming plants and each bat can eat thousands of insects in a single night."
+  },
+  {
+    "question": "House spiders usually pose little danger to people.",
+    "answer": "fact",
+    "explanation": "Most house spiders avoid humans and have venom too weak to cause medical issues for healthy adults."
+  },
+  {
+    "question": "Vultures spread disease when they eat carrion.",
+    "answer": "myth",
+    "explanation": "Their powerful stomach acids kill harmful bacteria, helping prevent the spread of disease in ecosystems."
+  },
+  {
+    "question": "Wolves commonly attack humans in the wild.",
+    "answer": "myth",
+    "explanation": "Wild wolves avoid people and verified attacks are extremely rare; they prefer to hunt their natural prey."
+  }
+]

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Submit a misunderstood animal and share the facts that debunk common myths.">
+  <title>Submit — Misunderstood</title>
+  <link rel="stylesheet" href="design-system/main.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦈</text></svg>">
+</head>
+<body>
+  <!-- Site Header -->
+  <header class="site-header" role="banner">
+    <div class="container">
+      <div class="site-header__inner">
+        <a href="index.html" class="site-logo">Misunderstood</a>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav">
+          <span aria-hidden="true">☰</span>
+        </button>
+        <nav id="main-nav" class="main-nav" role="navigation" aria-label="Main navigation">
+          <a href="index.html" class="main-nav__link">Home</a>
+          <a href="browse.html" class="main-nav__link">Browse</a>
+          <a href="quiz.html" class="main-nav__link">Quiz</a>
+          <a href="submit.html" class="main-nav__link" aria-current="page">Submit</a>
+          <a href="about.html" class="main-nav__link">About</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <section class="section section--sm page-header">
+    <div class="container">
+      <h1 class="text-center mb-md">Submit an Animal</h1>
+      <p class="text-center" style="max-width: 650px; margin: 0 auto;">
+        Know an animal that deserves a better reputation? Share the myth and the facts so we can feature it.
+      </p>
+    </div>
+  </section>
+
+  <!-- Submit Form -->
+  <main class="section" role="main">
+    <div class="container">
+      <form id="submit-form" class="submit-form" novalidate>
+        <fieldset class="form-fieldset">
+          <legend class="form-legend">Animal Details</legend>
+          
+          <div class="form-group">
+            <label for="animal-name" class="form-label">Animal name <span class="form-required" aria-hidden="true">*</span></label>
+            <input type="text" id="animal-name" name="animal-name" class="form-input" required minlength="2" aria-describedby="animal-name-error">
+            <span id="animal-name-error" class="form-error" role="alert"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="scientific-name" class="form-label">Scientific name <span class="form-required" aria-hidden="true">*</span></label>
+            <input type="text" id="scientific-name" name="scientific-name" class="form-input" required minlength="2" aria-describedby="scientific-name-error">
+            <span id="scientific-name-error" class="form-error" role="alert"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="category" class="form-label">Myth category <span class="form-required" aria-hidden="true">*</span></label>
+            <select id="category" name="category" class="form-select" required aria-describedby="category-error">
+              <option value="">Choose a category</option>
+              <option value="dangerous">Dangerous</option>
+              <option value="dirty-diseased">Dirty/Diseased</option>
+              <option value="useless-nuisance">Useless/Nuisance</option>
+            </select>
+            <span id="category-error" class="form-error" role="alert"></span>
+            <small class="form-help">Pick the myth type that best fits the animal.</small>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-fieldset">
+          <legend class="form-legend">Myth & Fact</legend>
+
+          <div class="form-group">
+            <label for="myth" class="form-label">Common myth <span class="form-required" aria-hidden="true">*</span></label>
+            <textarea id="myth" name="myth" class="form-textarea" required minlength="10" aria-describedby="myth-error"></textarea>
+            <span id="myth-error" class="form-error" role="alert"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="fact" class="form-label">Scientific fact <span class="form-required" aria-hidden="true">*</span></label>
+            <textarea id="fact" name="fact" class="form-textarea" required minlength="10" aria-describedby="fact-error"></textarea>
+            <span id="fact-error" class="form-error" role="alert"></span>
+            <small class="form-help">Add a short, sourced fact that debunks the myth.</small>
+          </div>
+        </fieldset>
+
+        <fieldset class="form-fieldset">
+          <legend class="form-legend">Submitter Info</legend>
+
+          <div class="form-group">
+            <label for="submitter-name" class="form-label">Your name <span class="form-required" aria-hidden="true">*</span></label>
+            <input type="text" id="submitter-name" name="submitter-name" class="form-input" required minlength="2" aria-describedby="submitter-name-error">
+            <span id="submitter-name-error" class="form-error" role="alert"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="submitter-email" class="form-label">Email (optional)</label>
+            <input type="email" id="submitter-email" name="submitter-email" class="form-input" aria-describedby="submitter-email-error">
+            <span id="submitter-email-error" class="form-error" role="alert"></span>
+            <small class="form-help">Used only if we have a question about your submission.</small>
+          </div>
+        </fieldset>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn--primary btn--lg">Submit Animal</button>
+          <button type="reset" class="btn btn--outline btn--lg">Reset</button>
+        </div>
+      </form>
+
+      <div id="form-success" class="form-success hidden" tabindex="-1" role="alert">
+        <h3>Thank you!</h3>
+        <p>Your submission was saved locally. We'll review it soon.</p>
+        <a href="browse.html" class="btn btn--primary">Back to animals</a>
+      </div>
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="site-footer__inner">
+        <p class="site-footer__text">© 2025 Misunderstood — Debunking Animal Myths</p>
+        <p class="site-footer__text">
+          <a href="about.html" class="site-footer__link">About</a> | 
+          <a href="about.html#sources" class="site-footer__link">Sources</a>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/submit.js"></script>
+</body>
+</html>

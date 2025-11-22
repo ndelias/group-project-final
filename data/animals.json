@@ -1,0 +1,242 @@
+[
+  {
+    "id": "shark",
+    "name": "Great White Shark",
+    "scientificName": "Carcharodon carcharias",
+    "category": "dangerous",
+    "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%232563eb'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-size='48' fill='white'%3EShark%3C/text%3E%3C/svg%3E",
+    "images": [
+      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%232563eb'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-size='48' fill='white'%3EShark%3C/text%3E%3C/svg%3E",
+      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%231e40af'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-size='42' fill='white'%3ECoast%20Guardian%3C/text%3E%3C/svg%3E"
+    ],
+    "quickFacts": [
+      "Humans are not part of a shark's diet; most bites are cases of mistaken identity.",
+      "Sharks help keep ocean food webs in balance by preying on sick or weak animals.",
+      "Overfishing threatens many shark species more than sharks threaten people."
+    ],
+    "ecologicalBenefits": [
+      "Maintain healthy fish populations by removing weak and sick individuals.",
+      "Prevent mid-level predators from overwhelming coral reefs and seagrass beds."
+    ],
+    "myths": [
+      {
+        "myth": "Sharks actively hunt humans.",
+        "fact": "Humans are not prey. Most bites occur because a shark mistakes a surfer or swimmer for a seal and quickly lets go."
+      },
+      {
+        "myth": "Killing sharks makes beaches safer.",
+        "fact": "Culls remove key predators, harm ecosystems, and do not measurably reduce risk. Education and smart beach practices work better."
+      }
+    ],
+    "sources": [
+      {
+        "title": "NOAA Fisheries — Shark Conservation",
+        "url": "https://www.fisheries.noaa.gov/topic/sharks"
+      },
+      {
+        "title": "National Geographic — Why Sharks Matter",
+        "url": "https://www.nationalgeographic.com/animals/article/sharks-facts"
+      }
+    ]
+  },
+  {
+    "id": "bat",
+    "name": "Little Brown Bat",
+    "scientificName": "Myotis lucifugus",
+    "category": "dirty-diseased",
+    "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%23057857'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-size='48' fill='white'%3EBat%3C/text%3E%3C/svg%3E",
+    "images": [
+      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%23057857'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-size='48' fill='white'%3EBat%3C/text%3E%3C/svg%3E",
+      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%2309a36b'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-size='42' fill='white'%3ENight%20Pollinator%3C/text%3E%3C/svg%3E"
+    ],
+    "quickFacts": [
+      "Less than 1% of bats carry rabies; they avoid people.",
+      "A single bat can eat thousands of insects in one night.",
+      "Many bats pollinate plants like agave and disperse seeds."
+    ],
+    "ecologicalBenefits": [
+      "Natural pest control for farms and forests.",
+      "Pollinate night-blooming plants and spread seeds that regrow forests."
+    ],
+    "myths": [
+      {
+        "myth": "All bats carry rabies.",
+        "fact": "Rabies is rare in bats, and they generally avoid people. Never handle wildlife and risk is extremely low."
+      },
+      {
+        "myth": "Bats are flying rodents.",
+        "fact": "Bats belong to their own order, Chiroptera, and are more closely related to primates than rodents."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Bat Conservation International — Rabies Facts",
+        "url": "https://www.batcon.org/about-bats/bats-101/"
+      },
+      {
+        "title": "U.S. Geological Survey — Bat Benefits",
+        "url": "https://www.usgs.gov/news/bat-benefits"
+      }
+    ]
+  },
+  {
+    "id": "wolf",
+    "name": "Gray Wolf",
+    "scientificName": "Canis lupus",
+    "category": "dangerous",
+    "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%238b7355'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-size='48' fill='white'%3EWolf%3C/text%3E%3C/svg%3E",
+    "images": [
+      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%238b7355'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-size='48' fill='white'%3EWolf%3C/text%3E%3C/svg%3E",
+      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%236b8c42'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-size='42' fill='white'%3EPack%20Balance%3C/text%3E%3C/svg%3E"
+    ],
+    "quickFacts": [
+      "Healthy wild wolves rarely approach people and avoid towns.",
+      "Wolves help control deer and elk populations, allowing forests to regenerate.",
+      "Livestock losses to wolves are far lower than losses to weather or disease."
+    ],
+    "ecologicalBenefits": [
+      "Prevent overgrazing by keeping large herbivore numbers in check.",
+      "Create carrion that feeds scavengers like ravens and eagles."
+    ],
+    "myths": [
+      {
+        "myth": "Wolves are a major threat to people.",
+        "fact": "Documented wolf attacks on humans are extremely rare; wolves avoid human contact."
+      },
+      {
+        "myth": "Wolves decimate livestock herds.",
+        "fact": "In North America, wolves account for a small fraction of livestock losses compared to weather, illness, and other predators."
+      }
+    ],
+    "sources": [
+      {
+        "title": "International Wolf Center — Wolf Facts",
+        "url": "https://wolf.org/wolf-info/basic-wolf-info/"
+      },
+      {
+        "title": "National Park Service — Wolves and Ecosystems",
+        "url": "https://www.nps.gov/articles/000/wolves-and-ecosystems.htm"
+      }
+    ]
+  },
+  {
+    "id": "vulture",
+    "name": "Turkey Vulture",
+    "scientificName": "Cathartes aura",
+    "category": "dirty-diseased",
+    "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%23b45309'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-size='48' fill='white'%3EVulture%3C/text%3E%3C/svg%3E",
+    "images": [
+      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%23b45309'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-size='48' fill='white'%3EVulture%3C/text%3E%3C/svg%3E",
+      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%238a5d1d'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-size='42' fill='white'%3EClean%20Crew%3C/text%3E%3C/svg%3E"
+    ],
+    "quickFacts": [
+      "Vultures rarely get sick from carcasses thanks to powerful stomach acids.",
+      "By removing carrion, vultures prevent the spread of dangerous bacteria.",
+      "They prefer open fields and seldom bother live animals."
+    ],
+    "ecologicalBenefits": [
+      "Rapidly clean up carcasses, reducing disease risk for other wildlife and people.",
+      "Recycle nutrients back into the ecosystem."
+    ],
+    "myths": [
+      {
+        "myth": "Vultures spread disease.",
+        "fact": "They do the opposite: their digestive system destroys harmful pathogens, preventing outbreaks."
+      },
+      {
+        "myth": "Vultures hunt healthy animals.",
+        "fact": "They are scavengers that rely on already-dead animals and rarely attack living creatures."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Audubon Society — Turkey Vulture",
+        "url": "https://www.audubon.org/field-guide/bird/turkey-vulture"
+      },
+      {
+        "title": "Cornell Lab — Vulture Ecology",
+        "url": "https://www.allaboutbirds.org/guide/Turkey_Vulture/overview"
+      }
+    ]
+  },
+  {
+    "id": "opossum",
+    "name": "Virginia Opossum",
+    "scientificName": "Didelphis virginiana",
+    "category": "dirty-diseased",
+    "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%237b341e'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-size='48' fill='white'%3EOpossum%3C/text%3E%3C/svg%3E",
+    "images": [
+      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%237b341e'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-size='48' fill='white'%3EOpossum%3C/text%3E%3C/svg%3E",
+      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%239c4221'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-size='42' fill='white'%3ETick%20Eater%3C/text%3E%3C/svg%3E"
+    ],
+    "quickFacts": [
+      "Opossums groom constantly and carry far fewer diseases than many urban mammals.",
+      "They eat thousands of ticks, reducing Lyme disease risk.",
+      "When threatened they \"play dead\" rather than attack."
+    ],
+    "ecologicalBenefits": [
+      "Consume ticks, cockroaches, and other pests that bother humans.",
+      "Clean up carrion and fallen fruit, recycling nutrients."
+    ],
+    "myths": [
+      {
+        "myth": "Opossums are dirty and dangerous.",
+        "fact": "They are clean, shy animals that rarely bite and help control pests."
+      },
+      {
+        "myth": "Opossums spread rabies widely.",
+        "fact": "Their low body temperature makes rabies very uncommon compared to raccoons or skunks."
+      }
+    ],
+    "sources": [
+      {
+        "title": "National Wildlife Federation — Opossum Facts",
+        "url": "https://www.nwf.org/Educational-Resources/Wildlife-Guide/Mammals/Opossum"
+      },
+      {
+        "title": "Cary Institute — Do Opossums Kill Ticks?",
+        "url": "https://www.caryinstitute.org/news-insights/feature/do-opossums-kill-ticks"
+      }
+    ]
+  },
+  {
+    "id": "spider",
+    "name": "House Spider",
+    "scientificName": "Parasteatoda tepidariorum",
+    "category": "dangerous",
+    "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%238b5cf6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-size='48' fill='white'%3ESpider%3C/text%3E%3C/svg%3E",
+    "images": [
+      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%238b5cf6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-size='48' fill='white'%3ESpider%3C/text%3E%3C/svg%3E",
+      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%237236d3'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-size='42' fill='white'%3EBug%20Control%3C/text%3E%3C/svg%3E"
+    ],
+    "quickFacts": [
+      "Most house spiders have venom too weak to harm humans.",
+      "They reduce indoor pests like mosquitoes and flies.",
+      "Spiders avoid people and bites are very uncommon."
+    ],
+    "ecologicalBenefits": [
+      "Provide natural pest control indoors and outdoors.",
+      "Serve as food for birds and small mammals, supporting food webs."
+    ],
+    "myths": [
+      {
+        "myth": "House spiders are dangerous to people.",
+        "fact": "Common house spiders rarely bite and their venom is not medically significant for healthy adults."
+      },
+      {
+        "myth": "Killing spiders makes homes safer.",
+        "fact": "Spiders quietly control pest insects; removing them can increase mosquitoes and flies."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Smithsonian — Spider Myths",
+        "url": "https://www.si.edu/spotlight/spiders"
+      },
+      {
+        "title": "University of California IPM — Spiders",
+        "url": "https://ipm.ucanr.edu/PMG/PESTNOTES/pn7442.html"
+      }
+    ]
+  }
+]
