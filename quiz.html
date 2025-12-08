@@ -6,6 +6,65 @@
   <meta name="description" content="Test your knowledge about misunderstood animals with our interactive quiz.">
   <title>Quiz — Misunderstood</title>
   <link rel="stylesheet" href="design-system/main.css">
+  <style>
+    /* Minimal styles for swipe cards on the quiz page */
+    .swipe-instructions { text-align: center; margin-top: var(--spacing-md); color: var(--color-text-light); }
+    .swipe-stack { display:flex; align-items:center; justify-content:center; min-height:320px; }
+    .swipe-card-wrapper { position:relative; display:flex; align-items:center; justify-content:center; }
+
+    /* Card with an image area and a white content container pinned to the bottom */
+    .swipe-card {
+      width:100%;
+      max-width:680px;
+      border-radius:12px;
+      box-shadow:var(--shadow-md);
+      overflow:hidden;
+      touch-action:none;
+      user-select:none;
+      will-change:transform;
+      background:linear-gradient(180deg, #f5f7fb 0%, #eef2f7 60%);
+      display:flex;
+      flex-direction:column;
+      min-height:320px;
+    }
+
+    .swipe-card__image {
+      flex:1 1 60%;
+      background:linear-gradient(135deg,#e6eefb,#f7f9fc);
+      display:block;
+      min-height:180px;
+      position:relative;
+    }
+
+    .swipe-card__image::after {
+      content: "";
+      display:block;
+      width:100%;
+      height:100%;
+      background-image:linear-gradient(transparent, rgba(255,255,255,0.02));
+    }
+
+    .swipe-card__content {
+      background:#fff;
+      padding:var(--spacing-md);
+      border-top-left-radius:12px;
+      border-top-right-radius:12px;
+      box-shadow: inset 0 1px 0 rgba(0,0,0,0.02);
+    }
+
+    .swipe-card__text { font-size:var(--font-size-lg); margin:0; color:var(--color-text); }
+
+    .swipe-overlay { position:absolute; top:20px; font-weight:700; padding:8px 12px; border-radius:6px; color:#fff; opacity:0; pointer-events:none; transform:translateY(0); }
+    .swipe-overlay--fact { right:24px; background:var(--color-success); }
+    .swipe-overlay--myth { left:24px; background:var(--color-danger); }
+    /* Horizontal action buttons under the card */
+    .quiz-actions { display:flex; gap:var(--spacing-md); justify-content:center; margin-top:var(--spacing-md); }
+    .quiz-actions .quiz-option { flex:0 0 160px; max-width:160px; }
+    @media (max-width:520px) {
+      .quiz-actions { flex-direction:column; }
+      .quiz-actions .quiz-option { flex:1 1 auto; max-width:none; }
+    }
+  </style>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦈</text></svg>">
 </head>
 <body>
