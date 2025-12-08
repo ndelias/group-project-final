@@ -8,6 +8,171 @@
   <title>Misunderstood — Debunking Animal Myths</title>
   <link rel="stylesheet" href="design-system/main.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦈</text></svg>">
+  <style>
+    /* Kid-friendly styles */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background: var(--color-header-bg);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 100%;
+      background-image: url("bg-image.png");
+      background-repeat: repeat-x;
+      background-size: auto 100%;
+      background-position: 0 center;
+      animation: scroll-left 120s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes scroll-left {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-3xl);
+      align-items: center;
+      padding: var(--spacing-4xl) 0;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-lg);
+    }
+
+    .hero__title {
+      font-size: var(--font-size-5xl);
+      font-weight: var(--font-weight-bold);
+      line-height: 1.2;
+      margin: 0;
+    }
+
+    .hero__subtitle {
+      font-size: var(--font-size-xl);
+      line-height: var(--line-height-relaxed);
+      margin: 0;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: auto;
+      border-radius: var(--border-radius-xl);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .btn-pill {
+      border-radius: var(--border-radius-full);
+      padding: var(--spacing-md) var(--spacing-2xl);
+      font-size: var(--font-size-lg);
+      font-weight: var(--font-weight-bold);
+      display: inline-block;
+      text-align: center;
+    }
+
+    .mission-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--spacing-xl);
+      padding: var(--spacing-3xl) 0;
+    }
+
+    .mission-item {
+      text-align: center;
+      padding: var(--spacing-xl);
+      background: var(--color-bg);
+      border-radius: var(--border-radius-xl);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .mission-icon {
+      font-size: 4rem;
+      margin-bottom: var(--spacing-md);
+      display: block;
+    }
+
+    .mission-title {
+      font-size: var(--font-size-xl);
+      font-weight: var(--font-weight-bold);
+      margin-bottom: var(--spacing-sm);
+      color: var(--color-text);
+    }
+
+    .mission-text {
+      font-size: var(--font-size-base);
+      color: var(--color-text-light);
+      line-height: var(--line-height-relaxed);
+    }
+
+    .section-large {
+      padding: var(--spacing-4xl) 0;
+    }
+
+    .featured-section {
+      padding: var(--spacing-4xl) 0;
+    }
+
+    .featured-animals .card {
+      border-radius: var(--border-radius-xl);
+    }
+
+    .cta-simple {
+      padding: var(--spacing-4xl) 0;
+      text-align: center;
+    }
+
+    .cta-title {
+      font-size: var(--font-size-3xl);
+      font-weight: var(--font-weight-bold);
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .btn-huge {
+      font-size: var(--font-size-2xl);
+      padding: var(--spacing-lg) var(--spacing-3xl);
+      border-radius: var(--border-radius-full);
+      font-weight: var(--font-weight-bold);
+    }
+
+    @media (max-width: 768px) {
+      .hero-split {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+        padding: var(--spacing-2xl) 0;
+      }
+
+      .hero__title {
+        font-size: var(--font-size-4xl);
+      }
+
+      .mission-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+      }
+
+      .mission-icon {
+        font-size: 3rem;
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- Site Header -->
@@ -32,67 +197,64 @@
   <!-- Hero Section -->
   <section class="hero" role="banner">
     <div class="container">
-      <h1 class="hero__title">Misunderstood</h1>
-      <p class="hero__subtitle">Transforming fear into understanding, one myth at a time. Discover the truth about the world's most misunderstood animals through science-backed facts.</p>
-      <a href="browse.html" class="btn btn--outline btn--lg" style="background-color: rgba(255,255,255,0.2); color: white; border-color: white;">Explore Animals</a>
+      <div class="hero-split">
+        <div class="hero-content">
+          <h1 class="hero__title">Scary? Nope. Just Misunderstood.</h1>
+          <p class="hero__subtitle">Discover the cool truth about the animals everyone fears.</p>
+          <a href="browse.html" class="btn btn--outline btn-pill" style="background-color: rgba(255,255,255,0.2); color: white; border-color: white; align-self: flex-start;">Start Exploring</a>
+        </div>
+        <div class="hero-image-container">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%2315802b'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='32' fill='white'%3E🦈 Hero Illustration%3C/text%3E%3C/svg%3E" alt="Hero Illustration" class="hero-image">
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Featured Animals Section -->
-  <section class="section" aria-labelledby="featured-heading">
+  <section class="section featured-section" aria-labelledby="featured-heading">
     <div class="container">
-      <h2 id="featured-heading" class="text-center mb-xl">Featured Animals</h2>
-      <div class="grid grid--3" id="featured-animals">
+      <h2 id="featured-heading" class="text-center mb-xl" style="font-size: var(--font-size-3xl); font-weight: var(--font-weight-bold);">Featured Animals</h2>
+      <div class="grid grid--3 featured-animals" id="featured-animals">
         <!-- Animals will be loaded here by JavaScript -->
         <div class="loading">
           <div class="spinner"></div>
         </div>
       </div>
       <div class="text-center mt-xl">
-        <a href="browse.html" class="btn btn--primary btn--lg">View All Animals</a>
+        <a href="browse.html" class="btn btn--primary btn--lg" style="border-radius: var(--border-radius-xl);">View All Animals</a>
       </div>
     </div>
   </section>
 
   <!-- Mission Section -->
-  <section class="section section--sm" style="background-color: var(--color-bg-alt);" aria-labelledby="mission-heading">
+  <section class="section section--sm section-large" style="background-color: var(--color-bg-alt);" aria-labelledby="mission-heading">
     <div class="container">
-      <div class="text-center" style="max-width: 800px; margin: 0 auto;">
-        <h2 id="mission-heading" class="mb-lg">Our Mission</h2>
-        <p class="mb-md" style="font-size: var(--font-size-lg);">
-          This project reframes the world's "most hated" animals through science-backed facts. Instead of fear or stigma, we highlight ecological benefits and clear up common myths.
-        </p>
-        <p class="mb-md">
-          <strong>Our goals:</strong>
-        </p>
-        <ul style="text-align: left; max-width: 600px; margin: 0 auto; list-style: none;">
-          <li style="padding: var(--spacing-sm) 0; padding-left: var(--spacing-xl); position: relative;">
-            <span style="position: absolute; left: 0; color: var(--color-success); font-weight: bold;">✓</span>
-            Debunk persistent myths about commonly feared animals
-          </li>
-          <li style="padding: var(--spacing-sm) 0; padding-left: var(--spacing-xl); position: relative;">
-            <span style="position: absolute; left: 0; color: var(--color-success); font-weight: bold;">✓</span>
-            Teach credible interpretation of wildlife facts and sources
-          </li>
-          <li style="padding: var(--spacing-sm) 0; padding-left: var(--spacing-xl); position: relative;">
-            <span style="position: absolute; left: 0; color: var(--color-success); font-weight: bold;">✓</span>
-            Model responsible source attribution and fact-checking
-          </li>
-        </ul>
+      <h2 id="mission-heading" class="text-center mb-xl" style="font-size: var(--font-size-3xl); font-weight: var(--font-weight-bold);">Our Mission</h2>
+      <div class="mission-grid">
+        <div class="mission-item">
+          <span class="mission-icon" aria-hidden="true">🔍</span>
+          <h3 class="mission-title">Spot the Myths</h3>
+          <p class="mission-text">Find out what's really true about scary animals.</p>
+        </div>
+        <div class="mission-item">
+          <span class="mission-icon" aria-hidden="true">✅</span>
+          <h3 class="mission-title">Learn the Facts</h3>
+          <p class="mission-text">Discover amazing things about misunderstood creatures.</p>
+        </div>
+        <div class="mission-item">
+          <span class="mission-icon" aria-hidden="true">❤️</span>
+          <h3 class="mission-title">Save Wildlife</h3>
+          <p class="mission-text">Help protect animals by understanding them better.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- CTA Section -->
-  <section class="section" aria-labelledby="cta-heading">
+  <section class="section cta-simple" aria-labelledby="cta-heading">
     <div class="container">
-      <div class="text-center">
-        <h2 id="cta-heading" class="mb-lg">Test Your Knowledge</h2>
-        <p class="mb-xl" style="font-size: var(--font-size-lg); color: var(--color-text-light);">
-          Think you know the facts? Take our 5-question quiz to separate myth from reality.
-        </p>
-        <a href="quiz.html" class="btn btn--secondary btn--lg">Take the Quiz</a>
-      </div>
+      <h2 id="cta-heading" class="cta-title">Ready to play?</h2>
+      <a href="quiz.html" class="btn btn--secondary btn-huge">Start Quiz</a>
     </div>
   </section>
 
