@@ -37,7 +37,7 @@
       position: relative;
       width: 100%;
       height: 100%;
-      transition: transform 0.6s;
+      transition: transform 0.84s;
       transform-style: preserve-3d;
     }
 
@@ -124,19 +124,80 @@
       border-top-left-radius:12px;
       border-top-right-radius:12px;
       box-shadow: inset 0 1px 0 rgba(0,0,0,0.02);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
     }
 
-    .swipe-card__text { font-size:var(--font-size-lg); margin:0; color:var(--color-text); }
+    .swipe-card__text { 
+      font-size:var(--font-size-lg); 
+      margin:0; 
+      color:var(--color-text);
+      text-align: center;
+      width: 100%;
+    }
 
-    .swipe-overlay { position:absolute; top:20px; font-weight:700; padding:8px 12px; border-radius:6px; color:#fff; opacity:0; pointer-events:none; transform:translateY(0); }
-    .swipe-overlay--fact { right:24px; background:var(--color-success); }
-    .swipe-overlay--myth { left:24px; background:var(--color-danger); }
+    /* Stamp overlays - big MYTH and FACT stamps */
+    .swipe-stamp {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-15deg);
+      font-size: 5rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 20;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      transition: opacity 280ms ease-out;
+      user-select: none;
+    }
+
+    .swipe-stamp--myth {
+      color: var(--color-dangerous);
+      text-shadow: 2px 2px 8px rgba(220, 38, 38, 0.5);
+    }
+
+    .swipe-stamp--fact {
+      color: var(--color-success);
+      text-shadow: 2px 2px 8px rgba(16, 185, 129, 0.5);
+    }
+
+    .swipe-stamp.visible {
+      opacity: 0.85;
+    }
+
+    /* Background overlay for color feedback */
+    .swipe-card__front::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: transparent;
+      transition: background-color 280ms ease-out;
+      pointer-events: none;
+      z-index: 10;
+      border-radius: 12px;
+    }
+
+    .swipe-card__front.swipe-myth::before {
+      background-color: rgba(220, 38, 38, 0.15);
+    }
+
+    .swipe-card__front.swipe-fact::before {
+      background-color: rgba(16, 185, 129, 0.15);
+    }
     /* Horizontal action buttons under the card */
     .quiz-actions { display:flex; gap:var(--spacing-md); justify-content:center; margin-top:var(--spacing-md); }
     .quiz-actions .quiz-option { flex:0 0 160px; max-width:160px; }
     @media (max-width:520px) {
-      .swipe-card { min-height: 280px; }
-      .swipe-card__inner { min-height: 280px; }
+      .swipe-card { height: 350px; }
+      .swipe-stamp { font-size: 3.5rem; }
       .swipe-card__result-title { font-size: var(--font-size-3xl); }
       .swipe-card__back { padding: var(--spacing-lg); }
       .quiz-actions { flex-direction:column; }
@@ -185,7 +246,9 @@
     <div class="container">
       <div class="quiz-container">
         <div id="quiz-progress" class="text-center mb-xl">
-          <p style="color: var(--color-text-light);">Question <span id="current-question">1</span> of <span id="total-questions">5</span></p>
+          <p style="color: var(--color-text-light);">
+            <span style="font-weight: var(--font-weight-bold); color: var(--color-primary); font-size: var(--font-size-lg);">Question <span id="current-question">1</span></span> of <span id="total-questions">5</span>
+          </p>
         </div>
         
         <div id="quiz-questions">

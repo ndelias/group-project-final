@@ -70,13 +70,14 @@ function renderQuestion() {
 
   // Render a swipeable card. Swipe right = fact, swipe left = myth.
   questionsElement.innerHTML = `
-    <div class="swipe-instructions">Swipe right for <strong>Fact</strong>, swipe left for <strong>Myth</strong>. Use ← / → keys to answer.</div>
+    <div class="swipe-instructions">Swipe right for <strong>Fact</strong>, left for <strong>Myth</strong></div>
     <div class="swipe-stack">
       <div class="swipe-card-wrapper">
-        <div class="swipe-overlay swipe-overlay--myth" id="overlay-myth">Myth</div>
         <div class="swipe-card" id="swipe-card" role="article" aria-labelledby="question-${questionNumber}" tabindex="0">
           <div class="swipe-card__inner" id="swipe-card-inner">
-            <div class="swipe-card__front">
+            <div class="swipe-card__front" id="swipe-card-front">
+              <div class="swipe-stamp swipe-stamp--myth" id="stamp-myth">MYTH</div>
+              <div class="swipe-stamp swipe-stamp--fact" id="stamp-fact">FACT</div>
               <div class="swipe-card__image" aria-hidden="true">
                 <!-- image placeholder - add <img> here later -->
               </div>
@@ -95,7 +96,6 @@ function renderQuestion() {
             </div>
           </div>
         </div>
-        <div class="swipe-overlay swipe-overlay--fact" id="overlay-fact">Fact</div>
       </div>
     </div>
 
@@ -112,12 +112,23 @@ function renderQuestion() {
 
   updateProgress();
 
-  // Gesture handling
+  // Gesture handling - Swipe-to-Reveal logic
   const card = document.getElementById('swipe-card');
-  const overlayMyth = document.getElementById('overlay-myth');
-  const overlayFact = document.getElementById('overlay-fact');
+  const cardFront = document.getElementById('swipe-card-front');
+  const cardInner = document.getElementById('swipe-card-inner');
+  const stampMyth = document.getElementById('stamp-myth');
+  const stampFact = document.getElementById('stamp-fact');
   const hiddenOptions = document.querySelectorAll('.quiz-option');
-  // Clean up listeners when question advances: remove listeners after answering
+  
+  let startX = 0;
+  let currentX = 0;
+  let offsetX = 0;
+  let isDragging = false;
+  let hasAnswered = false;
+  const threshold = 120; // pixels to consider a swipe
+  const maxDragDistance = window.innerWidth * 0.5; // 50% of screen width
+
+  // Clean up listeners when question advances
   function cleanupListeners() {
     card.removeEventListener('pointerdown', onPointerDown);
     window.removeEventListener('pointermove', onPointerMove);
@@ -128,18 +139,13 @@ function renderQuestion() {
   // Attach click handlers to button options
   hiddenOptions.forEach(opt => {
     opt.addEventListener('click', function() {
+      if (hasAnswered) return;
       cleanupListeners();
-      // Reset card position before flipping
-      resetCard(false);
-      handleAnswer(this.dataset.answer, question);
+      hasAnswered = true;
+      const answer = this.dataset.answer;
+      processAnswer(answer, question);
     });
   });
-
-  let startX = 0;
-  let currentX = 0;
-  let offsetX = 0;
-  let isDragging = false;
-  const threshold = 120; // pixels to consider a swipe
 
   function setTransform(x, rotation) {
     card.style.transform = `translateX(${x}px) rotate(${rotation}deg)`;
@@ -147,26 +153,131 @@ function renderQuestion() {
 
   function resetCard(animated = true) {
     if (animated) {
-      card.style.transition = 'transform 200ms ease-out';
+      card.style.transition = 'transform 420ms cubic-bezier(0.34, 1.56, 0.64, 1)'; // Spring back (40% slower)
     } else {
       card.style.transition = '';
     }
     setTransform(0, 0);
-    overlayMyth.style.opacity = 0;
-    overlayFact.style.opacity = 0;
-    setTimeout(() => { card.style.transition = ''; }, 250);
+    updateVisualFeedback(0);
+    setTimeout(() => { 
+      card.style.transition = '';
+      if (!hasAnswered) {
+        cardFront.classList.remove('swipe-myth', 'swipe-fact');
+      }
+    }, animated ? 420 : 0);
   }
 
-  function acceptSwipe(direction) {
-    // Stop dragging animation and cleanup listeners
-    cleanupListeners();
-    // Reset card position before flipping
-    resetCard(false);
-    // Call the answer handler which will trigger the flip
-    handleAnswer(direction, question);
+  function updateVisualFeedback(offset) {
+    const clampedOffset = Math.max(-maxDragDistance, Math.min(maxDragDistance, offset));
+    const progress = Math.abs(clampedOffset) / threshold;
+    const opacity = Math.min(progress, 1);
+
+    if (clampedOffset > 0) {
+      // Dragging right (FACT)
+      stampFact.classList.toggle('visible', opacity > 0.3);
+      stampMyth.classList.remove('visible');
+      cardFront.classList.toggle('swipe-fact', opacity > 0.3);
+      cardFront.classList.remove('swipe-myth');
+    } else if (clampedOffset < 0) {
+      // Dragging left (MYTH)
+      stampMyth.classList.toggle('visible', opacity > 0.3);
+      stampFact.classList.remove('visible');
+      cardFront.classList.toggle('swipe-myth', opacity > 0.3);
+      cardFront.classList.remove('swipe-fact');
+    } else {
+      // Reset
+      stampMyth.classList.remove('visible');
+      stampFact.classList.remove('visible');
+      cardFront.classList.remove('swipe-myth', 'swipe-fact');
+    }
+  }
+
+  function processAnswer(direction, questionData) {
+    // Snap back to center immediately
+    resetCard(true);
+    
+    // Wait for snap-back animation, then check answer and flip (40% slower)
+    setTimeout(() => {
+      // Check correctness
+      const isCorrect = direction === questionData.answer;
+      
+      // Populate back face with answer tracking
+      populateBackFace(direction, isCorrect, questionData.explanation);
+      
+      // Flip the card
+      setTimeout(() => {
+        cardInner.classList.add('is-flipped');
+      }, 140);
+    }, 420);
+  }
+
+  function populateBackFace(userAnswer, isCorrect, explanation) {
+    const resultTitle = document.getElementById('result-title');
+    const resultText = document.getElementById('result-text');
+    const nextButton = document.getElementById('next-question-btn');
+
+    if (resultTitle) {
+      resultTitle.textContent = isCorrect ? 'Correct!' : 'Incorrect';
+      resultTitle.style.color = isCorrect ? 'var(--color-success)' : 'var(--color-dangerous)';
+    }
+    
+    if (resultText) {
+      resultText.textContent = explanation;
+    }
+    
+    if (nextButton) {
+      nextButton.style.display = 'block';
+      // Remove old listeners and add new one
+      const newNextButton = nextButton.cloneNode(true);
+      nextButton.parentNode.replaceChild(newNextButton, nextButton);
+      newNextButton.addEventListener('click', function() {
+        goToNextQuestion();
+      });
+    }
+    
+    // Store answer for results
+    userAnswers.push({
+      question: question.question,
+      userAnswer: userAnswer,
+      correctAnswer: question.answer,
+      isCorrect
+    });
+    
+    // Update score
+    if (isCorrect) {
+      score++;
+    }
+    
+    // Update button states
+    const options = document.querySelectorAll('.quiz-option');
+    options.forEach(opt => {
+      opt.disabled = true;
+      opt.setAttribute('aria-disabled', 'true');
+      if (opt.dataset.answer === question.answer) {
+        opt.classList.add('quiz-option--correct');
+      } else if (opt.dataset.answer === userAnswer && !isCorrect) {
+        opt.classList.add('quiz-option--incorrect');
+      }
+    });
+  }
+
+  function goToNextQuestion() {
+    // Remove flip class and wait for transition
+    cardInner.classList.remove('is-flipped');
+    
+    // Wait for flip-back transition, then load new question (40% slower)
+    setTimeout(() => {
+      currentQuestionIndex++;
+      if (currentQuestionIndex < quizData.length) {
+        renderQuestion();
+      } else {
+        showResults();
+      }
+    }, 840);
   }
 
   function onPointerDown(e) {
+    if (hasAnswered) return;
     isDragging = true;
     startX = e.clientX || (e.touches && e.touches[0].clientX) || 0;
     card.setPointerCapture && card.setPointerCapture(e.pointerId);
@@ -174,31 +285,33 @@ function renderQuestion() {
   }
 
   function onPointerMove(e) {
-    if (!isDragging) return;
+    if (!isDragging || hasAnswered) return;
     currentX = e.clientX || (e.touches && e.touches[0].clientX) || 0;
     offsetX = currentX - startX;
+    
+    // Clamp to 50% of screen width
+    offsetX = Math.max(-maxDragDistance, Math.min(maxDragDistance, offsetX));
+    
     const rotation = offsetX / 20;
     setTransform(offsetX, rotation);
-
-    const opacity = Math.min(Math.abs(offsetX) / threshold, 1);
-    if (offsetX > 0) {
-      overlayFact.style.opacity = opacity;
-      overlayMyth.style.opacity = 0;
-    } else {
-      overlayMyth.style.opacity = opacity;
-      overlayFact.style.opacity = 0;
-    }
+    updateVisualFeedback(offsetX);
   }
 
   function onPointerUp(e) {
-    if (!isDragging) return;
+    if (!isDragging || hasAnswered) return;
     isDragging = false;
+    
     if (Math.abs(offsetX) > threshold) {
+      // Threshold met - process answer
+      hasAnswered = true;
+      cleanupListeners();
       const direction = offsetX > 0 ? 'fact' : 'myth';
-      acceptSwipe(direction);
+      processAnswer(direction, question);
     } else {
+      // Threshold not met - spring back
       resetCard(true);
     }
+    
     try { card.releasePointerCapture && card.releasePointerCapture(e.pointerId); } catch (err) {}
   }
 
@@ -209,11 +322,15 @@ function renderQuestion() {
 
   // Keyboard support: left/right arrows
   function onKey(e) {
+    if (hasAnswered) return;
     if (e.key === 'ArrowLeft') {
-      // Myth
-      acceptSwipe('myth');
+      hasAnswered = true;
+      cleanupListeners();
+      processAnswer('myth', question);
     } else if (e.key === 'ArrowRight') {
-      acceptSwipe('fact');
+      hasAnswered = true;
+      cleanupListeners();
+      processAnswer('fact', question);
     }
   }
 
