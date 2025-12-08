@@ -356,26 +356,79 @@
   margin-bottom: var(--spacing-lg);
 }
 
-.quiz-options { display: flex; gap: var(--spacing-md); flex-wrap: wrap; }
-
-.quiz-option {
-  flex: 1;
-  min-width: 120px;
-  padding: var(--spacing-md) var(--spacing-lg);
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-medium);
-  border: 2px solid var(--color-border);
-  border-radius: var(--border-radius-md);
-  background-color: var(--color-bg);
-  cursor: pointer;
-  transition: all var(--transition-base);
+.quiz-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
 }
 
-.quiz-option:hover { border-color: var(--color-primary); background-color: var(--color-bg-alt); transform: translateY(-2px); }
-.quiz-option:focus { outline: 2px solid var(--color-primary); outline-offset: 2px; }
-.quiz-option--selected { border-color: var(--color-primary); background-color: var(--color-primary); color: var(--color-text-inverse); }
-.quiz-option--correct { border-color: var(--color-success); background-color: var(--color-success); color: var(--color-text-inverse); }
-.quiz-option--incorrect { border-color: var(--color-error); background-color: var(--color-error); color: var(--color-text-inverse); }
+.quiz-option {
+  min-height: 150px;
+  padding: var(--spacing-lg);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  text-align: center;
+  color: var(--color-text-inverse);
+  border: none;
+  border-radius: var(--border-radius-lg);
+  cursor: pointer;
+  transition: transform 120ms ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.quiz-option:hover,
+.quiz-option:focus {
+  transform: scale(0.98);
+  outline: none;
+}
+
+.quiz-option:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.8);
+  outline-offset: 3px;
+}
+
+/* Button 1 (Myth) - Red with Triangle icon */
+.quiz-option:nth-child(1) {
+  background-color: var(--color-dangerous);
+}
+
+.quiz-option:nth-child(1)::before {
+  content: "";
+  position: absolute;
+  top: var(--spacing-md);
+  left: var(--spacing-md);
+  width: 0;
+  height: 0;
+  border-left: 14px solid transparent;
+  border-right: 14px solid transparent;
+  border-bottom: 22px solid rgba(255, 255, 255, 0.9);
+}
+
+/* Button 2 (Fact) - Green with Diamond icon */
+.quiz-option:nth-child(2) {
+  background-color: var(--color-success);
+}
+
+.quiz-option:nth-child(2)::before {
+  content: "";
+  position: absolute;
+  top: var(--spacing-md);
+  left: var(--spacing-md);
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  transform: rotate(45deg);
+}
+
+.quiz-option--selected { opacity: 0.9; }
+.quiz-option--correct { background-color: var(--color-success); }
+.quiz-option--incorrect { background-color: var(--color-dangerous); }
 
 .quiz-feedback { margin-top: var(--spacing-md); padding: var(--spacing-md); border-radius: var(--border-radius-md); display: none; }
 .quiz-feedback--show { display: block; }
@@ -511,8 +564,8 @@
 
   .filters { flex-direction: column; align-items: stretch; }
   .search-box { width: 100%; }
-  .quiz-options { flex-direction: column; }
-  .quiz-option { width: 100%; }
+  .quiz-options { grid-template-columns: 1fr; }
+  .quiz-option { min-height: 120px; }
   .grid--2, .grid--3, .grid--4 { grid-template-columns: 1fr; }
   .submit-form { padding: var(--spacing-lg); }
   .form-actions { flex-direction: column; }

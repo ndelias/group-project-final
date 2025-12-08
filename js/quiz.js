@@ -59,6 +59,12 @@ function renderQuestion() {
     return;
   }
 
+  // Reset any previous card flip state
+  const previousCardInner = document.getElementById('swipe-card-inner');
+  if (previousCardInner) {
+    previousCardInner.classList.remove('is-flipped');
+  }
+
   const question = quizData[currentQuestionIndex];
   const questionNumber = currentQuestionIndex + 1;
 
@@ -69,21 +75,32 @@ function renderQuestion() {
       <div class="swipe-card-wrapper">
         <div class="swipe-overlay swipe-overlay--myth" id="overlay-myth">Myth</div>
         <div class="swipe-card" id="swipe-card" role="article" aria-labelledby="question-${questionNumber}" tabindex="0">
-          <div class="swipe-card__image" aria-hidden="true">
-            <!-- image placeholder - add <img> here later -->
-          </div>
-          <div class="swipe-card__content">
-            <h2 id="question-${questionNumber}" class="swipe-card__text">
-              ${question.question}
-            </h2>
+          <div class="swipe-card__inner" id="swipe-card-inner">
+            <div class="swipe-card__front">
+              <div class="swipe-card__image" aria-hidden="true">
+                <!-- image placeholder - add <img> here later -->
+              </div>
+              <div class="swipe-card__content">
+                <h2 id="question-${questionNumber}" class="swipe-card__text">
+                  ${question.question}
+                </h2>
+              </div>
+            </div>
+            <div class="swipe-card__back">
+              <div class="swipe-card__back-content">
+                <h2 class="swipe-card__result-title" id="result-title"></h2>
+                <p class="swipe-card__result-text" id="result-text"></p>
+                <button class="btn btn--primary btn--lg swipe-card__next" id="next-question-btn" style="display: none;">Next Question</button>
+              </div>
+            </div>
           </div>
         </div>
         <div class="swipe-overlay swipe-overlay--fact" id="overlay-fact">Fact</div>
       </div>
     </div>
 
-    <!-- Action buttons: Myth (left) and Fact (right) placed under the card -->
-    <div class="quiz-actions" role="group" aria-label="Answer options">
+    <!-- Kahoot-like 2-button layout: Myth vs Fact -->
+    <div class="quiz-options" role="group" aria-label="Answer options">
       <button class="quiz-option" data-answer="myth" aria-label="Select Myth">Myth</button>
       <button class="quiz-option" data-answer="fact" aria-label="Select Fact">Fact</button>
     </div>
@@ -108,10 +125,12 @@ function renderQuestion() {
     document.removeEventListener('keydown', onKey);
   }
 
-  // Attach click handlers to hidden options for screen reader users
+  // Attach click handlers to button options
   hiddenOptions.forEach(opt => {
     opt.addEventListener('click', function() {
       cleanupListeners();
+      // Reset card position before flipping
+      resetCard(false);
       handleAnswer(this.dataset.answer, question);
     });
   });
@@ -139,12 +158,11 @@ function renderQuestion() {
   }
 
   function acceptSwipe(direction) {
-    // animate offscreen
-    const sign = direction === 'fact' ? 1 : -1;
-    card.style.transition = 'transform 300ms ease-out';
-    setTransform(sign * (window.innerWidth || 1000), sign * 30);
-    // cleanup listeners, then call the existing answer handler
+    // Stop dragging animation and cleanup listeners
     cleanupListeners();
+    // Reset card position before flipping
+    resetCard(false);
+    // Call the answer handler which will trigger the flip
     handleAnswer(direction, question);
   }
 
@@ -207,8 +225,12 @@ function renderQuestion() {
 function handleAnswer(userAnswer, question) {
   // Support both original button-based UI and the new swipe-card UI.
   const cardElement = document.querySelector('#swipe-card') || document.querySelector('.quiz-question');
+  const cardInner = document.getElementById('swipe-card-inner');
   const options = document.querySelectorAll('.quiz-option');
   const feedbackElement = document.getElementById(`feedback-${currentQuestionIndex + 1}`);
+  const resultTitle = document.getElementById('result-title');
+  const resultText = document.getElementById('result-text');
+  const nextButton = document.getElementById('next-question-btn');
 
   // Disable options (hidden fallbacks) if present
   options.forEach(opt => {
@@ -236,7 +258,37 @@ function handleAnswer(userAnswer, question) {
     if (cardElement) cardElement.classList.add('quiz-card--incorrect');
   }
 
-  // Show feedback text (explanation)
+  // Populate back face of card with result
+  if (cardInner && resultTitle && resultText) {
+    if (isCorrect) {
+      resultTitle.textContent = 'Correct!';
+      resultTitle.style.color = 'var(--color-success)';
+    } else {
+      resultTitle.textContent = 'Incorrect';
+      resultTitle.style.color = 'var(--color-dangerous)';
+    }
+    resultText.textContent = question.explanation;
+    
+    // Show next button
+    if (nextButton) {
+      nextButton.style.display = 'block';
+      nextButton.onclick = function() {
+        currentQuestionIndex++;
+        if (currentQuestionIndex < quizData.length) {
+          renderQuestion();
+        } else {
+          showResults();
+        }
+      };
+    }
+    
+    // Flip the card after a short delay to show the result
+    setTimeout(() => {
+      cardInner.classList.add('is-flipped');
+    }, 300);
+  }
+
+  // Show feedback text (explanation) - fallback for non-card UI
   if (feedbackElement) {
     feedbackElement.classList.add('quiz-feedback--show');
     feedbackElement.classList.add(isCorrect ? 'quiz-feedback--correct' : 'quiz-feedback--incorrect');
@@ -252,15 +304,17 @@ function handleAnswer(userAnswer, question) {
     isCorrect
   });
   
-  // Move to next question after delay
-  setTimeout(() => {
-    currentQuestionIndex++;
-    if (currentQuestionIndex < quizData.length) {
-      renderQuestion();
-    } else {
-      showResults();
-    }
-  }, 2000);
+  // Move to next question after delay (only if card flip is not used)
+  if (!cardInner) {
+    setTimeout(() => {
+      currentQuestionIndex++;
+      if (currentQuestionIndex < quizData.length) {
+        renderQuestion();
+      } else {
+        showResults();
+      }
+    }, 2000);
+  }
 }
 
 function updateProgress() {
