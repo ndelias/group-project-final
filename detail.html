@@ -29,14 +29,11 @@
   </header>
 
   <!-- Animal Detail Content -->
-  <main class="section" id="animal-detail" role="main" aria-live="polite">
+  <main id="animal-detail" role="main" aria-live="polite">
+    <div id="animal-content" class="hidden">
+      <!-- Content will be loaded here by JavaScript -->
+    </div>
     <div class="container">
-      <div class="loading">
-        <div class="spinner"></div>
-      </div>
-      <div id="animal-content" class="hidden">
-        <!-- Content will be loaded here by JavaScript -->
-      </div>
       <div id="not-found" class="hidden">
         <div class="empty-state">
           <div class="empty-state__icon">❌</div>

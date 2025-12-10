@@ -79,26 +79,18 @@ function createAnimalCard(animal) {
   
   return `
     <article class="card fade-in" data-animal-id="${animal.id}">
-      <div class="card__image-container">
-        <div class="card__image-slideshow" data-images='${JSON.stringify(images)}'>
-          ${imagesHTML}
+      <a href="detail.html?id=${animal.id}" style="text-decoration: none; display: block; color: inherit;">
+        <div class="card__image-container">
+          <div class="card__image-slideshow" data-images='${JSON.stringify(images)}'>
+            ${imagesHTML}
+          </div>
+          <span class="badge ${badgeClass} card__badge-overlay">${formatCategory(animal.category)}</span>
         </div>
-      </div>
-      <div class="card__body">
-        <h3 class="card__title">
-          <a href="detail.html?id=${animal.id}" style="color: inherit; text-decoration: none;">
-            ${animal.name}
-          </a>
-        </h3>
-        <p class="card__text">${animal.scientificName}</p>
-        <p class="card__text">${animal.quickFacts[0]}</p>
-      </div>
-      <div class="card__footer">
-        <span class="badge ${badgeClass}">${formatCategory(animal.category)}</span>
-        <a href="detail.html?id=${animal.id}" class="btn btn--primary">
-          Learn More
-        </a>
-      </div>
+        <div class="card__info">
+          <h3 class="card__title">${animal.name}</h3>
+          <p class="card__scientific-name">${animal.scientificName}</p>
+        </div>
+      </a>
     </article>
   `;
 }

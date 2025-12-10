@@ -156,6 +156,83 @@
       font-weight: var(--font-weight-bold);
     }
 
+    /* Interactive Habitat Map */
+    .map-wrapper {
+      overflow-x: auto;
+      border-radius: var(--border-radius-xl);
+      box-shadow: var(--shadow-lg);
+      background: var(--color-bg);
+      padding: var(--spacing-md);
+    }
+
+    .map-container {
+      position: relative;
+      min-width: 800px;
+      width: 100%;
+    }
+
+    .map-image {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: var(--border-radius-md);
+    }
+
+    .map-pin {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 3px solid white;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      box-shadow: var(--shadow-md);
+      cursor: pointer;
+      transition: transform 200ms ease;
+      animation: pin-pulse 2s ease-in-out infinite;
+    }
+
+    .map-pin:hover {
+      transform: translate(-50%, -50%) scale(1.2);
+      z-index: 10;
+    }
+
+    .map-pin::after {
+      content: attr(data-name);
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-bottom: var(--spacing-sm);
+      padding: var(--spacing-xs) var(--spacing-sm);
+      background: #000000;
+      color: #ffffff;
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-medium);
+      white-space: nowrap;
+      border-radius: var(--border-radius-md);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 200ms ease, transform 200ms ease;
+      transform: translateX(-50%) translateY(5px);
+    }
+
+    .map-pin:hover::after {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    @keyframes pin-pulse {
+      0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+      }
+      50% {
+        transform: translate(-50%, -50%) scale(1.1);
+      }
+    }
+
     @media (max-width: 768px) {
       .hero-split {
         grid-template-columns: 1fr;
@@ -230,25 +307,14 @@
     </div>
   </section>
 
-  <!-- Mission Section -->
-  <section class="section section--sm section-large" style="background-color: var(--color-bg-alt);" aria-labelledby="mission-heading">
+  <!-- Interactive Habitat Map Section -->
+  <section id="habitat-map" class="section section-large" aria-labelledby="habitat-heading">
     <div class="container">
-      <h2 id="mission-heading" class="text-center mb-xl" style="font-size: var(--font-size-3xl); font-weight: var(--font-weight-bold);">Our Mission</h2>
-      <div class="mission-grid">
-        <div class="mission-item">
-          <span class="mission-icon" aria-hidden="true">🔍</span>
-          <h3 class="mission-title">Spot the Myths</h3>
-          <p class="mission-text">Find out what's really true about scary animals.</p>
-        </div>
-        <div class="mission-item">
-          <span class="mission-icon" aria-hidden="true">✅</span>
-          <h3 class="mission-title">Learn the Facts</h3>
-          <p class="mission-text">Discover amazing things about misunderstood creatures.</p>
-        </div>
-        <div class="mission-item">
-          <span class="mission-icon" aria-hidden="true">❤️</span>
-          <h3 class="mission-title">Save Wildlife</h3>
-          <p class="mission-text">Help protect animals by understanding them better.</p>
+      <h2 id="habitat-heading" class="text-center mb-xl" style="font-size: var(--font-size-3xl); font-weight: var(--font-weight-bold);">Explore Habitats</h2>
+      <div class="map-wrapper">
+        <div class="map-container">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg" alt="World Habitat Map" class="map-image">
+          <!-- Map pins will be dynamically rendered by JavaScript from animals.json -->
         </div>
       </div>
     </div>
