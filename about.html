@@ -3,10 +3,340 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Learn about the Misunderstood project, its mission, and view sources for animal facts.">
-  <title>About — Misunderstood</title>
+  <meta name="description" content="Join the Misunderstood crew and help save animals that everyone thinks are scary!">
+  <title>Join Our Mission — Misunderstood</title>
   <link rel="stylesheet" href="design-system/main.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦈</text></svg>">
+  <style>
+    /* About Page Fun Styles */
+    .about-hero {
+      background: linear-gradient(135deg, var(--pine) 0%, var(--olive) 50%, var(--moss) 100%);
+      color: var(--parchment);
+      padding: var(--spacing-3xl) 0 var(--spacing-4xl);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image:
+        radial-gradient(circle at 20% 30%, rgba(255,255,255,0.05) 0%, transparent 25%),
+        radial-gradient(circle at 80% 70%, rgba(255,255,255,0.05) 0%, transparent 25%);
+      pointer-events: none;
+    }
+
+    .hero-sticker {
+      position: absolute;
+      font-size: 4rem;
+      opacity: 0.8;
+      animation: float 4s ease-in-out infinite;
+      filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3));
+      z-index: 1;
+    }
+
+    .hero-sticker--1 { top: 10%; left: 5%; animation-delay: 0s; }
+    .hero-sticker--2 { top: 15%; right: 8%; animation-delay: 0.5s; }
+    .hero-sticker--3 { bottom: 25%; left: 8%; animation-delay: 1s; }
+    .hero-sticker--4 { bottom: 20%; right: 5%; animation-delay: 1.5s; }
+    .hero-sticker--5 { top: 45%; left: 3%; animation-delay: 2s; font-size: 3rem; }
+    .hero-sticker--6 { top: 50%; right: 3%; animation-delay: 2.5s; font-size: 3rem; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(-5deg); }
+      50% { transform: translateY(-15px) rotate(5deg); }
+    }
+
+    .about-hero__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      padding: var(--spacing-sm) var(--spacing-lg);
+      border-radius: var(--radius-pill);
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-bold);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: var(--spacing-lg);
+      border: 2px solid rgba(255,255,255,0.3);
+    }
+
+    .about-hero__title {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: var(--font-weight-bold);
+      margin-bottom: var(--spacing-md);
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+      color: white;
+    }
+
+    .about-hero__subtitle {
+      font-size: var(--font-size-xl);
+      opacity: 0.95;
+      max-width: 650px;
+      margin: 0 auto;
+      line-height: var(--line-height-relaxed);
+    }
+
+    /* Mission Cards */
+    .mission-section {
+      padding: var(--spacing-3xl) 0;
+    }
+
+    .mission-card {
+      background: var(--parchment);
+      border: var(--border-thick) solid var(--pine);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-xl);
+      text-align: center;
+      box-shadow: var(--shadow-1);
+      transition: transform 0.3s ease;
+    }
+
+    .mission-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .mission-card__icon {
+      font-size: 4rem;
+      margin-bottom: var(--spacing-md);
+    }
+
+    .mission-card__title {
+      font-size: var(--font-size-xl);
+      font-weight: var(--font-weight-bold);
+      color: var(--pine);
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .mission-card__text {
+      color: var(--ink);
+      line-height: var(--line-height-relaxed);
+    }
+
+    /* Animal Parade */
+    .animal-parade {
+      background: linear-gradient(180deg, var(--sand) 0%, var(--tan) 100%);
+      border-top: var(--border-thick) solid var(--pine);
+      border-bottom: var(--border-thick) solid var(--pine);
+      padding: var(--spacing-3xl) 0;
+      overflow: hidden;
+    }
+
+    .parade-title {
+      text-align: center;
+      margin-bottom: var(--spacing-2xl);
+    }
+
+    .parade-title h2 {
+      color: var(--pine);
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .parade-title p {
+      color: var(--ink);
+      font-size: var(--font-size-lg);
+    }
+
+    .parade-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: var(--spacing-lg);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .parade-animal {
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .parade-animal:hover {
+      transform: scale(1.1) rotate(-3deg);
+    }
+
+    .parade-animal__image {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: var(--border-thick) solid var(--pine);
+      margin: 0 auto var(--spacing-sm);
+      box-shadow: var(--shadow-1);
+      background: var(--parchment);
+    }
+
+    .parade-animal__name {
+      font-weight: var(--font-weight-bold);
+      color: var(--pine);
+      font-size: var(--font-size-sm);
+    }
+
+    .parade-animal__emoji {
+      font-size: 1.5rem;
+    }
+
+    /* Promise Section */
+    .promise-section {
+      background: var(--parchment);
+      border: var(--border-thick) solid var(--pine);
+      border-radius: var(--radius-lg);
+      padding: var(--spacing-2xl);
+      margin: var(--spacing-3xl) 0;
+      box-shadow: var(--shadow-1);
+      text-align: center;
+    }
+
+    .promise-section__title {
+      color: var(--pine);
+      margin-bottom: var(--spacing-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--spacing-sm);
+    }
+
+    .promise-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--spacing-lg);
+      text-align: left;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .promise-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--spacing-md);
+      padding: var(--spacing-md);
+      background: var(--sand);
+      border-radius: var(--radius-lg);
+      border: 2px solid var(--pine);
+    }
+
+    .promise-item__icon {
+      font-size: 2rem;
+      flex-shrink: 0;
+    }
+
+    .promise-item__text {
+      font-weight: var(--font-weight-semibold);
+      color: var(--ink);
+    }
+
+    /* Call to Action */
+    .cta-section {
+      text-align: center;
+      padding: var(--spacing-3xl) 0;
+      background: linear-gradient(135deg, var(--moss) 0%, var(--sage) 100%);
+      border-radius: var(--radius-lg);
+      border: var(--border-thick) solid var(--pine);
+      margin-bottom: var(--spacing-3xl);
+      box-shadow: var(--shadow-1);
+    }
+
+    .cta-section__title {
+      color: #0f160f;
+      margin-bottom: var(--spacing-md);
+      font-size: var(--font-size-3xl);
+    }
+
+    .cta-section__text {
+      color: #0f160f;
+      font-size: var(--font-size-lg);
+      margin-bottom: var(--spacing-xl);
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: var(--spacing-md);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cta-buttons .btn {
+      background: var(--parchment);
+      color: var(--pine);
+      border-color: var(--pine);
+    }
+
+    .cta-buttons .btn:hover {
+      background: var(--sand);
+    }
+
+    /* Sources Accordion */
+    .sources-toggle {
+      background: var(--sand);
+      border: var(--border-thick) solid var(--pine);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-top: var(--spacing-2xl);
+    }
+
+    .sources-toggle__header {
+      width: 100%;
+      background: var(--sand);
+      border: none;
+      padding: var(--spacing-lg);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      font-size: var(--font-size-lg);
+      font-weight: var(--font-weight-bold);
+      color: var(--pine);
+    }
+
+    .sources-toggle__header:hover {
+      background: var(--sage);
+    }
+
+    .sources-toggle__icon {
+      transition: transform 0.3s ease;
+      font-size: var(--font-size-xl);
+    }
+
+    .sources-toggle[aria-expanded="true"] .sources-toggle__icon {
+      transform: rotate(180deg);
+    }
+
+    .sources-toggle__content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      padding: 0 var(--spacing-lg);
+      background: var(--parchment);
+    }
+
+    .sources-toggle[aria-expanded="true"] .sources-toggle__content {
+      max-height: 1000px;
+      padding: var(--spacing-lg);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-sticker { display: none; }
+
+      .parade-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .parade-animal__image {
+        width: 70px;
+        height: 70px;
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- Site Header -->
@@ -59,119 +389,134 @@
     </div>
   </header>
 
-  <!-- About Section -->
+  <!-- Fun Hero Section -->
+  <section class="about-hero">
+    <span class="hero-sticker hero-sticker--1" aria-hidden="true">🦇</span>
+    <span class="hero-sticker hero-sticker--2" aria-hidden="true">🦈</span>
+    <span class="hero-sticker hero-sticker--3" aria-hidden="true">🕷️</span>
+    <span class="hero-sticker hero-sticker--4" aria-hidden="true">🐺</span>
+    <span class="hero-sticker hero-sticker--5" aria-hidden="true">🐍</span>
+    <span class="hero-sticker hero-sticker--6" aria-hidden="true">🦔</span>
+
+    <div class="container" style="position: relative; z-index: 2;">
+      <div class="about-hero__badge">
+        <span>🛡️</span>
+        <span>Animal Defenders HQ</span>
+      </div>
+      <h1 class="about-hero__title">We're On a Mission!</h1>
+      <p class="about-hero__subtitle">
+        Some animals get a BAD RAP. People think they're scary, gross, or dangerous.
+        But guess what? They're actually AMAZING — and they need YOUR help!
+      </p>
+    </div>
+  </section>
+
   <main class="section" role="main">
-    <div class="container" style="max-width: 800px;">
-      <h1 class="text-center mb-xl">About This Project</h1>
+    <div class="container">
 
-      <section class="mb-3xl" aria-labelledby="mission-heading">
-        <h2 id="mission-heading" class="mb-lg">Our Mission</h2>
-        <p class="mb-md">
-          <strong>Misunderstood — Debunking Animal Myths</strong> reframes the world's "most hated" animals through science-backed facts. Instead of fear or stigma, we highlight ecological benefits and clear up common myths.
-        </p>
-        <p class="mb-md">
-          This project aims to transform fear into understanding by presenting credible, scientific information about animals that are often misunderstood or feared.
-        </p>
-      </section>
-
-      <section class="mb-3xl" aria-labelledby="goals-heading">
-        <h2 id="goals-heading" class="mb-lg">Goals</h2>
-        <ul class="impact-list">
-          <li class="impact-list__item">
-            <strong>Debunk persistent myths</strong> about commonly feared animals through science-backed facts
-          </li>
-          <li class="impact-list__item">
-            <strong>Teach credible interpretation</strong> of wildlife facts and sources to help readers become better fact-checkers
-          </li>
-          <li class="impact-list__item">
-            <strong>Model responsible source attribution</strong> by clearly citing all scientific sources and references
-          </li>
-          <li class="impact-list__item">
-            <strong>Highlight ecological benefits</strong> that these animals provide to their ecosystems
-          </li>
-        </ul>
-      </section>
-
-      <section class="mb-3xl" aria-labelledby="audience-heading">
-        <h2 id="audience-heading" class="mb-lg">Target Audience</h2>
-        <p class="mb-md">
-          This site is designed for learners age 12+ including students, parents, teachers, and curious readers who want to learn the truth about misunderstood animals.
-        </p>
-      </section>
-
-      <section class="mb-3xl" aria-labelledby="animals-heading">
-        <h2 id="animals-heading" class="mb-lg">Featured Animals</h2>
-        <p class="mb-md">
-          Our project features 9 commonly misunderstood animals:
-        </p>
-        <div class="grid grid--2" style="gap: var(--spacing-md);">
-          <div class="fact-card">
-            <div class="fact-card__title">Dangerous</div>
-            <div class="fact-card__content">Sharks, Spiders, Hyenas, Wolves, Snakes</div>
+      <!-- What We Do Cards -->
+      <section class="mission-section" aria-labelledby="mission-heading">
+        <h2 id="mission-heading" class="text-center mb-xl" style="color: var(--pine);">What We Do</h2>
+        <div class="grid grid--3">
+          <div class="mission-card">
+            <div class="mission-card__icon">🔍</div>
+            <h3 class="mission-card__title">Find the Truth</h3>
+            <p class="mission-card__text">
+              We dig up REAL facts from scientists to find out what's actually true about these animals!
+            </p>
           </div>
-          <div class="fact-card">
-            <div class="fact-card__title">Dirty/Diseased</div>
-            <div class="fact-card__content">Bats, Vultures, Opossums, Rats</div>
+          <div class="mission-card">
+            <div class="mission-card__icon">💥</div>
+            <h3 class="mission-card__title">Bust the Myths</h3>
+            <p class="mission-card__text">
+              Sharks eat people? Bats are blind? WRONG! We smash those fake stories with science!
+            </p>
+          </div>
+          <div class="mission-card">
+            <div class="mission-card__icon">💚</div>
+            <h3 class="mission-card__title">Spread the Love</h3>
+            <p class="mission-card__text">
+              When people learn the truth, they stop being scared and start being amazed!
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Animal Parade -->
+    <section class="animal-parade" aria-labelledby="animals-heading">
+      <div class="container">
+        <div class="parade-title">
+          <h2 id="animals-heading">Meet the Misunderstood Crew!</h2>
+          <p>These animals need defenders like YOU. Click any friend to learn their story!</p>
+        </div>
+        <div class="parade-grid" id="animal-parade">
+          <!-- Will be populated by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      <!-- Our Promise -->
+      <section class="promise-section" aria-labelledby="promise-heading">
+        <h2 id="promise-heading" class="promise-section__title">
+          <span>🤝</span> Our Promise to You
+        </h2>
+        <div class="promise-list">
+          <div class="promise-item">
+            <span class="promise-item__icon">📚</span>
+            <span class="promise-item__text">Every fact comes from real scientists and experts</span>
+          </div>
+          <div class="promise-item">
+            <span class="promise-item__icon">🎯</span>
+            <span class="promise-item__text">We make learning fun with quizzes and cards to collect</span>
+          </div>
+          <div class="promise-item">
+            <span class="promise-item__icon">🌍</span>
+            <span class="promise-item__text">We show you why these animals matter to our planet</span>
+          </div>
+          <div class="promise-item">
+            <span class="promise-item__icon">🦸</span>
+            <span class="promise-item__text">You become an Animal Defender by spreading the word!</span>
           </div>
         </div>
       </section>
 
-      <section id="sources" class="sources-section" aria-labelledby="sources-heading">
-        <h2 id="sources-heading" class="mb-lg">Sources & References</h2>
-        <p class="mb-md">
-          All information on this site is backed by credible scientific sources. We prioritize peer-reviewed research, established wildlife organizations, and respected scientific institutions.
+      <!-- Call to Action -->
+      <section class="cta-section" aria-labelledby="cta-heading">
+        <h2 id="cta-heading" class="cta-section__title">Ready to Be a Hero?</h2>
+        <p class="cta-section__text">
+          Every animal you learn about is one more friend you can defend. Let's go!
         </p>
-        <p class="mb-md">
-          Sources are provided on each animal's detail page. Key organizations we reference include:
-        </p>
-        <ul class="sources-list">
-          <li class="sources-list__item">
-            <strong>National Geographic</strong> — Comprehensive wildlife information and photography
-          </li>
-          <li class="sources-list__item">
-            <strong>Smithsonian Institution</strong> — Scientific research and educational resources
-          </li>
-          <li class="sources-list__item">
-            <strong>National Wildlife Federation</strong> — Conservation and wildlife education
-          </li>
-          <li class="sources-list__item">
-            <strong>Audubon Society</strong> — Bird and wildlife conservation
-          </li>
-          <li class="sources-list__item">
-            <strong>Bat Conservation International</strong> — Bat research and conservation
-          </li>
-          <li class="sources-list__item">
-            <strong>International Wolf Center</strong> — Wolf education and research
-          </li>
-          <li class="sources-list__item">
-            <strong>Oceana</strong> — Marine conservation and research
-          </li>
-        </ul>
-        <p class="mt-lg" style="font-size: var(--font-size-sm); color: var(--color-text-light);">
-          For specific citations, please visit individual animal detail pages where sources are listed for each fact and myth debunked.
-        </p>
+        <div class="cta-buttons">
+          <a href="browse.html" class="btn btn--lg">Meet the Animals</a>
+          <a href="quiz.html" class="btn btn--lg">Test Your Knowledge</a>
+        </div>
       </section>
 
-      <section class="mt-3xl" aria-labelledby="tech-heading">
-        <h2 id="tech-heading" class="mb-lg">Technical Details</h2>
-        <p class="mb-md">
-          This site is built with semantic HTML5, responsive CSS (Grid/Flexbox), and vanilla JavaScript. It's designed to be:
-        </p>
-        <ul class="impact-list">
-          <li class="impact-list__item">
-            <strong>Fast</strong> — Optimized for quick loading and smooth performance
-          </li>
-          <li class="impact-list__item">
-            <strong>Accessible</strong> — Full keyboard navigation, ARIA support, and screen reader compatibility
-          </li>
-          <li class="impact-list__item">
-            <strong>Responsive</strong> — Works beautifully on all devices from mobile to desktop
-          </li>
-          <li class="impact-list__item">
-            <strong>Educational</strong> — Clear information architecture and engaging interactive elements
-          </li>
-        </ul>
-      </section>
+      <!-- Collapsible Sources -->
+      <div class="sources-toggle" id="sources" aria-expanded="false">
+        <button class="sources-toggle__header" onclick="toggleSources()">
+          <span>📖 Where We Get Our Facts (For Grown-Ups)</span>
+          <span class="sources-toggle__icon">▼</span>
+        </button>
+        <div class="sources-toggle__content">
+          <p class="mb-md" style="color: var(--color-text-light);">
+            All our information comes from trusted scientists and organizations:
+          </p>
+          <ul class="sources-list">
+            <li class="sources-list__item"><strong>National Geographic</strong> — Wildlife experts</li>
+            <li class="sources-list__item"><strong>Smithsonian Institution</strong> — Science research</li>
+            <li class="sources-list__item"><strong>National Wildlife Federation</strong> — Conservation</li>
+            <li class="sources-list__item"><strong>Bat Conservation International</strong> — Bat experts</li>
+            <li class="sources-list__item"><strong>International Wolf Center</strong> — Wolf research</li>
+            <li class="sources-list__item"><strong>NOAA Fisheries</strong> — Ocean science</li>
+          </ul>
+          <p class="mt-lg" style="font-size: var(--font-size-sm); color: var(--color-text-light);">
+            Each animal page lists specific sources for every fact. We believe in showing our work!
+          </p>
+        </div>
+      </div>
     </div>
   </main>
 
@@ -179,9 +524,9 @@
   <footer class="site-footer" role="contentinfo">
     <div class="container">
       <div class="site-footer__inner">
-        <p class="site-footer__text">© 2025 Misunderstood — Debunking Animal Myths</p>
+        <p class="site-footer__text">© 2025 Misunderstood — Helping Misunderstood Animals</p>
         <p class="site-footer__text">
-          <a href="about.html" class="site-footer__link">About</a> | 
+          <a href="about.html" class="site-footer__link">About</a> |
           <a href="about.html#sources" class="site-footer__link">Sources</a>
         </p>
       </div>
@@ -189,5 +534,46 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script>
+    // Populate animal parade
+    document.addEventListener('DOMContentLoaded', async function() {
+      const paradeContainer = document.getElementById('animal-parade');
+      if (!paradeContainer) return;
+
+      try {
+        const animals = await Misunderstood.fetchAnimals();
+        const emojis = {
+          'shark': '🦈',
+          'bat': '🦇',
+          'wolf': '🐺',
+          'vulture': '🦅',
+          'opossum': '🐭',
+          'spider': '🕷️',
+          'hyena': '🐕',
+          'rat': '🐀',
+          'snake': '🐍'
+        };
+
+        paradeContainer.innerHTML = animals.map(animal => `
+          <a href="detail.html?id=${animal.id}" class="parade-animal">
+            <img src="${animal.image}" alt="${animal.name}" class="parade-animal__image" loading="lazy">
+            <div class="parade-animal__name">
+              <span class="parade-animal__emoji">${emojis[animal.id] || '🐾'}</span>
+              ${animal.name.split(' ')[0]}
+            </div>
+          </a>
+        `).join('');
+      } catch (error) {
+        console.error('Error loading animals:', error);
+      }
+    });
+
+    // Toggle sources section
+    function toggleSources() {
+      const sourcesSection = document.getElementById('sources');
+      const isExpanded = sourcesSection.getAttribute('aria-expanded') === 'true';
+      sourcesSection.setAttribute('aria-expanded', !isExpanded);
+    }
+  </script>
 </body>
 </html>

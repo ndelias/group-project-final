@@ -151,8 +151,164 @@ document.addEventListener('DOMContentLoaded', async function() {
     
     const images = animal.images || [animal.image];
     const heroImage = images[0] || animal.image;
-    
+
+    // Create photo gallery HTML (uses images 1-4, skipping hero image)
+    const galleryImages = images.slice(1, 5);
+    const photoGalleryHTML = galleryImages.length > 0 ? `
+      <section class="photo-gallery mb-3xl" aria-labelledby="gallery-heading">
+        <h2 id="gallery-heading" class="mb-lg">📸 Photo Gallery</h2>
+        <div class="photo-gallery__grid">
+          ${galleryImages.map((img, index) => `
+            <div class="photo-gallery__item photo-gallery__item--${index + 1}">
+              <img src="${img}" alt="${animal.name} photo ${index + 2}" class="photo-gallery__image" loading="lazy">
+            </div>
+          `).join('')}
+        </div>
+      </section>
+    ` : '';
+
+    // Create a feature image to break up text sections
+    const featureImage1 = images[1] || images[0];
+    const featureImage2 = images[2] || images[0];
+
+    // Feature image HTML for between sections
+    const featureImageHTML1 = `
+      <div class="feature-image mb-3xl">
+        <img src="${featureImage1}" alt="${animal.name}" class="feature-image__img" loading="lazy">
+        <div class="feature-image__caption">Look at this amazing ${animal.name.split(' ').pop()}! 🤩</div>
+      </div>
+    `;
+
+    const featureImageHTML2 = images.length > 2 ? `
+      <div class="feature-image feature-image--right mb-3xl">
+        <img src="${featureImage2}" alt="${animal.name}" class="feature-image__img" loading="lazy">
+        <div class="feature-image__caption">Nature is pretty cool, right? 🌿</div>
+      </div>
+    ` : '';
+
     contentElement.innerHTML = `
+      <style>
+        /* Photo Gallery Styles */
+        .photo-gallery__grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: var(--spacing-md);
+        }
+
+        .photo-gallery__item {
+          border-radius: var(--radius-lg);
+          overflow: hidden;
+          border: var(--border-thick) solid var(--pine);
+          box-shadow: var(--shadow-1);
+          transition: transform 0.3s ease;
+        }
+
+        .photo-gallery__item:hover {
+          transform: scale(1.02);
+        }
+
+        .photo-gallery__item--1 {
+          grid-column: span 1;
+          grid-row: span 1;
+        }
+
+        .photo-gallery__item--2 {
+          grid-column: span 1;
+          grid-row: span 1;
+        }
+
+        .photo-gallery__item--3 {
+          grid-column: span 1;
+        }
+
+        .photo-gallery__item--4 {
+          grid-column: span 1;
+        }
+
+        .photo-gallery__image {
+          width: 100%;
+          height: 200px;
+          object-fit: cover;
+          display: block;
+        }
+
+        /* Feature Image Styles */
+        .feature-image {
+          background: var(--parchment);
+          border: var(--border-thick) solid var(--pine);
+          border-radius: var(--radius-lg);
+          overflow: hidden;
+          box-shadow: var(--shadow-1);
+          max-width: 500px;
+        }
+
+        .feature-image--right {
+          margin-left: auto;
+        }
+
+        .feature-image__img {
+          width: 100%;
+          height: 280px;
+          object-fit: cover;
+          display: block;
+        }
+
+        .feature-image__caption {
+          padding: var(--spacing-md);
+          text-align: center;
+          font-weight: var(--font-weight-bold);
+          color: var(--pine);
+          background: var(--sand);
+          border-top: var(--border-thick) solid var(--pine);
+        }
+
+        /* Compact fact cards for detail page */
+        .detail-facts .fact-card {
+          aspect-ratio: auto;
+          padding: var(--spacing-md);
+        }
+
+        .detail-facts .fact-card__content {
+          font-size: var(--font-size-base);
+        }
+
+        /* Fun section dividers */
+        .section-divider {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: var(--spacing-md);
+          margin: var(--spacing-2xl) 0;
+          font-size: 2rem;
+        }
+
+        .section-divider__line {
+          flex: 1;
+          height: 4px;
+          background: linear-gradient(90deg, transparent, var(--pine), transparent);
+          border-radius: 2px;
+        }
+
+        @media (max-width: 768px) {
+          .photo-gallery__grid {
+            grid-template-columns: 1fr;
+          }
+
+          .photo-gallery__item--1,
+          .photo-gallery__item--2 {
+            grid-column: span 1;
+          }
+
+          .feature-image {
+            max-width: 100%;
+          }
+
+          .feature-image__img {
+            height: 200px;
+          }
+        }
+      </style>
+
       <div class="detail-hero">
         <div class="detail-image-container">
           <img src="${heroImage}" alt="${animal.name}" class="detail-hero__image">
@@ -166,9 +322,17 @@ document.addEventListener('DOMContentLoaded', async function() {
           <span class="badge ${badgeClass} detail-hero__badge">${Misunderstood.formatCategory(animal.category)}</span>
         </div>
       </div>
-      
+
       <div class="container">
       ${funFactHTML}
+
+      ${photoGalleryHTML}
+
+      <div class="section-divider" aria-hidden="true">
+        <span class="section-divider__line"></span>
+        <span>🎓</span>
+        <span class="section-divider__line"></span>
+      </div>
 
       <section class="mb-3xl" aria-labelledby="facts-heading">
         <h2 id="facts-heading" class="mb-lg">Cool Facts! 📚</h2>
@@ -177,12 +341,22 @@ document.addEventListener('DOMContentLoaded', async function() {
         </div>
       </section>
 
+      ${featureImageHTML1}
+
       <section class="impact-section mb-3xl" aria-labelledby="benefits-heading">
         <h2 id="benefits-heading" class="mb-lg">How They Help Us 🌍</h2>
         <ul class="impact-list">
           ${benefitsHTML}
         </ul>
       </section>
+
+      <div class="section-divider" aria-hidden="true">
+        <span class="section-divider__line"></span>
+        <span>💡</span>
+        <span class="section-divider__line"></span>
+      </div>
+
+      ${featureImageHTML2}
 
       <section class="mb-3xl" aria-labelledby="myths-heading">
         <h2 id="myths-heading" class="mb-lg">Myth Busters! 💥</h2>
