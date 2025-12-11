@@ -3,10 +3,456 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Submit a misunderstood animal and share the facts that debunk common myths.">
-  <title>Submit — Misunderstood</title>
+  <meta name="description" content="Become an Animal Defender! Submit a misunderstood animal and help spread the truth.">
+  <title>Become an Animal Defender — Misunderstood</title>
   <link rel="stylesheet" href="design-system/main.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦈</text></svg>">
+  <style>
+    /* Submit Page - Fun & Interactive Styles */
+
+    /* Hero Section */
+    .submit-hero {
+      background: linear-gradient(135deg, #15802b 0%, #1a472a 50%, #2d5a3d 100%);
+      color: white;
+      padding: var(--spacing-3xl) 0 var(--spacing-4xl);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .submit-hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image:
+        radial-gradient(circle at 10% 20%, rgba(255,255,255,0.05) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(255,255,255,0.05) 0%, transparent 20%),
+        radial-gradient(circle at 50% 50%, rgba(255,255,255,0.03) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .submit-hero__badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      padding: var(--spacing-sm) var(--spacing-lg);
+      border-radius: var(--border-radius-full);
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-bold);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: var(--spacing-lg);
+      border: 2px solid rgba(255,255,255,0.3);
+    }
+
+    .submit-hero__title {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: var(--font-weight-bold);
+      margin-bottom: var(--spacing-md);
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+      color: white;
+    }
+
+    .submit-hero__subtitle {
+      font-size: var(--font-size-xl);
+      opacity: 0.95;
+      max-width: 600px;
+      margin: 0 auto var(--spacing-xl);
+      line-height: var(--line-height-relaxed);
+    }
+
+    /* Floating Stickers */
+    .sticker {
+      position: absolute;
+      font-size: 3rem;
+      opacity: 0.9;
+      animation: float 4s ease-in-out infinite;
+      filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.2));
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .sticker--1 { top: 15%; left: 5%; animation-delay: 0s; }
+    .sticker--2 { top: 20%; right: 8%; animation-delay: 0.5s; }
+    .sticker--3 { bottom: 20%; left: 10%; animation-delay: 1s; }
+    .sticker--4 { bottom: 15%; right: 5%; animation-delay: 1.5s; }
+    .sticker--5 { top: 50%; left: 3%; animation-delay: 2s; }
+    .sticker--6 { top: 40%; right: 3%; animation-delay: 2.5s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(-5deg); }
+      50% { transform: translateY(-15px) rotate(5deg); }
+    }
+
+    /* Journey Steps */
+    .journey-steps {
+      display: flex;
+      justify-content: center;
+      gap: var(--spacing-sm);
+      flex-wrap: wrap;
+      margin-top: var(--spacing-lg);
+    }
+
+    .journey-step {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+      background: rgba(255,255,255,0.1);
+      padding: var(--spacing-sm) var(--spacing-md);
+      border-radius: var(--border-radius-full);
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-medium);
+    }
+
+    .journey-step__number {
+      width: 24px;
+      height: 24px;
+      background: white;
+      color: var(--color-header-bg);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: var(--font-weight-bold);
+      font-size: var(--font-size-sm);
+    }
+
+    .journey-step__arrow {
+      color: rgba(255,255,255,0.5);
+      margin: 0 var(--spacing-xs);
+    }
+
+    /* Form Container */
+    .submit-form-wrapper {
+      position: relative;
+      max-width: 700px;
+      margin: -60px auto 0;
+      padding: 0 var(--spacing-md);
+    }
+
+    .submit-form.fun-form {
+      background: white;
+      border-radius: var(--border-radius-xl);
+      padding: var(--spacing-2xl);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      position: relative;
+      z-index: 10;
+    }
+
+    /* Form Section Headers */
+    .form-section-header {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-md);
+      margin-bottom: var(--spacing-lg);
+      padding-bottom: var(--spacing-md);
+      border-bottom: 3px dashed var(--color-border);
+    }
+
+    .form-section-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, #f2c14e 0%, #f5d78e 100%);
+      border-radius: var(--border-radius-lg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      box-shadow: 0 4px 12px rgba(242, 193, 78, 0.3);
+      flex-shrink: 0;
+    }
+
+    .form-section-icon--green {
+      background: linear-gradient(135deg, #15802b 0%, #1a9932 100%);
+      box-shadow: 0 4px 12px rgba(21, 128, 43, 0.3);
+    }
+
+    .form-section-icon--coral {
+      background: linear-gradient(135deg, #ef8a5a 0%, #f5a67a 100%);
+      box-shadow: 0 4px 12px rgba(239, 138, 90, 0.3);
+    }
+
+    .form-section-text h2 {
+      font-size: var(--font-size-xl);
+      font-weight: var(--font-weight-bold);
+      color: var(--color-text);
+      margin: 0 0 var(--spacing-xs) 0;
+    }
+
+    .form-section-text p {
+      font-size: var(--font-size-sm);
+      color: var(--color-text-light);
+      margin: 0;
+    }
+
+    /* Fun Form Groups */
+    .fun-form .form-group {
+      position: relative;
+      margin-bottom: var(--spacing-xl);
+    }
+
+    .fun-form .form-label {
+      font-size: var(--font-size-base);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-text);
+      margin-bottom: var(--spacing-sm);
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+    }
+
+    .label-icon {
+      font-size: 1.2rem;
+    }
+
+    .fun-form .form-input,
+    .fun-form .form-select,
+    .fun-form .form-textarea {
+      border: 2px solid var(--color-border);
+      border-radius: var(--border-radius-lg);
+      padding: var(--spacing-md);
+      font-size: var(--font-size-base);
+      transition: all 0.2s ease;
+    }
+
+    .fun-form .form-input:focus,
+    .fun-form .form-select:focus,
+    .fun-form .form-textarea:focus {
+      border-color: var(--color-header-bg);
+      box-shadow: 0 0 0 4px rgba(21, 128, 43, 0.1);
+      outline: none;
+    }
+
+    .fun-form .form-textarea {
+      min-height: 120px;
+    }
+
+    .fun-form .form-help {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--spacing-xs);
+      margin-top: var(--spacing-sm);
+      padding: var(--spacing-sm) var(--spacing-md);
+      background: var(--color-bg-alt);
+      border-radius: var(--border-radius-md);
+      font-size: var(--font-size-sm);
+      color: var(--color-text-light);
+    }
+
+    .help-icon {
+      flex-shrink: 0;
+    }
+
+    /* Decorative Form Stickers */
+    .form-sticker {
+      position: absolute;
+      font-size: 2.5rem;
+      opacity: 0.15;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .form-sticker--1 { top: 80px; right: -30px; transform: rotate(15deg); }
+    .form-sticker--2 { top: 350px; left: -40px; transform: rotate(-10deg); }
+    .form-sticker--3 { bottom: 300px; right: -25px; transform: rotate(20deg); }
+    .form-sticker--4 { bottom: 100px; left: -35px; transform: rotate(-15deg); }
+
+    /* Fun Divider */
+    .fun-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--spacing-md);
+      margin: var(--spacing-2xl) 0;
+      color: var(--color-text-light);
+    }
+
+    .fun-divider__line {
+      flex: 1;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--color-border), transparent);
+    }
+
+    .fun-divider__icon {
+      font-size: 1.5rem;
+      animation: bounce 2s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    /* Submit Button */
+    .submit-actions {
+      text-align: center;
+      margin-top: var(--spacing-2xl);
+      padding-top: var(--spacing-xl);
+      border-top: 3px dashed var(--color-border);
+    }
+
+    .submit-actions__message {
+      font-size: var(--font-size-lg);
+      color: var(--color-text);
+      margin-bottom: var(--spacing-lg);
+      font-weight: var(--font-weight-medium);
+    }
+
+    .btn--submit {
+      background: linear-gradient(135deg, #15802b 0%, #1a9932 100%);
+      color: white;
+      padding: var(--spacing-md) var(--spacing-2xl);
+      font-size: var(--font-size-lg);
+      font-weight: var(--font-weight-bold);
+      border: none;
+      border-radius: var(--border-radius-full);
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(21, 128, 43, 0.3);
+      display: inline-flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+    }
+
+    .btn--submit:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(21, 128, 43, 0.4);
+    }
+
+    .btn--submit:active {
+      transform: translateY(-1px);
+    }
+
+    .btn--reset-fun {
+      background: transparent;
+      color: var(--color-text-light);
+      border: 2px solid var(--color-border);
+      padding: var(--spacing-sm) var(--spacing-xl);
+      font-size: var(--font-size-base);
+      border-radius: var(--border-radius-full);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      margin-left: var(--spacing-md);
+    }
+
+    .btn--reset-fun:hover {
+      border-color: var(--color-text-light);
+      color: var(--color-text);
+    }
+
+    /* Success State */
+    .success-celebration {
+      display: none;
+      text-align: center;
+      padding: var(--spacing-3xl) var(--spacing-xl);
+      background: white;
+      border-radius: var(--border-radius-xl);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .success-celebration.show {
+      display: block;
+      animation: popIn 0.5s ease-out;
+    }
+
+    @keyframes popIn {
+      0% { transform: scale(0.8); opacity: 0; }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .success-badge {
+      width: 120px;
+      height: 120px;
+      background: linear-gradient(135deg, #f2c14e 0%, #f5d78e 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto var(--spacing-xl);
+      font-size: 4rem;
+      box-shadow: 0 10px 30px rgba(242, 193, 78, 0.4);
+      animation: badgePulse 2s ease-in-out infinite;
+    }
+
+    @keyframes badgePulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .success-title {
+      font-size: var(--font-size-3xl);
+      font-weight: var(--font-weight-bold);
+      color: var(--color-header-bg);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .success-subtitle {
+      font-size: var(--font-size-xl);
+      color: var(--color-text);
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .success-message {
+      font-size: var(--font-size-base);
+      color: var(--color-text-light);
+      max-width: 400px;
+      margin: 0 auto var(--spacing-xl);
+      line-height: var(--line-height-relaxed);
+    }
+
+    .success-animals {
+      font-size: 2.5rem;
+      margin-bottom: var(--spacing-xl);
+      letter-spacing: var(--spacing-sm);
+    }
+
+    .success-actions {
+      display: flex;
+      gap: var(--spacing-md);
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .sticker { display: none; }
+      .form-sticker { display: none; }
+
+      .journey-steps {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .journey-step__arrow { display: none; }
+
+      .submit-form.fun-form {
+        padding: var(--spacing-lg);
+      }
+
+      .form-section-header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .submit-actions {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-md);
+      }
+
+      .btn--reset-fun {
+        margin-left: 0;
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- Site Header -->
@@ -59,92 +505,209 @@
     </div>
   </header>
 
-  <!-- Page Header -->
-  <section class="section section--sm page-header">
-    <div class="container">
-      <h1 class="text-center mb-md">Submit an Animal</h1>
-      <p class="text-center" style="max-width: 650px; margin: 0 auto;">
-        Know an animal that deserves a better reputation? Share the myth and the facts so we can feature it.
+  <!-- Fun Hero Section -->
+  <section class="submit-hero">
+    <!-- Floating Animal Stickers -->
+    <span class="sticker sticker--1" aria-hidden="true">🦇</span>
+    <span class="sticker sticker--2" aria-hidden="true">🦈</span>
+    <span class="sticker sticker--3" aria-hidden="true">🕷️</span>
+    <span class="sticker sticker--4" aria-hidden="true">🐍</span>
+    <span class="sticker sticker--5" aria-hidden="true">🦂</span>
+    <span class="sticker sticker--6" aria-hidden="true">🐺</span>
+
+    <div class="container" style="position: relative; z-index: 2;">
+      <div class="submit-hero__badge">
+        <span>🛡️</span>
+        <span>Special Mission</span>
+      </div>
+      <h1 class="submit-hero__title">Become an Animal Defender!</h1>
+      <p class="submit-hero__subtitle">
+        Know an animal that gets a bad rap? Help us spread the truth!
+        Your discovery could teach thousands of kids the real facts.
       </p>
+
+      <!-- Journey Steps -->
+      <div class="journey-steps">
+        <div class="journey-step">
+          <span class="journey-step__number">1</span>
+          <span>Pick Your Animal</span>
+        </div>
+        <span class="journey-step__arrow" aria-hidden="true">→</span>
+        <div class="journey-step">
+          <span class="journey-step__number">2</span>
+          <span>Bust the Myth</span>
+        </div>
+        <span class="journey-step__arrow" aria-hidden="true">→</span>
+        <div class="journey-step">
+          <span class="journey-step__number">3</span>
+          <span>Earn Your Badge!</span>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Submit Form -->
-  <main class="section" role="main">
-    <div class="container">
-      <form id="submit-form" class="submit-form" novalidate>
-        <fieldset class="form-fieldset">
-          <legend class="form-legend">Animal Details</legend>
-          
+  <main class="section" role="main" style="background: var(--color-bg); padding-top: 0;">
+    <div class="submit-form-wrapper">
+      <!-- Decorative Stickers -->
+      <span class="form-sticker form-sticker--1" aria-hidden="true">🦎</span>
+      <span class="form-sticker form-sticker--2" aria-hidden="true">🐝</span>
+      <span class="form-sticker form-sticker--3" aria-hidden="true">🦔</span>
+      <span class="form-sticker form-sticker--4" aria-hidden="true">🐸</span>
+
+      <form id="submit-form" class="submit-form fun-form" novalidate>
+
+        <!-- Section 1: Animal Details -->
+        <div class="form-section">
+          <div class="form-section-header">
+            <div class="form-section-icon">🔍</div>
+            <div class="form-section-text">
+              <h2>Step 1: Pick Your Animal</h2>
+              <p>Which misunderstood creature are you defending today?</p>
+            </div>
+          </div>
+
           <div class="form-group">
-            <label for="animal-name" class="form-label">Animal name <span class="form-required" aria-hidden="true">*</span></label>
-            <input type="text" id="animal-name" name="animal-name" class="form-input" required minlength="2" aria-describedby="animal-name-error">
+            <label for="animal-name" class="form-label">
+              <span class="label-icon">🏷️</span>
+              Animal Name <span class="form-required" aria-hidden="true">*</span>
+            </label>
+            <input type="text" id="animal-name" name="animal-name" class="form-input"
+                   placeholder="e.g., Tarantula, Opossum, Vulture..."
+                   required minlength="2" aria-describedby="animal-name-error">
             <span id="animal-name-error" class="form-error" role="alert"></span>
           </div>
 
           <div class="form-group">
-            <label for="scientific-name" class="form-label">Scientific name <span class="form-required" aria-hidden="true">*</span></label>
-            <input type="text" id="scientific-name" name="scientific-name" class="form-input" required minlength="2" aria-describedby="scientific-name-error">
+            <label for="scientific-name" class="form-label">
+              <span class="label-icon">🔬</span>
+              Scientific Name <span class="form-required" aria-hidden="true">*</span>
+            </label>
+            <input type="text" id="scientific-name" name="scientific-name" class="form-input"
+                   placeholder="e.g., Theraphosidae, Didelphis virginiana..."
+                   required minlength="2" aria-describedby="scientific-name-error">
             <span id="scientific-name-error" class="form-error" role="alert"></span>
+            <div class="form-help">
+              <span class="help-icon">💡</span>
+              <span>Tip: Look it up online! Scientific names are usually in Latin and italicized.</span>
+            </div>
           </div>
 
           <div class="form-group">
-            <label for="category" class="form-label">Myth category <span class="form-required" aria-hidden="true">*</span></label>
+            <label for="category" class="form-label">
+              <span class="label-icon">📁</span>
+              What myth do people believe? <span class="form-required" aria-hidden="true">*</span>
+            </label>
             <select id="category" name="category" class="form-select" required aria-describedby="category-error">
-              <option value="">Choose a category</option>
-              <option value="dangerous">Dangerous</option>
-              <option value="dirty-diseased">Dirty/Diseased</option>
-              <option value="useless-nuisance">Useless/Nuisance</option>
+              <option value="">Choose the type of myth...</option>
+              <option value="dangerous">🚨 "It's Dangerous!" — People think it will hurt them</option>
+              <option value="dirty-diseased">🦠 "It's Gross/Dirty!" — People think it spreads disease</option>
+              <option value="useless-nuisance">😤 "It's Annoying/Useless!" — People think it has no purpose</option>
             </select>
             <span id="category-error" class="form-error" role="alert"></span>
-            <small class="form-help">Pick the myth type that best fits the animal.</small>
           </div>
-        </fieldset>
+        </div>
 
-        <fieldset class="form-fieldset">
-          <legend class="form-legend">Myth & Fact</legend>
+        <!-- Fun Divider -->
+        <div class="fun-divider">
+          <span class="fun-divider__line"></span>
+          <span class="fun-divider__icon">🎯</span>
+          <span class="fun-divider__line"></span>
+        </div>
+
+        <!-- Section 2: Myth & Fact -->
+        <div class="form-section">
+          <div class="form-section-header">
+            <div class="form-section-icon form-section-icon--green">💥</div>
+            <div class="form-section-text">
+              <h2>Step 2: Bust the Myth!</h2>
+              <p>Time to set the record straight with FACTS!</p>
+            </div>
+          </div>
 
           <div class="form-group">
-            <label for="myth" class="form-label">Common myth <span class="form-required" aria-hidden="true">*</span></label>
-            <textarea id="myth" name="myth" class="form-textarea" required minlength="10" aria-describedby="myth-error"></textarea>
+            <label for="myth" class="form-label">
+              <span class="label-icon">❌</span>
+              The Myth (What do people wrongly believe?) <span class="form-required" aria-hidden="true">*</span>
+            </label>
+            <textarea id="myth" name="myth" class="form-textarea"
+                      placeholder="e.g., 'Bats will fly into your hair and get tangled!' or 'Opossums are aggressive and will attack you!'"
+                      required minlength="10" aria-describedby="myth-error"></textarea>
             <span id="myth-error" class="form-error" role="alert"></span>
           </div>
 
           <div class="form-group">
-            <label for="fact" class="form-label">Scientific fact <span class="form-required" aria-hidden="true">*</span></label>
-            <textarea id="fact" name="fact" class="form-textarea" required minlength="10" aria-describedby="fact-error"></textarea>
+            <label for="fact" class="form-label">
+              <span class="label-icon">✅</span>
+              The TRUTH (What's the real fact?) <span class="form-required" aria-hidden="true">*</span>
+            </label>
+            <textarea id="fact" name="fact" class="form-textarea"
+                      placeholder="e.g., 'Bats have excellent echolocation and can easily avoid people! They're actually shy and helpful — one bat can eat 1,000 mosquitoes in an hour!'"
+                      required minlength="10" aria-describedby="fact-error"></textarea>
             <span id="fact-error" class="form-error" role="alert"></span>
-            <small class="form-help">Add a short, sourced fact that debunks the myth.</small>
+            <div class="form-help">
+              <span class="help-icon">📚</span>
+              <span>Pro tip: Include a cool fact that will blow people's minds! The more surprising, the better.</span>
+            </div>
           </div>
-        </fieldset>
+        </div>
 
-        <fieldset class="form-fieldset">
-          <legend class="form-legend">Submitter Info</legend>
+        <!-- Fun Divider -->
+        <div class="fun-divider">
+          <span class="fun-divider__line"></span>
+          <span class="fun-divider__icon">⭐</span>
+          <span class="fun-divider__line"></span>
+        </div>
+
+        <!-- Section 3: Submitter Info -->
+        <div class="form-section">
+          <div class="form-section-header">
+            <div class="form-section-icon form-section-icon--coral">🦸</div>
+            <div class="form-section-text">
+              <h2>Step 3: Claim Your Credit!</h2>
+              <p>Every Animal Defender deserves recognition!</p>
+            </div>
+          </div>
 
           <div class="form-group">
-            <label for="submitter-name" class="form-label">Your name <span class="form-required" aria-hidden="true">*</span></label>
-            <input type="text" id="submitter-name" name="submitter-name" class="form-input" required minlength="2" aria-describedby="submitter-name-error">
+            <label for="submitter-name" class="form-label">
+              <span class="label-icon">✏️</span>
+              Your Name (or Nickname) <span class="form-required" aria-hidden="true">*</span>
+            </label>
+            <input type="text" id="submitter-name" name="submitter-name" class="form-input"
+                   placeholder="e.g., Alex the Animal Expert, Spider Sam..."
+                   required minlength="2" aria-describedby="submitter-name-error">
             <span id="submitter-name-error" class="form-error" role="alert"></span>
           </div>
 
-          <div class="form-group">
-            <label for="submitter-email" class="form-label">Email (optional)</label>
-            <input type="email" id="submitter-email" name="submitter-email" class="form-input" aria-describedby="submitter-email-error">
-            <span id="submitter-email-error" class="form-error" role="alert"></span>
-            <small class="form-help">Used only if we have a question about your submission.</small>
-          </div>
-        </fieldset>
+        </div>
 
-        <div class="form-actions">
-          <button type="submit" class="btn btn--primary btn--lg">Submit Animal</button>
-          <button type="reset" class="btn btn--outline btn--lg">Reset</button>
+        <!-- Submit Actions -->
+        <div class="submit-actions">
+          <p class="submit-actions__message">Ready to defend this animal? 🛡️</p>
+          <button type="submit" class="btn--submit">
+            <span>Submit & Earn Your Badge!</span>
+            <span aria-hidden="true">🏅</span>
+          </button>
+          <button type="reset" class="btn--reset-fun">Start Over</button>
         </div>
       </form>
 
-      <div id="form-success" class="form-success hidden" tabindex="-1" role="alert">
-        <h3>Thank you!</h3>
-        <p>Your submission was saved locally. We'll review it soon.</p>
-        <a href="browse.html" class="btn btn--primary">Back to animals</a>
+      <!-- Success Celebration -->
+      <div id="form-success" class="success-celebration" tabindex="-1" role="alert">
+        <div class="success-badge">🏆</div>
+        <h2 class="success-title">You Did It!</h2>
+        <p class="success-subtitle">You're Now an Official Animal Defender!</p>
+        <p class="success-message">
+          Your submission is saved and ready for review. Thanks for standing up for misunderstood animals — you're making the world a better place for them!
+        </p>
+        <div class="success-animals" aria-hidden="true">
+          🦇 🦈 🕷️ 🐍 🦂 🐺 🦎 🐝
+        </div>
+        <div class="success-actions">
+          <a href="browse.html" class="btn btn--primary btn--lg">Meet More Animals</a>
+          <button type="button" class="btn btn--outline btn--lg" onclick="resetAndShowForm()">Submit Another</button>
+        </div>
       </div>
     </div>
   </main>
@@ -155,7 +718,7 @@
       <div class="site-footer__inner">
         <p class="site-footer__text">© 2025 Misunderstood — Debunking Animal Myths</p>
         <p class="site-footer__text">
-          <a href="about.html" class="site-footer__link">About</a> | 
+          <a href="about.html" class="site-footer__link">About</a> |
           <a href="about.html#sources" class="site-footer__link">Sources</a>
         </p>
       </div>
@@ -164,5 +727,68 @@
 
   <script src="js/main.js"></script>
   <script src="js/submit.js"></script>
+  <script>
+    // Helper function for "Submit Another" button
+    function resetAndShowForm() {
+      const form = document.getElementById('submit-form');
+      const success = document.getElementById('form-success');
+
+      if (form && success) {
+        success.classList.remove('show');
+        form.style.display = 'block';
+        form.reset();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    // Confetti celebration for successful submission!
+    function launchSubmitConfetti() {
+      const colors = ['#f2c14e', '#6b8c42', '#15802b', '#ef8a5a', '#96CEB4', '#f5d78e', '#2d5a3d'];
+      const confettiCount = 80;
+      const container = document.querySelector('.submit-form-wrapper');
+
+      for (let i = 0; i < confettiCount; i++) {
+        const confetti = document.createElement('div');
+        const isCircle = Math.random() > 0.5;
+        const size = Math.random() * 12 + 6;
+
+        confetti.style.cssText = `
+          position: fixed;
+          width: ${size}px;
+          height: ${size}px;
+          background: ${colors[Math.floor(Math.random() * colors.length)]};
+          left: ${Math.random() * 100}vw;
+          top: -20px;
+          border-radius: ${isCircle ? '50%' : '2px'};
+          z-index: 10000;
+          pointer-events: none;
+          animation: confetti-fall-submit ${Math.random() * 2 + 2}s linear forwards;
+          animation-delay: ${Math.random() * 0.5}s;
+        `;
+        document.body.appendChild(confetti);
+
+        // Remove after animation
+        setTimeout(() => confetti.remove(), 4000);
+      }
+    }
+
+    // Add confetti animation CSS
+    (function() {
+      const style = document.createElement('style');
+      style.textContent = `
+        @keyframes confetti-fall-submit {
+          0% {
+            transform: translateY(0) rotate(0deg) scale(1);
+            opacity: 1;
+          }
+          100% {
+            transform: translateY(100vh) rotate(720deg) scale(0.5);
+            opacity: 0;
+          }
+        }
+      `;
+      document.head.appendChild(style);
+    })();
+  </script>
 </body>
 </html>

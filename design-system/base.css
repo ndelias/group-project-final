@@ -1,5 +1,5 @@
 /* ============================================
-   BASE
+   BASE - Retro Zoo Theme
    ============================================ */
 
 *,
@@ -15,12 +15,16 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Tan paper background with subtle green pattern */
 body {
   font-family: var(--font-family);
   font-size: var(--font-size-base);
   line-height: var(--line-height-normal);
-  color: var(--color-text);
-  background-color: var(--color-bg);
+  color: var(--ink);
+  background: var(--tan);
+  background-image:
+    radial-gradient(120% 100% at 0 0, rgba(111, 139, 77, .08), transparent 60%),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><g fill='%233F5A3C' fill-opacity='.06'><circle cx='20' cy='20' r='6'/><rect x='90' y='90' width='14' height='14' rx='3'/></g></svg>");
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -32,28 +36,35 @@ img {
 }
 
 a {
-  color: var(--color-primary);
+  color: var(--pine);
   text-decoration: none;
   transition: color var(--transition-fast);
 }
 
 a:hover,
 a:focus {
-  color: var(--color-primary-dark);
+  color: var(--olive);
   text-decoration: underline;
 }
 
+/* Global focus ring - A11y compliant */
+:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
 a:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
-  border-radius: var(--border-radius-sm);
+  outline: var(--focus-ring);
+  outline-offset: 3px;
+  border-radius: 8px;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-family-heading);
   font-weight: var(--font-weight-bold);
   line-height: var(--line-height-tight);
-  color: var(--color-text);
+  color: var(--ink);
   margin-bottom: var(--spacing-md);
 }
 

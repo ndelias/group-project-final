@@ -77,10 +77,11 @@ document.addEventListener('DOMContentLoaded', function() {
       error.textContent = '';
       error.classList.remove('form-error--show');
     });
-    
-    // Hide success message
+
+    // Hide success message (support both old and new styles)
     if (successMessage) {
       successMessage.classList.add('hidden');
+      successMessage.classList.remove('show');
     }
   });
 });
@@ -165,16 +166,24 @@ function handleFormSubmission(form) {
   });
   localStorage.setItem('animal-submissions', JSON.stringify(submissions));
   
-  // Show success message
+  // Show success message with celebration animation
   const successMessage = document.getElementById('form-success');
   if (successMessage) {
-    form.classList.add('hidden');
+    form.style.display = 'none';
     successMessage.classList.remove('hidden');
-    successMessage.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    
+    successMessage.classList.add('show');
+
+    // Scroll to top to see the celebration
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
     // Focus on success message for screen readers
     successMessage.setAttribute('tabindex', '-1');
-    successMessage.focus();
+    setTimeout(() => successMessage.focus(), 500);
+
+    // Launch confetti celebration!
+    if (typeof launchSubmitConfetti === 'function') {
+      launchSubmitConfetti();
+    }
   }
   
   // Optional: Reset form after showing success
