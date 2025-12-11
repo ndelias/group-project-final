@@ -76,19 +76,20 @@ function renderQuestion() {
   const animalImage = animal ? animal.image : '';
   const animalName = animal ? animal.name : '';
 
-  // Render a swipeable card. Swipe right = fact, swipe left = myth.
+  // Render a swipeable card. Swipe right = true (fact), swipe left = false (myth).
   questionsElement.innerHTML = `
-    <div class="swipe-instructions">Swipe right for <strong>Fact</strong>, left for <strong>Myth</strong></div>
+    <div class="swipe-instructions">Swipe right for <strong>True</strong>, left for <strong>False</strong></div>
     <div class="swipe-stack">
       <div class="swipe-card-wrapper">
+        <button class="swipe-action-btn swipe-action-btn--false" id="btn-false" aria-label="False">✕</button>
         <div class="swipe-card" id="swipe-card" role="article" aria-labelledby="question-${questionNumber}" tabindex="0">
           <div class="swipe-card__inner" id="swipe-card-inner">
             <div class="swipe-card__front" id="swipe-card-front">
-              <div class="swipe-stamp swipe-stamp--myth" id="stamp-myth">MYTH</div>
-              <div class="swipe-stamp swipe-stamp--fact" id="stamp-fact">FACT</div>
+              <div class="swipe-stamp swipe-stamp--myth" id="stamp-myth">FALSE</div>
+              <div class="swipe-stamp swipe-stamp--fact" id="stamp-fact">TRUE</div>
               ${animalImage ? `
               <div class="swipe-card__image" aria-hidden="true">
-                <img src="${animalImage}" alt="${animalName}" class="swipe-card__animal-img">
+                <img src="${animalImage}" alt="${animalName}" class="swipe-card__animal-img" draggable="false" ondragstart="return false;">
                 <span class="swipe-card__animal-name">${animalName}</span>
               </div>
               ` : '<div class="swipe-card__image" aria-hidden="true"></div>'}
@@ -107,13 +108,14 @@ function renderQuestion() {
             </div>
           </div>
         </div>
+        <button class="swipe-action-btn swipe-action-btn--true" id="btn-true" aria-label="True">✓</button>
       </div>
     </div>
 
-    <!-- Kahoot-like 2-button layout: Myth vs Fact -->
+    <!-- Hidden fallback buttons -->
     <div class="quiz-options" role="group" aria-label="Answer options">
-      <button class="quiz-option" data-answer="myth" aria-label="Select Myth">Myth</button>
-      <button class="quiz-option" data-answer="fact" aria-label="Select Fact">Fact</button>
+      <button class="quiz-option" data-answer="myth" aria-label="Select False">False</button>
+      <button class="quiz-option" data-answer="fact" aria-label="Select True">True</button>
     </div>
 
     <div class="quiz-feedback" id="feedback-${questionNumber}" role="status" aria-live="polite">
@@ -157,6 +159,28 @@ function renderQuestion() {
       processAnswer(answer, question);
     });
   });
+
+  // Attach click handlers to side circle buttons
+  const btnFalse = document.getElementById('btn-false');
+  const btnTrue = document.getElementById('btn-true');
+
+  if (btnFalse) {
+    btnFalse.addEventListener('click', function() {
+      if (hasAnswered) return;
+      cleanupListeners();
+      hasAnswered = true;
+      processAnswer('myth', question);
+    });
+  }
+
+  if (btnTrue) {
+    btnTrue.addEventListener('click', function() {
+      if (hasAnswered) return;
+      cleanupListeners();
+      hasAnswered = true;
+      processAnswer('fact', question);
+    });
+  }
 
   function setTransform(x, rotation) {
     card.style.transform = `translateX(${x}px) rotate(${rotation}deg)`;

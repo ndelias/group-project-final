@@ -192,16 +192,108 @@
     .swipe-card__front.swipe-fact::before {
       background-color: rgba(16, 185, 129, 0.15);
     }
-    /* Horizontal action buttons under the card */
-    .quiz-actions { display:flex; gap:var(--spacing-md); justify-content:center; margin-top:var(--spacing-md); }
-    .quiz-actions .quiz-option { flex:0 0 160px; max-width:160px; }
+    /* Side circle buttons for swipe actions */
+    .swipe-card-wrapper {
+      position: relative;
+    }
+
+    .swipe-action-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 3px solid;
+      background: white;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      z-index: 10;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .swipe-action-btn:hover {
+      transform: translateY(-50%) scale(1.1);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .swipe-action-btn:active {
+      transform: translateY(-50%) scale(0.95);
+    }
+
+    .swipe-action-btn--false {
+      left: -80px;
+      border-color: var(--color-dangerous);
+      color: var(--color-dangerous);
+    }
+
+    .swipe-action-btn--false:hover {
+      background: var(--color-dangerous);
+      color: white;
+    }
+
+    .swipe-action-btn--true {
+      right: -80px;
+      border-color: var(--color-success);
+      color: var(--color-success);
+    }
+
+    .swipe-action-btn--true:hover {
+      background: var(--color-success);
+      color: white;
+    }
+
+    /* Hide old bottom buttons */
+    .quiz-options { display: none; }
+
+    /* Prevent image dragging */
+    .swipe-card__animal-img {
+      -webkit-user-drag: none;
+      -khtml-user-drag: none;
+      -moz-user-drag: none;
+      -o-user-drag: none;
+      user-drag: none;
+      pointer-events: none;
+    }
+
+    .swipe-card__image {
+      pointer-events: none;
+    }
+
+    @media (max-width:768px) {
+      .swipe-action-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+      }
+      .swipe-action-btn--false {
+        left: -60px;
+      }
+      .swipe-action-btn--true {
+        right: -60px;
+      }
+    }
+
     @media (max-width:520px) {
       .swipe-card { height: 350px; }
       .swipe-stamp { font-size: 3.5rem; }
       .swipe-card__result-title { font-size: var(--font-size-3xl); }
       .swipe-card__back { padding: var(--spacing-lg); }
-      .quiz-actions { flex-direction:column; }
-      .quiz-actions .quiz-option { flex:1 1 auto; max-width:none; }
+      .swipe-action-btn {
+        width: 44px;
+        height: 44px;
+        font-size: 1.2rem;
+      }
+      .swipe-action-btn--false {
+        left: -50px;
+      }
+      .swipe-action-btn--true {
+        right: -50px;
+      }
     }
   </style>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦈</text></svg>">
