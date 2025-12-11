@@ -28,6 +28,33 @@ document.addEventListener('DOMContentLoaded', async function() {
       ProgressTracker.visitAnimal(animal.id);
     }
 
+    // Collect the card when user scrolls to bottom (only triggers if not already collected)
+    if (typeof CardCollection !== 'undefined' && animal.cardImage && !CardCollection.hasCard(animal.id)) {
+      let cardAwarded = false;
+
+      const checkScrollPosition = () => {
+        if (cardAwarded) return;
+
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+
+        // Check if user has scrolled to within 100px of the bottom
+        if (scrollTop + clientHeight >= scrollHeight - 100) {
+          cardAwarded = true;
+          window.removeEventListener('scroll', checkScrollPosition);
+          // Small delay for dramatic effect
+          setTimeout(() => {
+            CardCollection.collectCard(animal);
+          }, 500);
+        }
+      };
+
+      window.addEventListener('scroll', checkScrollPosition);
+      // Also check immediately in case page is short
+      setTimeout(checkScrollPosition, 1000);
+    }
+
   } catch (error) {
     console.error('Error loading animal:', error);
     showNotFound();

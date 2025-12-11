@@ -6,6 +6,7 @@
     "category": "dangerous",
     "location": { "top": "75%", "left": "82%" },
     "image": "images/sharks/shark.jpeg",
+    "cardImage": "images/Collectible Card/SharkCard.png",
     "images": [
       "images/sharks/shark.jpeg",
       "images/sharks/whale-shark.jpg",
@@ -51,6 +52,7 @@
     "category": "dirty-diseased",
     "location": { "top": "28%", "left": "22%" },
     "image": "images/bats/bat_feature.jpg",
+    "cardImage": "images/Collectible Card/BatCard.png",
     "images": [
       "images/bats/bat_feature.jpg",
       "images/bats/bat-photo.jpg",
@@ -96,6 +98,7 @@
     "category": "dangerous",
     "location": { "top": "22%", "left": "15%" },
     "image": "images/wolves/gray-wolf-colorado-nc-jt-200107_hpMain.jpg",
+    "cardImage": "images/Collectible Card/WolfCard.png",
     "images": [
       "images/wolves/gray-wolf-colorado-nc-jt-200107_hpMain.jpg",
       "images/wolves/52014798407_5bd16e058d_b-1.jpg"
@@ -138,6 +141,7 @@
     "category": "dirty-diseased",
     "location": { "top": "35%", "left": "18%" },
     "image": "images/vultures/griffon-vulture.jpeg",
+    "cardImage": "images/Collectible Card/VultureCard.png",
     "images": [
       "images/vultures/griffon-vulture.jpeg",
       "images/vultures/Subramanian-Vultures-03.jpeg",
@@ -183,6 +187,7 @@
     "category": "dirty-diseased",
     "location": { "top": "32%", "left": "24%" },
     "image": "images/oppossums/opossum.png",
+    "cardImage": "images/Collectible Card/OpposumCard.png",
     "images": [
       "images/oppossums/opossum.png",
       "images/oppossums/Opossum-2-.jpeg",
@@ -228,6 +233,7 @@
     "category": "dangerous",
     "location": { "top": "25%", "left": "48%" },
     "image": "images/spiders/Spider-Body-1-Factfile_BBC-Earth-Factfiles-.jpeg",
+    "cardImage": "images/Collectible Card/SpiderCarrd.png",
     "images": [
       "images/spiders/Spider-Body-1-Factfile_BBC-Earth-Factfiles-.jpeg",
       "images/spiders/harmless_house_spiders_dangerous_venomous_spiders.jpg",
@@ -273,6 +279,7 @@
     "category": "dangerous",
     "location": { "top": "55%", "left": "52%" },
     "image": "images/hyena/hyena-1.jpg",
+    "cardImage": "images/Collectible Card/HyenaCard.png",
     "images": [
       "images/hyena/hyena-1.jpg",
       "images/hyena/01-hyenas-nationalgeographic_1742911.jpeg",
@@ -318,6 +325,7 @@
     "category": "dirty-diseased",
     "location": { "top": "30%", "left": "70%" },
     "image": "images/rat/Brown_Rat_(Rattus_norvegicus).jpg",
+    "cardImage": "images/Collectible Card/RatCard.png",
     "images": [
       "images/rat/Brown_Rat_(Rattus_norvegicus).jpg",
       "images/rat/black-rat.jpeg",
@@ -363,6 +371,7 @@
     "category": "dangerous",
     "location": { "top": "58%", "left": "28%" },
     "image": "images/snake/roughgreensnake_crop.jpg",
+    "cardImage": "images/Collectible Card/SnakeCard.png",
     "images": [
       "images/snake/roughgreensnake_crop.jpg",
       "images/snake/boa-1024x535.jpg",
