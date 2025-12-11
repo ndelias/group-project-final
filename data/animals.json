@@ -5,10 +5,13 @@
     "scientificName": "Carcharodon carcharias",
     "category": "dangerous",
     "location": { "top": "75%", "left": "82%" },
-    "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%232563eb'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-size='48' fill='white'%3EShark%3C/text%3E%3C/svg%3E",
+    "image": "images/sharks/shark.jpeg",
     "images": [
-      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%232563eb'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-size='48' fill='white'%3EShark%3C/text%3E%3C/svg%3E",
-      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%231e40af'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-size='42' fill='white'%3ECoast%20Guardian%3C/text%3E%3C/svg%3E"
+      "images/sharks/shark.jpeg",
+      "images/sharks/whale-shark.jpg",
+      "images/sharks/24780011_edited.jpg",
+      "images/sharks/Shortfin-mako-shark-seas.jpeg",
+      "images/sharks/WEF_7206181_2.jpg"
     ],
     "quickFacts": [
       "Humans are not part of a shark's diet; most bites are cases of mistaken identity.",
@@ -46,10 +49,13 @@
     "scientificName": "Myotis lucifugus",
     "category": "dirty-diseased",
     "location": { "top": "28%", "left": "22%" },
-    "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%23057857'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-size='48' fill='white'%3EBat%3C/text%3E%3C/svg%3E",
+    "image": "images/bats/bat_feature.jpg",
     "images": [
-      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%23057857'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-size='48' fill='white'%3EBat%3C/text%3E%3C/svg%3E",
-      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%2309a36b'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-size='42' fill='white'%3ENight%20Pollinator%3C/text%3E%3C/svg%3E"
+      "images/bats/bat_feature.jpg",
+      "images/bats/bat-photo.jpg",
+      "images/bats/gettyimages-91484105.jpg",
+      "images/bats/bats-cv-1500x632.jpg.jpg",
+      "images/bats/5-Surprising-Ways-Bats-Help-the-Environment_WAWMNorthernLongearedBat_Michael_Druham.jpg"
     ],
     "quickFacts": [
       "Less than 1% of bats carry rabies; they avoid people.",
@@ -87,10 +93,10 @@
     "scientificName": "Canis lupus",
     "category": "dangerous",
     "location": { "top": "22%", "left": "15%" },
-    "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%238b7355'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-size='48' fill='white'%3EWolf%3C/text%3E%3C/svg%3E",
+    "image": "images/wolves/gray-wolf-colorado-nc-jt-200107_hpMain.jpg",
     "images": [
-      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%238b7355'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-size='48' fill='white'%3EWolf%3C/text%3E%3C/svg%3E",
-      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%236b8c42'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-size='42' fill='white'%3EPack%20Balance%3C/text%3E%3C/svg%3E"
+      "images/wolves/gray-wolf-colorado-nc-jt-200107_hpMain.jpg",
+      "images/wolves/52014798407_5bd16e058d_b-1.jpg"
     ],
     "quickFacts": [
       "Healthy wild wolves rarely approach people and avoid towns.",
@@ -128,10 +134,13 @@
     "scientificName": "Cathartes aura",
     "category": "dirty-diseased",
     "location": { "top": "35%", "left": "18%" },
-    "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%23b45309'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-size='48' fill='white'%3EVulture%3C/text%3E%3C/svg%3E",
+    "image": "images/vultures/griffon-vulture.jpeg",
     "images": [
-      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%23b45309'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-size='48' fill='white'%3EVulture%3C/text%3E%3C/svg%3E",
-      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%238a5d1d'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-size='42' fill='white'%3EClean%20Crew%3C/text%3E%3C/svg%3E"
+      "images/vultures/griffon-vulture.jpeg",
+      "images/vultures/Subramanian-Vultures-03.jpeg",
+      "images/vultures/Cinereous-Vulture-and-Griffon-Vulture-feeding-c-Bruno-Berthemy.jpg",
+      "images/vultures/NO1X5976-2-928x609-1.jpg",
+      "images/vultures/6b855940-81cf-11f0-b1b7-d5227004453f.jpg"
     ],
     "quickFacts": [
       "Vultures rarely get sick from carcasses thanks to powerful stomach acids.",
@@ -169,10 +178,13 @@
     "scientificName": "Didelphis virginiana",
     "category": "dirty-diseased",
     "location": { "top": "32%", "left": "24%" },
-    "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%237b341e'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-size='48' fill='white'%3EOpossum%3C/text%3E%3C/svg%3E",
+    "image": "images/oppossums/opossum.png",
     "images": [
-      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%237b341e'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-size='48' fill='white'%3EOpossum%3C/text%3E%3C/svg%3E",
-      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%239c4221'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-size='42' fill='white'%3ETick%20Eater%3C/text%3E%3C/svg%3E"
+      "images/oppossums/opossum.png",
+      "images/oppossums/Opossum-2-.jpeg",
+      "images/oppossums/large.jpg",
+      "images/oppossums/opossum.jpg.jpeg",
+      "images/oppossums/RS46293_2024_03_27 Skookum-3_ohi.jpg"
     ],
     "quickFacts": [
       "Opossums groom constantly and carry far fewer diseases than many urban mammals.",
@@ -210,10 +222,13 @@
     "scientificName": "Parasteatoda tepidariorum",
     "category": "dangerous",
     "location": { "top": "25%", "left": "48%" },
-    "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%238b5cf6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-size='48' fill='white'%3ESpider%3C/text%3E%3C/svg%3E",
+    "image": "images/spiders/Spider-Body-1-Factfile_BBC-Earth-Factfiles-.jpeg",
     "images": [
-      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%238b5cf6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-size='48' fill='white'%3ESpider%3C/text%3E%3C/svg%3E",
-      "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%237236d3'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-size='42' fill='white'%3EBug%20Control%3C/text%3E%3C/svg%3E"
+      "images/spiders/Spider-Body-1-Factfile_BBC-Earth-Factfiles-.jpeg",
+      "images/spiders/harmless_house_spiders_dangerous_venomous_spiders.jpg",
+      "images/spiders/university-of-galway-r.jpg",
+      "images/spiders/Curtain-web-spider-family-Dipluridae.jpeg",
+      "images/spiders/closeup-female-spider-tarantula-lasiodora-600nw-1353778946.jpeg"
     ],
     "quickFacts": [
       "Most house spiders have venom too weak to harm humans.",
@@ -242,6 +257,138 @@
       {
         "title": "University of California IPM — Spiders",
         "url": "https://ipm.ucanr.edu/PMG/PESTNOTES/pn7442.html"
+      }
+    ]
+  },
+  {
+    "id": "hyena",
+    "name": "Spotted Hyena",
+    "scientificName": "Crocuta crocuta",
+    "category": "dangerous",
+    "location": { "top": "55%", "left": "52%" },
+    "image": "images/hyena/hyena-1.jpg",
+    "images": [
+      "images/hyena/hyena-1.jpg",
+      "images/hyena/01-hyenas-nationalgeographic_1742911.jpeg",
+      "images/hyena/featured_art_hyena_istock.jpeg",
+      "images/hyena/hyena-teeth-cropped-c415fbf.jpeg",
+      "images/hyena/images.jpg"
+    ],
+    "quickFacts": [
+      "Hyenas are more closely related to cats than dogs despite their appearance.",
+      "They have one of the strongest bites in the animal kingdom, allowing them to crush bones.",
+      "Spotted hyenas live in complex social groups led by females."
+    ],
+    "ecologicalBenefits": [
+      "Clean up carcasses quickly, preventing disease spread across the savanna.",
+      "Regulate herbivore populations, maintaining ecosystem balance."
+    ],
+    "myths": [
+      {
+        "myth": "Hyenas are cowardly scavengers.",
+        "fact": "Spotted hyenas are skilled hunters that catch up to 95% of their own food and have complex social intelligence."
+      },
+      {
+        "myth": "Hyenas are dirty and spread disease.",
+        "fact": "Their powerful digestive systems destroy pathogens, and they help keep ecosystems clean by consuming carrion."
+      }
+    ],
+    "sources": [
+      {
+        "title": "National Geographic — Spotted Hyena",
+        "url": "https://www.nationalgeographic.com/animals/mammals/facts/spotted-hyena"
+      },
+      {
+        "title": "Smithsonian's National Zoo — Spotted Hyena",
+        "url": "https://nationalzoo.si.edu/animals/spotted-hyena"
+      }
+    ]
+  },
+  {
+    "id": "rat",
+    "name": "Brown Rat",
+    "scientificName": "Rattus norvegicus",
+    "category": "dirty-diseased",
+    "location": { "top": "30%", "left": "70%" },
+    "image": "images/rat/Brown_Rat_(Rattus_norvegicus).jpg",
+    "images": [
+      "images/rat/Brown_Rat_(Rattus_norvegicus).jpg",
+      "images/rat/black-rat.jpeg",
+      "images/rat/CC-Rat-Banner.jpg",
+      "images/rat/Urban-rat-disease-scaled.jpg",
+      "images/rat/how-to-get-rid-of-rats-64994bc3bf2cc.jpeg"
+    ],
+    "quickFacts": [
+      "Rats are highly intelligent and can be trained to perform complex tasks.",
+      "They are extremely social animals that show empathy toward other rats.",
+      "Laboratory rats have contributed enormously to medical research and saved countless human lives."
+    ],
+    "ecologicalBenefits": [
+      "Disperse seeds and help with soil aeration through their burrowing.",
+      "Serve as an important food source for many predators including owls, hawks, and snakes."
+    ],
+    "myths": [
+      {
+        "myth": "Rats are inherently dirty animals.",
+        "fact": "Rats groom themselves frequently and are quite clean; urban sanitation issues attract them, not the reverse."
+      },
+      {
+        "myth": "All rats carry dangerous diseases.",
+        "fact": "While rats can carry some diseases, transmission to humans is rare with proper sanitation and pest management."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Smithsonian Magazine — The Misunderstood Rat",
+        "url": "https://www.smithsonianmag.com/science-nature/the-lab-rat-180975536/"
+      },
+      {
+        "title": "National Geographic — Brown Rat",
+        "url": "https://www.nationalgeographic.com/animals/mammals/facts/brown-rat"
+      }
+    ]
+  },
+  {
+    "id": "snake",
+    "name": "Common Garter Snake",
+    "scientificName": "Thamnophis sirtalis",
+    "category": "dangerous",
+    "location": { "top": "58%", "left": "28%" },
+    "image": "images/snake/roughgreensnake_crop.jpg",
+    "images": [
+      "images/snake/roughgreensnake_crop.jpg",
+      "images/snake/boa-1024x535.jpg",
+      "images/snake/coralsnake.jpg",
+      "images/snake/rawImage.jpg",
+      "images/snake/resting-racer-picture-id801439690.jpg"
+    ],
+    "quickFacts": [
+      "Most snakes are non-venomous and pose no threat to humans.",
+      "Snakes control rodent and insect populations naturally.",
+      "They would rather flee than confront humans and only bite as a last resort."
+    ],
+    "ecologicalBenefits": [
+      "Control pest populations including mice, rats, and insects that damage crops.",
+      "Serve as both predator and prey, forming crucial links in food webs."
+    ],
+    "myths": [
+      {
+        "myth": "All snakes are dangerous and should be killed.",
+        "fact": "The vast majority of snakes are harmless; even venomous snakes avoid humans and rarely bite unless threatened."
+      },
+      {
+        "myth": "Snakes are slimy and aggressive.",
+        "fact": "Snake skin is dry and smooth. They are shy creatures that prefer to escape rather than confront."
+      }
+    ],
+    "sources": [
+      {
+        "title": "National Wildlife Federation — Snakes",
+        "url": "https://www.nwf.org/Educational-Resources/Wildlife-Guide/Reptiles/Snakes"
+      },
+      {
+        "title": "Smithsonian's National Zoo — Snakes",
+        "url": "https://nationalzoo.si.edu/animals/snakes"
       }
     ]
   }
