@@ -16,12 +16,6 @@ document.addEventListener('DOMContentLoaded', async function() {
       progressContainer.innerHTML = ProgressTracker.renderProgressBar(animals.length);
     }
 
-    // Render card collection gallery
-    const cardCollectionContainer = document.getElementById('card-collection-container');
-    if (cardCollectionContainer && typeof CardCollection !== 'undefined') {
-      cardCollectionContainer.innerHTML = CardCollection.renderCollectionGallery(animals);
-    }
-
     // Render hero slideshow with one image per animal
     if (heroSlideshow && animals.length > 0) {
       // Create slideshow images
