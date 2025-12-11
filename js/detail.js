@@ -4,7 +4,6 @@
 
 document.addEventListener('DOMContentLoaded', async function() {
   const animalId = Misunderstood.getURLParameter('id');
-  const loadingElement = document.querySelector('.loading');
   const contentElement = document.getElementById('animal-content');
   const notFoundElement = document.getElementById('not-found');
   
@@ -30,13 +29,11 @@ document.addEventListener('DOMContentLoaded', async function() {
   }
   
   function showNotFound() {
-    if (loadingElement) loadingElement.classList.add('hidden');
     if (contentElement) contentElement.classList.add('hidden');
     if (notFoundElement) notFoundElement.classList.remove('hidden');
   }
   
   function renderAnimalDetail(animal) {
-    if (loadingElement) loadingElement.classList.add('hidden');
     if (notFoundElement) notFoundElement.classList.add('hidden');
     if (contentElement) contentElement.classList.remove('hidden');
     
@@ -47,14 +44,49 @@ document.addEventListener('DOMContentLoaded', async function() {
       .map((myth, index) => Misunderstood.createAccordion(myth, index))
       .join('');
     
-    // Create quick facts
+    // Function to generate a one-word category for each fact
+    function generateFactCategory(fact) {
+      const lowerFact = fact.toLowerCase();
+      
+      if (lowerFact.includes('diet') || lowerFact.includes('eat') || lowerFact.includes('food') || lowerFact.includes('prey')) {
+        return 'Diet';
+      } else if (lowerFact.includes('help') || lowerFact.includes('balance') || lowerFact.includes('control') || lowerFact.includes('maintain')) {
+        return 'Role';
+      } else if (lowerFact.includes('threat') || lowerFact.includes('danger') || lowerFact.includes('risk') || lowerFact.includes('bite') || lowerFact.includes('attack')) {
+        return 'Safety';
+      } else if (lowerFact.includes('size') || lowerFact.includes('length') || lowerFact.includes('weight') || lowerFact.includes('measure')) {
+        return 'Size';
+      } else if (lowerFact.includes('habitat') || lowerFact.includes('live') || lowerFact.includes('found') || lowerFact.includes('location')) {
+        return 'Habitat';
+      } else if (lowerFact.includes('pollinate') || lowerFact.includes('seed') || lowerFact.includes('plant')) {
+        return 'Ecology';
+      } else if (lowerFact.includes('disease') || lowerFact.includes('rabies') || lowerFact.includes('carry') || lowerFact.includes('spread')) {
+        return 'Health';
+      } else if (lowerFact.includes('behavior') || lowerFact.includes('play') || lowerFact.includes('avoid') || lowerFact.includes('threaten')) {
+        return 'Behavior';
+      } else {
+        return 'Fact';
+      }
+    }
+    
+    // Create quick facts with icons for Bento Grid
+    const factIcons = ['📏', '🥩', '🏠', '💡', '🌍', '⚡', '👁️', '🦶', '💨', '🌡️', '🎯', '🔬'];
     const factsHTML = animal.quickFacts
-      .map(fact => `
-        <div class="fact-card">
-          <div class="fact-card__title">Quick Fact</div>
-          <div class="fact-card__content">${fact}</div>
-        </div>
-      `)
+      .map((fact, index) => {
+        const icon = factIcons[index % factIcons.length];
+        const category = generateFactCategory(fact);
+        return `
+          <div class="fact-card">
+            <div class="fact-card__header">
+              <div class="fact-card__icon">${icon}</div>
+              <div class="fact-card__title">${category}</div>
+            </div>
+            <div class="fact-card__text">
+              <div class="fact-card__content">${fact}</div>
+            </div>
+          </div>
+        `;
+      })
       .join('');
     
     // Create ecological benefits
@@ -74,22 +106,24 @@ document.addEventListener('DOMContentLoaded', async function() {
       .join('');
     
     const images = animal.images || [animal.image];
-    const slideshowHTML = Misunderstood.createSlideshowHTML(images, animal.name);
+    const heroImage = images[0] || animal.image;
     
     contentElement.innerHTML = `
-      <div class="detail-header fade-in">
+      <div class="detail-hero">
         <div class="detail-image-container">
-          ${slideshowHTML}
+          <img src="${heroImage}" alt="${animal.name}" class="detail-hero__image">
         </div>
-        <h1>${animal.name}</h1>
-        <p class="text-center" style="color: var(--color-text-light); font-size: var(--font-size-lg);">
-          <em>${animal.scientificName}</em>
-        </p>
-        <div class="text-center mt-md">
-          <span class="badge ${badgeClass}">${Misunderstood.formatCategory(animal.category)}</span>
+        <div class="detail-hero__overlay"></div>
+        <div class="detail-hero__content">
+          <h1 class="detail-hero__title">${animal.name}</h1>
+          <p class="detail-hero__scientific-name">
+            <em>${animal.scientificName}</em>
+          </p>
+          <span class="badge ${badgeClass} detail-hero__badge">${Misunderstood.formatCategory(animal.category)}</span>
         </div>
       </div>
       
+      <div class="container">
       <section class="mb-3xl" aria-labelledby="facts-heading">
         <h2 id="facts-heading" class="mb-lg">Quick Facts</h2>
         <div class="detail-facts">
@@ -125,6 +159,7 @@ document.addEventListener('DOMContentLoaded', async function() {
       <div class="text-center mt-3xl">
         <a href="browse.html" class="btn btn--outline btn--lg">Browse All Animals</a>
       </div>
+      </div>
     `;
     
     // Setup accordions
@@ -132,14 +167,6 @@ document.addEventListener('DOMContentLoaded', async function() {
     accordions.forEach(accordion => {
       Misunderstood.setupAccordion(accordion);
     });
-    
-    // Setup slideshow
-    const slideshow = contentElement.querySelector('.slideshow');
-    if (slideshow) {
-      Misunderstood.setupDetailSlideshow(slideshow);
-      // Make slideshow focusable for keyboard navigation
-      slideshow.setAttribute('tabindex', '0');
-    }
     
     // Update page title
     document.title = `${animal.name} — Misunderstood`;

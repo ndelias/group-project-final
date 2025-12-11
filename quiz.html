@@ -6,6 +6,204 @@
   <meta name="description" content="Test your knowledge about misunderstood animals with our interactive quiz.">
   <title>Quiz — Misunderstood</title>
   <link rel="stylesheet" href="design-system/main.css">
+  <style>
+    /* Minimal styles for swipe cards on the quiz page */
+    .swipe-instructions { text-align: center; margin-top: var(--spacing-md); color: var(--color-text-light); }
+    .swipe-stack { display:flex; align-items:center; justify-content:center; min-height:400px; padding: var(--spacing-xl) 0; }
+    .swipe-card-wrapper { 
+      position:relative; 
+      display:flex; 
+      align-items:center; 
+      justify-content:center; 
+      width: 100%;
+      perspective: 1000px;
+    }
+
+    /* Card with 3D flip support */
+    .swipe-card {
+      width:100%;
+      max-width:680px;
+      height: 400px;
+      border-radius:12px;
+      box-shadow:var(--shadow-md);
+      overflow:hidden;
+      touch-action:none;
+      user-select:none;
+      will-change:transform;
+      position: relative;
+    }
+
+    .swipe-card__inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.84s;
+      transform-style: preserve-3d;
+    }
+
+    .swipe-card__inner.is-flipped {
+      transform: rotateY(180deg);
+    }
+
+    .swipe-card__front,
+    .swipe-card__back {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .swipe-card__front {
+      display: flex;
+      flex-direction: column;
+      background:linear-gradient(180deg, #f5f7fb 0%, #eef2f7 60%);
+    }
+
+    .swipe-card__back {
+      transform: rotateY(180deg);
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: var(--spacing-xl);
+    }
+
+    .swipe-card__back-content {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-lg);
+      max-width: 520px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .swipe-card__result-title {
+      font-size: var(--font-size-4xl);
+      margin: 0;
+      font-weight: var(--font-weight-bold);
+      line-height: 1.2;
+    }
+
+    .swipe-card__result-text {
+      font-size: var(--font-size-lg);
+      color: var(--color-text);
+      margin: 0;
+      line-height: var(--line-height-relaxed);
+    }
+
+    .swipe-card__next {
+      justify-self: center;
+    }
+
+    .swipe-card__image {
+      flex:1 1 60%;
+      background:linear-gradient(135deg,#e6eefb,#f7f9fc);
+      display:block;
+      min-height:180px;
+      position:relative;
+    }
+
+    .swipe-card__image::after {
+      content: "";
+      display:block;
+      width:100%;
+      height:100%;
+      background-image:linear-gradient(transparent, rgba(255,255,255,0.02));
+    }
+
+    .swipe-card__content {
+      background:#fff;
+      padding:var(--spacing-md);
+      border-top-left-radius:12px;
+      border-top-right-radius:12px;
+      box-shadow: inset 0 1px 0 rgba(0,0,0,0.02);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .swipe-card__text { 
+      font-size:var(--font-size-lg); 
+      margin:0; 
+      color:var(--color-text);
+      text-align: center;
+      width: 100%;
+    }
+
+    /* Stamp overlays - big MYTH and FACT stamps */
+    .swipe-stamp {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-15deg);
+      font-size: 5rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 20;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      transition: opacity 280ms ease-out;
+      user-select: none;
+    }
+
+    .swipe-stamp--myth {
+      color: var(--color-dangerous);
+      text-shadow: 2px 2px 8px rgba(220, 38, 38, 0.5);
+    }
+
+    .swipe-stamp--fact {
+      color: var(--color-success);
+      text-shadow: 2px 2px 8px rgba(16, 185, 129, 0.5);
+    }
+
+    .swipe-stamp.visible {
+      opacity: 0.85;
+    }
+
+    /* Background overlay for color feedback */
+    .swipe-card__front::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: transparent;
+      transition: background-color 280ms ease-out;
+      pointer-events: none;
+      z-index: 10;
+      border-radius: 12px;
+    }
+
+    .swipe-card__front.swipe-myth::before {
+      background-color: rgba(220, 38, 38, 0.15);
+    }
+
+    .swipe-card__front.swipe-fact::before {
+      background-color: rgba(16, 185, 129, 0.15);
+    }
+    /* Horizontal action buttons under the card */
+    .quiz-actions { display:flex; gap:var(--spacing-md); justify-content:center; margin-top:var(--spacing-md); }
+    .quiz-actions .quiz-option { flex:0 0 160px; max-width:160px; }
+    @media (max-width:520px) {
+      .swipe-card { height: 350px; }
+      .swipe-stamp { font-size: 3.5rem; }
+      .swipe-card__result-title { font-size: var(--font-size-3xl); }
+      .swipe-card__back { padding: var(--spacing-lg); }
+      .quiz-actions { flex-direction:column; }
+      .quiz-actions .quiz-option { flex:1 1 auto; max-width:none; }
+    }
+  </style>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦈</text></svg>">
 </head>
 <body>
@@ -18,11 +216,36 @@
           <span aria-hidden="true">☰</span>
         </button>
         <nav id="main-nav" class="main-nav" role="navigation" aria-label="Main navigation">
-          <a href="index.html" class="main-nav__link">Home</a>
-          <a href="browse.html" class="main-nav__link">Browse</a>
-          <a href="quiz.html" class="main-nav__link" aria-current="page">Quiz</a>
-          <a href="submit.html" class="main-nav__link">Submit</a>
-          <a href="about.html" class="main-nav__link">About</a>
+          <a href="index.html" class="main-nav__link">
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/>
+            </svg>
+            <span>Home</span>
+          </a>
+          <a href="browse.html" class="main-nav__link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 512 512" fill="currentColor">
+              <path d="M226.5 92.9c14.3 42.9-.3 86.2-32.6 96.8s-70.1-15.6-84.4-58.5s.3-86.2 32.6-96.8s70.1 15.6 84.4 58.5zM100.4 198.6c18.9 32.4 14.3 70.1-10.2 84.1s-59.7-.9-78.5-33.3S-2.7 179.3 21.8 165.3s59.7 .9 78.5 33.3zM69.2 401.2C121.6 259.9 214.7 224 256 224s134.4 35.9 186.8 177.2c3.6 9.7 5.2 20.1 5.2 30.5v1.6c0 25.8-20.9 46.7-46.7 46.7c-11.5 0-22.9-1.4-34-4.2l-88-22c-15.3-3.8-31.3-3.8-46.6 0l-88 22c-11.1 2.8-22.5 4.2-34 4.2C84.9 480 64 459.1 64 433.3v-1.6c0-10.4 1.6-20.8 5.2-30.5zM421.8 282.7c-24.5-14-29.1-51.7-10.2-84.1s54-47.3 78.5-33.3s29.1 51.7 10.2 84.1s-54 47.3-78.5 33.3zM310.1 189.7c-32.3-10.6-46.9-53.9-32.6-96.8s52.1-69.1 84.4-58.5s46.9 53.9 32.6 96.8s-52.1 69.1-84.4 58.5z"/>
+            </svg>
+            <span>Browse</span>
+          </a>
+          <a href="quiz.html" class="main-nav__link" aria-current="page">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.5 11H19V7c0-1.1-.9-2-2-2h-4V3.5C13 2.12 11.88 1 10.5 1S8 2.12 8 3.5V5H4c-1.1 0-1.99.9-1.99 2v3.8H3.5c1.49 0 2.7 1.21 2.7 2.7s-1.21 2.7-2.7 2.7H2V20c0 1.1.9 2 2 2h3.8v-1.5c0-1.49 1.21-2.7 2.7-2.7 1.49 0 2.7 1.21 2.7 2.7V22H17c1.1 0 2-.9 2-2v-4h1.5c1.38 0 2.5-1.12 2.5-2.5S21.88 11 20.5 11z"/>
+            </svg>
+            <span>Quiz</span>
+          </a>
+          <a href="submit.html" class="main-nav__link">
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+            </svg>
+            <span>Submit</span>
+          </a>
+          <a href="about.html" class="main-nav__link">
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+            </svg>
+            <span>About</span>
+          </a>
         </nav>
       </div>
     </div>
@@ -48,7 +271,9 @@
     <div class="container">
       <div class="quiz-container">
         <div id="quiz-progress" class="text-center mb-xl">
-          <p style="color: var(--color-text-light);">Question <span id="current-question">1</span> of <span id="total-questions">5</span></p>
+          <p style="color: var(--color-text-light);">
+            <span style="font-weight: var(--font-weight-bold); color: var(--color-primary); font-size: var(--font-size-lg);">Question <span id="current-question">1</span></span> of <span id="total-questions">5</span>
+          </p>
         </div>
         
         <div id="quiz-questions">

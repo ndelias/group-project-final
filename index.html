@@ -8,6 +8,252 @@
   <title>Misunderstood — Debunking Animal Myths</title>
   <link rel="stylesheet" href="design-system/main.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦈</text></svg>">
+  <style>
+    /* Kid-friendly styles */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background: var(--color-header-bg);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 100%;
+      background-image: url("bg-image.png"), url("bg-image.png");
+      background-repeat: repeat-x;
+      background-size: 50% 100%;
+      background-position: 0 center, 100% center;
+      animation: scroll-left 120s linear infinite;
+      z-index: 0;
+    }
+
+    @keyframes scroll-left {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--spacing-3xl);
+      align-items: center;
+      padding: var(--spacing-4xl) 0;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-lg);
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    .hero__title {
+      font-size: var(--font-size-5xl);
+      font-weight: var(--font-weight-bold);
+      line-height: 1.2;
+      margin: 0;
+      text-align: left;
+    }
+
+    .hero__subtitle {
+      font-size: var(--font-size-xl);
+      line-height: var(--line-height-relaxed);
+      margin: 0;
+      text-align: left;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: auto;
+      border-radius: var(--border-radius-xl);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .btn-pill {
+      border-radius: var(--border-radius-full);
+      padding: var(--spacing-md) var(--spacing-2xl);
+      font-size: var(--font-size-lg);
+      font-weight: var(--font-weight-bold);
+      display: inline-block;
+      text-align: center;
+    }
+
+    .mission-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--spacing-xl);
+      padding: var(--spacing-3xl) 0;
+    }
+
+    .mission-item {
+      text-align: center;
+      padding: var(--spacing-xl);
+      background: var(--color-bg);
+      border-radius: var(--border-radius-xl);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .mission-icon {
+      font-size: 4rem;
+      margin-bottom: var(--spacing-md);
+      display: block;
+    }
+
+    .mission-title {
+      font-size: var(--font-size-xl);
+      font-weight: var(--font-weight-bold);
+      margin-bottom: var(--spacing-sm);
+      color: var(--color-text);
+    }
+
+    .mission-text {
+      font-size: var(--font-size-base);
+      color: var(--color-text-light);
+      line-height: var(--line-height-relaxed);
+    }
+
+    .section-large {
+      padding: var(--spacing-4xl) 0;
+    }
+
+    .featured-section {
+      padding: var(--spacing-4xl) 0;
+    }
+
+    .featured-animals .card {
+      border-radius: var(--border-radius-xl);
+    }
+
+    .cta-simple {
+      padding: var(--spacing-4xl) 0;
+      text-align: center;
+    }
+
+    .cta-title {
+      font-size: var(--font-size-3xl);
+      font-weight: var(--font-weight-bold);
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .btn-huge {
+      font-size: var(--font-size-2xl);
+      padding: var(--spacing-lg) var(--spacing-3xl);
+      border-radius: var(--border-radius-full);
+      font-weight: var(--font-weight-bold);
+    }
+
+    /* Interactive Habitat Map */
+    .map-wrapper {
+      overflow-x: auto;
+      border-radius: var(--border-radius-xl);
+      box-shadow: var(--shadow-lg);
+      background: var(--color-bg);
+      padding: var(--spacing-md);
+    }
+
+    .map-container {
+      position: relative;
+      min-width: 800px;
+      width: 100%;
+    }
+
+    .map-image {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: var(--border-radius-md);
+    }
+
+    .map-pin {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 3px solid white;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      box-shadow: var(--shadow-md);
+      cursor: pointer;
+      transition: transform 200ms ease;
+      animation: pin-pulse 2s ease-in-out infinite;
+    }
+
+    .map-pin:hover {
+      transform: translate(-50%, -50%) scale(1.2);
+      z-index: 10;
+    }
+
+    .map-pin::after {
+      content: attr(data-name);
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      margin-bottom: var(--spacing-sm);
+      padding: var(--spacing-xs) var(--spacing-sm);
+      background: #000000;
+      color: #ffffff;
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-medium);
+      white-space: nowrap;
+      border-radius: var(--border-radius-md);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 200ms ease, transform 200ms ease;
+      transform: translateX(-50%) translateY(5px);
+    }
+
+    .map-pin:hover::after {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    @keyframes pin-pulse {
+      0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+      }
+      50% {
+        transform: translate(-50%, -50%) scale(1.1);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-split {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+        padding: var(--spacing-2xl) 0;
+      }
+
+      .hero__title {
+        font-size: var(--font-size-4xl);
+      }
+
+      .mission-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+      }
+
+      .mission-icon {
+        font-size: 3rem;
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- Site Header -->
@@ -19,11 +265,35 @@
           <span aria-hidden="true">☰</span>
         </button>
         <nav id="main-nav" class="main-nav" role="navigation" aria-label="Main navigation">
-          <a href="index.html" class="main-nav__link" aria-current="page">Home</a>
-          <a href="browse.html" class="main-nav__link">Browse</a>
-          <a href="quiz.html" class="main-nav__link">Quiz</a>
-          <a href="submit.html" class="main-nav__link">Submit</a>
-          <a href="about.html" class="main-nav__link">About</a>
+          <a href="index.html" class="main-nav__link" aria-current="page">
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 3L2 12h3v8h6v-6h2v6h6v-8h3L12 3z"/>
+            </svg>
+            <span>Home</span>
+          </a>
+          <a href="browse.html" class="main-nav__link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 512 512" fill="currentColor">
+              <path d="M226.5 92.9c14.3 42.9-.3 86.2-32.6 96.8s-70.1-15.6-84.4-58.5s.3-86.2 32.6-96.8s70.1 15.6 84.4 58.5zM100.4 198.6c18.9 32.4 14.3 70.1-10.2 84.1s-59.7-.9-78.5-33.3S-2.7 179.3 21.8 165.3s59.7 .9 78.5 33.3zM69.2 401.2C121.6 259.9 214.7 224 256 224s134.4 35.9 186.8 177.2c3.6 9.7 5.2 20.1 5.2 30.5v1.6c0 25.8-20.9 46.7-46.7 46.7c-11.5 0-22.9-1.4-34-4.2l-88-22c-15.3-3.8-31.3-3.8-46.6 0l-88 22c-11.1 2.8-22.5 4.2-34 4.2C84.9 480 64 459.1 64 433.3v-1.6c0-10.4 1.6-20.8 5.2-30.5zM421.8 282.7c-24.5-14-29.1-51.7-10.2-84.1s54-47.3 78.5-33.3s29.1 51.7 10.2 84.1s-54 47.3-78.5 33.3zM310.1 189.7c-32.3-10.6-46.9-53.9-32.6-96.8s52.1-69.1 84.4-58.5s46.9 53.9 32.6 96.8s-52.1 69.1-84.4 58.5z"/>
+            </svg>
+            <span>Browse</span>
+          </a>
+           <a href="quiz.html" class="main-nav__link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.5 11H19V7c0-1.1-.9-2-2-2h-4V3.5C13 2.12 11.88 1 10.5 1S8 2.12 8 3.5V5H4c-1.1 0-1.99.9-1.99 2v3.8H3.5c1.49 0 2.7 1.21 2.7 2.7s-1.21 2.7-2.7 2.7H2V20c0 1.1.9 2 2 2h3.8v-1.5c0-1.49 1.21-2.7 2.7-2.7 1.49 0 2.7 1.21 2.7 2.7V22H17c1.1 0 2-.9 2-2v-4h1.5c1.38 0 2.5-1.12 2.5-2.5S21.88 11 20.5 11z"/>
+            </svg>
+            <span>Quiz</span>
+          </a>          <a href="submit.html" class="main-nav__link">
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+            </svg>
+            <span>Submit</span>
+          </a>
+          <a href="about.html" class="main-nav__link">
+            <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+            </svg>
+            <span>About</span>
+          </a>
         </nav>
       </div>
     </div>
@@ -32,67 +302,53 @@
   <!-- Hero Section -->
   <section class="hero" role="banner">
     <div class="container">
-      <h1 class="hero__title">Misunderstood</h1>
-      <p class="hero__subtitle">Transforming fear into understanding, one myth at a time. Discover the truth about the world's most misunderstood animals through science-backed facts.</p>
-      <a href="browse.html" class="btn btn--outline btn--lg" style="background-color: rgba(255,255,255,0.2); color: white; border-color: white;">Explore Animals</a>
+      <div class="hero-split">
+        <div class="hero-content">
+          <h1 class="hero__title">Scary? Nope. Just Misunderstood.</h1>
+          <p class="hero__subtitle">Discover the cool truth about the animals everyone fears.</p>
+          <a href="browse.html" class="btn btn--outline btn-pill" style="background-color: rgba(255,255,255,0.2); color: white; border-color: white; align-self: flex-start;">Start Exploring</a>
+        </div>
+        <div class="hero-image-container">
+          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%2315802b'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial' font-size='32' fill='white'%3E🦈 Hero Illustration%3C/text%3E%3C/svg%3E" alt="Hero Illustration" class="hero-image">
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Featured Animals Section -->
-  <section class="section" aria-labelledby="featured-heading">
+  <section class="section featured-section" aria-labelledby="featured-heading">
     <div class="container">
-      <h2 id="featured-heading" class="text-center mb-xl">Featured Animals</h2>
-      <div class="grid grid--3" id="featured-animals">
+      <h2 id="featured-heading" class="text-center mb-xl" style="font-size: var(--font-size-3xl); font-weight: var(--font-weight-bold);">Featured Animals</h2>
+      <div class="grid grid--3 featured-animals" id="featured-animals">
         <!-- Animals will be loaded here by JavaScript -->
         <div class="loading">
           <div class="spinner"></div>
         </div>
       </div>
       <div class="text-center mt-xl">
-        <a href="browse.html" class="btn btn--primary btn--lg">View All Animals</a>
+        <a href="browse.html" class="btn btn--primary btn--lg" style="border-radius: var(--border-radius-xl);">View All Animals</a>
       </div>
     </div>
   </section>
 
-  <!-- Mission Section -->
-  <section class="section section--sm" style="background-color: var(--color-bg-alt);" aria-labelledby="mission-heading">
+  <!-- Interactive Habitat Map Section -->
+  <section id="habitat-map" class="section section-large" aria-labelledby="habitat-heading">
     <div class="container">
-      <div class="text-center" style="max-width: 800px; margin: 0 auto;">
-        <h2 id="mission-heading" class="mb-lg">Our Mission</h2>
-        <p class="mb-md" style="font-size: var(--font-size-lg);">
-          This project reframes the world's "most hated" animals through science-backed facts. Instead of fear or stigma, we highlight ecological benefits and clear up common myths.
-        </p>
-        <p class="mb-md">
-          <strong>Our goals:</strong>
-        </p>
-        <ul style="text-align: left; max-width: 600px; margin: 0 auto; list-style: none;">
-          <li style="padding: var(--spacing-sm) 0; padding-left: var(--spacing-xl); position: relative;">
-            <span style="position: absolute; left: 0; color: var(--color-success); font-weight: bold;">✓</span>
-            Debunk persistent myths about commonly feared animals
-          </li>
-          <li style="padding: var(--spacing-sm) 0; padding-left: var(--spacing-xl); position: relative;">
-            <span style="position: absolute; left: 0; color: var(--color-success); font-weight: bold;">✓</span>
-            Teach credible interpretation of wildlife facts and sources
-          </li>
-          <li style="padding: var(--spacing-sm) 0; padding-left: var(--spacing-xl); position: relative;">
-            <span style="position: absolute; left: 0; color: var(--color-success); font-weight: bold;">✓</span>
-            Model responsible source attribution and fact-checking
-          </li>
-        </ul>
+      <h2 id="habitat-heading" class="text-center mb-xl" style="font-size: var(--font-size-3xl); font-weight: var(--font-weight-bold);">Explore Habitats</h2>
+      <div class="map-wrapper">
+        <div class="map-container">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg" alt="World Habitat Map" class="map-image">
+          <!-- Map pins will be dynamically rendered by JavaScript from animals.json -->
+        </div>
       </div>
     </div>
   </section>
 
   <!-- CTA Section -->
-  <section class="section" aria-labelledby="cta-heading">
+  <section class="section cta-simple" aria-labelledby="cta-heading">
     <div class="container">
-      <div class="text-center">
-        <h2 id="cta-heading" class="mb-lg">Test Your Knowledge</h2>
-        <p class="mb-xl" style="font-size: var(--font-size-lg); color: var(--color-text-light);">
-          Think you know the facts? Take our 5-question quiz to separate myth from reality.
-        </p>
-        <a href="quiz.html" class="btn btn--secondary btn--lg">Take the Quiz</a>
-      </div>
+      <h2 id="cta-heading" class="cta-title">Ready to play?</h2>
+      <a href="quiz.html" class="btn btn--secondary btn-huge">Start Quiz</a>
     </div>
   </section>
 

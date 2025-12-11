@@ -4,6 +4,7 @@
     "name": "Great White Shark",
     "scientificName": "Carcharodon carcharias",
     "category": "dangerous",
+    "location": { "top": "75%", "left": "82%" },
     "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%232563eb'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-size='48' fill='white'%3EShark%3C/text%3E%3C/svg%3E",
     "images": [
       "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%232563eb'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-size='48' fill='white'%3EShark%3C/text%3E%3C/svg%3E",
@@ -44,6 +45,7 @@
     "name": "Little Brown Bat",
     "scientificName": "Myotis lucifugus",
     "category": "dirty-diseased",
+    "location": { "top": "28%", "left": "22%" },
     "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%23057857'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-size='48' fill='white'%3EBat%3C/text%3E%3C/svg%3E",
     "images": [
       "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%23057857'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-size='48' fill='white'%3EBat%3C/text%3E%3C/svg%3E",
@@ -84,6 +86,7 @@
     "name": "Gray Wolf",
     "scientificName": "Canis lupus",
     "category": "dangerous",
+    "location": { "top": "22%", "left": "15%" },
     "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%238b7355'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-size='48' fill='white'%3EWolf%3C/text%3E%3C/svg%3E",
     "images": [
       "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%238b7355'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-size='48' fill='white'%3EWolf%3C/text%3E%3C/svg%3E",
@@ -124,6 +127,7 @@
     "name": "Turkey Vulture",
     "scientificName": "Cathartes aura",
     "category": "dirty-diseased",
+    "location": { "top": "35%", "left": "18%" },
     "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%23b45309'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-size='48' fill='white'%3EVulture%3C/text%3E%3C/svg%3E",
     "images": [
       "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%23b45309'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-size='48' fill='white'%3EVulture%3C/text%3E%3C/svg%3E",
@@ -164,6 +168,7 @@
     "name": "Virginia Opossum",
     "scientificName": "Didelphis virginiana",
     "category": "dirty-diseased",
+    "location": { "top": "32%", "left": "24%" },
     "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%237b341e'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-size='48' fill='white'%3EOpossum%3C/text%3E%3C/svg%3E",
     "images": [
       "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%237b341e'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-size='48' fill='white'%3EOpossum%3C/text%3E%3C/svg%3E",
@@ -204,6 +209,7 @@
     "name": "House Spider",
     "scientificName": "Parasteatoda tepidariorum",
     "category": "dangerous",
+    "location": { "top": "25%", "left": "48%" },
     "image": "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%238b5cf6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-size='48' fill='white'%3ESpider%3C/text%3E%3C/svg%3E",
     "images": [
       "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%238b5cf6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia' font-size='48' fill='white'%3ESpider%3C/text%3E%3C/svg%3E",
