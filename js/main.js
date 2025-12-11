@@ -416,3 +416,58 @@ window.Misunderstood = {
   setupAccordion,
   createAccordion
 };
+
+// Animal emoji cursor trail effect
+(function() {
+  const animalEmojis = ['🦈', '🦇', '🐺', '🦅', '🐀', '🕷️', '🦛', '🐍', '🦎', '🦂', '🐊', '🦔'];
+  let lastTrailTime = 0;
+  const trailDelay = 50; // Minimum ms between trail elements
+
+  function createTrailEmoji(x, y) {
+    const emoji = document.createElement('span');
+    emoji.className = 'cursor-trail-emoji';
+    emoji.textContent = animalEmojis[Math.floor(Math.random() * animalEmojis.length)];
+    emoji.style.left = x + 'px';
+    emoji.style.top = y + 'px';
+    document.body.appendChild(emoji);
+
+    // Remove after animation completes
+    setTimeout(() => {
+      emoji.remove();
+    }, 1000);
+  }
+
+  document.addEventListener('mousemove', function(e) {
+    const now = Date.now();
+    if (now - lastTrailTime < trailDelay) return;
+    lastTrailTime = now;
+
+    createTrailEmoji(e.pageX, e.pageY);
+  });
+
+  // Add CSS for the trail effect
+  const style = document.createElement('style');
+  style.textContent = `
+    .cursor-trail-emoji {
+      position: absolute;
+      pointer-events: none;
+      font-size: 1.5rem;
+      z-index: 9999;
+      animation: cursorTrailFade 1s ease-out forwards;
+      transform: translate(-50%, -50%);
+      user-select: none;
+    }
+
+    @keyframes cursorTrailFade {
+      0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1) rotate(0deg);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(-50%, -100%) scale(0.5) rotate(45deg);
+      }
+    }
+  `;
+  document.head.appendChild(style);
+})();
