@@ -294,7 +294,7 @@ const CardCollection = {
   },
 
   launchCardConfetti() {
-    const colors = ['#FFD700', '#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEAA7', '#DDA0DD', '#98D8C8'];
+    const colors = ['#f2c14e', '#6b8c42', '#15802b', '#f2ebd3', '#96CEB4', '#d4c9b0', '#2d5a3d', '#f5f0e6'];
     const confettiCount = 150;
 
     for (let i = 0; i < confettiCount; i++) {
@@ -497,9 +497,9 @@ const CardCollection = {
     }
 
     .card-unlock-modal__header h2 {
-      color: #FFD700;
+      color: #f2ebd3;
       font-size: 1.8rem;
-      text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+      text-shadow: 0 0 20px rgba(21, 128, 43, 0.5);
       margin: 0;
     }
 
@@ -521,7 +521,7 @@ const CardCollection = {
     }
 
     .card-unlock-modal__message {
-      color: #4ECDC4;
+      color: #6b8c42;
       font-size: 1.1rem;
       margin-bottom: 1.5rem;
     }
@@ -571,7 +571,7 @@ const CardCollection = {
       backface-visibility: hidden;
       border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(255, 215, 0, 0.3);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(21, 128, 43, 0.3);
     }
 
     .collectible-card__front {
@@ -599,7 +599,7 @@ const CardCollection = {
 
     /* Collection Gallery */
     .card-collection {
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      background: linear-gradient(135deg, #1a472a 0%, #2d5a3d 100%);
       border-radius: var(--border-radius-xl);
       padding: var(--spacing-xl);
       margin: var(--spacing-xl) 0;
@@ -613,13 +613,13 @@ const CardCollection = {
     }
 
     .card-collection__title {
-      color: #FFD700;
+      color: #f2ebd3;
       font-size: var(--font-size-xl);
       margin: 0;
     }
 
     .card-collection__count {
-      color: #4ECDC4;
+      color: #f2ebd3;
       font-weight: bold;
     }
 
@@ -633,7 +633,7 @@ const CardCollection = {
 
     .card-collection__progress-bar {
       height: 100%;
-      background: linear-gradient(90deg, #FFD700 0%, #FFA500 100%);
+      background: linear-gradient(90deg, #6b8c42 0%, #15802b 100%);
       border-radius: var(--border-radius-full);
       transition: width 0.5s ease;
     }
@@ -700,7 +700,7 @@ const CardCollection = {
     }
 
     .card-collection__complete {
-      color: #FFD700;
+      color: #6b8c42;
       font-weight: bold;
     }
 
@@ -801,7 +801,7 @@ const CardCollection = {
       backface-visibility: hidden;
       border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5), 0 0 40px rgba(255, 215, 0, 0.2);
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5), 0 0 40px rgba(21, 128, 43, 0.2);
     }
 
     .card-viewer__back {
@@ -816,11 +816,11 @@ const CardCollection = {
     }
 
     .card-viewer__name {
-      color: #FFD700;
+      color: #f2ebd3;
       font-size: 1.8rem;
       font-weight: bold;
       margin: 0.5rem 0 0;
-      text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+      text-shadow: 0 0 20px rgba(21, 128, 43, 0.5);
     }
 
     .card-viewer__hint {
@@ -884,7 +884,7 @@ const CardCollection = {
 
     .progress-tracker__fill {
       height: 100%;
-      background: linear-gradient(90deg, #10b981 0%, #059669 100%);
+      background: linear-gradient(90deg, #6b8c42 0%, #15802b 100%);
       border-radius: var(--border-radius-full);
       transition: width 0.5s ease;
     }
@@ -951,10 +951,11 @@ const CardCollection = {
 
     /* Badge Gallery Styles */
     .badge-gallery {
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      background: linear-gradient(135deg, #f5f0e6 0%, #f2ebd3 100%);
       border-radius: var(--border-radius-xl);
       padding: var(--spacing-xl);
       margin: var(--spacing-xl) 0;
+      border: 2px solid #d4c9b0;
     }
 
     .badge-gallery__header {
@@ -965,19 +966,19 @@ const CardCollection = {
     }
 
     .badge-gallery__title {
-      color: #fbbf24;
+      color: #15802b;
       font-size: var(--font-size-xl);
       margin: 0;
     }
 
     .badge-gallery__count {
-      color: #4ECDC4;
+      color: #6b8c42;
       font-weight: bold;
     }
 
     .badge-gallery__progress {
       height: 8px;
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(0, 0, 0, 0.1);
       border-radius: var(--border-radius-full);
       margin-bottom: var(--spacing-lg);
       overflow: hidden;
@@ -985,7 +986,7 @@ const CardCollection = {
 
     .badge-gallery__progress-bar {
       height: 100%;
-      background: linear-gradient(90deg, #fbbf24 0%, #f59e0b 100%);
+      background: linear-gradient(90deg, #6b8c42 0%, #15802b 100%);
       border-radius: var(--border-radius-full);
       transition: width 0.5s ease;
     }
@@ -997,23 +998,24 @@ const CardCollection = {
     }
 
     .badge-card {
-      background: rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.7);
       border-radius: var(--border-radius-lg);
       padding: var(--spacing-lg);
       display: flex;
       align-items: center;
       gap: var(--spacing-md);
       transition: transform 0.3s ease, background 0.3s ease;
+      border: 1px solid #d4c9b0;
     }
 
     .badge-card.earned {
-      background: rgba(251, 191, 36, 0.1);
-      border: 2px solid rgba(251, 191, 36, 0.3);
+      background: rgba(21, 128, 43, 0.1);
+      border: 2px solid rgba(21, 128, 43, 0.4);
     }
 
     .badge-card.earned:hover {
       transform: translateY(-3px);
-      background: rgba(251, 191, 36, 0.15);
+      background: rgba(21, 128, 43, 0.15);
     }
 
     .badge-card.locked {
@@ -1045,23 +1047,23 @@ const CardCollection = {
     }
 
     .badge-card__name {
-      color: white;
+      color: #1f2937;
       font-size: var(--font-size-lg);
       margin: 0 0 var(--spacing-xs) 0;
     }
 
     .badge-card.earned .badge-card__name {
-      color: #fbbf24;
+      color: #15802b;
     }
 
     .badge-card__description {
-      color: rgba(255, 255, 255, 0.7);
+      color: #6b7280;
       font-size: var(--font-size-sm);
       margin: 0;
     }
 
     .badge-card__requirement {
-      color: rgba(78, 205, 196, 0.8);
+      color: #6b8c42;
       font-size: var(--font-size-xs);
       margin: var(--spacing-xs) 0 0 0;
       font-style: italic;
@@ -1071,17 +1073,17 @@ const CardCollection = {
     .badge-gallery__complete {
       text-align: center;
       margin-top: var(--spacing-lg);
-      color: rgba(255, 255, 255, 0.7);
+      color: #6b7280;
     }
 
     .badge-gallery__complete {
-      color: #fbbf24;
+      color: #15802b;
       font-weight: bold;
     }
 
     /* Collection Page Hero */
     .collection-hero {
-      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      background: linear-gradient(135deg, #15802b 0%, #1a472a 50%, #2d5a3d 100%);
       padding: var(--spacing-3xl) 0;
       text-align: center;
       position: relative;
@@ -1096,22 +1098,22 @@ const CardCollection = {
       right: 0;
       bottom: 0;
       background-image:
-        radial-gradient(circle at 20% 30%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 70%, rgba(78, 205, 196, 0.1) 0%, transparent 50%);
+        radial-gradient(circle at 20% 30%, rgba(242, 235, 211, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(107, 140, 66, 0.15) 0%, transparent 50%);
       pointer-events: none;
     }
 
     .collection-hero__title {
-      color: #FFD700;
+      color: #f2ebd3;
       font-size: 3rem;
       margin: 0 0 var(--spacing-md) 0;
-      text-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+      text-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
       position: relative;
       z-index: 1;
     }
 
     .collection-hero__subtitle {
-      color: rgba(255, 255, 255, 0.8);
+      color: rgba(255, 255, 255, 0.9);
       font-size: var(--font-size-lg);
       margin: 0;
       max-width: 600px;
