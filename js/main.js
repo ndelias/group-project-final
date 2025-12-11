@@ -1104,7 +1104,7 @@ const CardCollection = {
     }
 
     .collection-hero__title {
-      color: #f2ebd3;
+      color: white;
       font-size: 3rem;
       margin: 0 0 var(--spacing-md) 0;
       text-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
@@ -1113,7 +1113,7 @@ const CardCollection = {
     }
 
     .collection-hero__subtitle {
-      color: rgba(255, 255, 255, 0.9);
+      color: white;
       font-size: var(--font-size-lg);
       margin: 0;
       max-width: 600px;

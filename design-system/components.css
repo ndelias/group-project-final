@@ -494,14 +494,14 @@
 
 /* ===========================================
    HERO
-   Soft tan banner with green wash
+   Dark green banner with white text
    =========================================== */
 .hero {
-  background: linear-gradient(180deg, var(--parchment) 0%, var(--sand) 100%);
+  background: linear-gradient(180deg, var(--olive) 0%, var(--pine) 100%);
   border: var(--border-thick) solid var(--pine);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-1);
-  color: var(--ink);
+  color: white;
   padding: var(--spacing-4xl) 0;
   text-align: center;
 }
@@ -509,17 +509,17 @@
 .hero__title {
   font-size: var(--font-size-5xl);
   margin-bottom: var(--spacing-lg);
-  color: var(--pine);
+  color: white;
 }
 
 .hero__subtitle {
   font-size: var(--font-size-xl);
   margin-bottom: var(--spacing-xl);
-  opacity: 0.9;
+  opacity: 0.95;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
-  color: var(--ink);
+  color: white;
 }
 
 /* ===========================================
