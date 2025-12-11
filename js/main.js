@@ -2,6 +2,250 @@
  * Main JavaScript - Shared functionality
  */
 
+// ========================================
+// Progress & Badge Tracking System
+// ========================================
+const ProgressTracker = {
+  STORAGE_KEY: 'misunderstood_progress',
+
+  getProgress() {
+    const stored = localStorage.getItem(this.STORAGE_KEY);
+    return stored ? JSON.parse(stored) : {
+      visitedAnimals: [],
+      quizCompleted: false,
+      quizScore: 0,
+      totalQuizQuestions: 0,
+      badges: []
+    };
+  },
+
+  saveProgress(progress) {
+    localStorage.setItem(this.STORAGE_KEY, JSON.stringify(progress));
+  },
+
+  visitAnimal(animalId) {
+    const progress = this.getProgress();
+    if (!progress.visitedAnimals.includes(animalId)) {
+      progress.visitedAnimals.push(animalId);
+      this.saveProgress(progress);
+      this.checkBadges(progress);
+    }
+    return progress;
+  },
+
+  completeQuiz(score, total) {
+    const progress = this.getProgress();
+    progress.quizCompleted = true;
+    progress.quizScore = Math.max(progress.quizScore, score);
+    progress.totalQuizQuestions = total;
+    this.saveProgress(progress);
+    this.checkBadges(progress);
+    return progress;
+  },
+
+  checkBadges(progress) {
+    const newBadges = [];
+
+    // Explorer badges
+    if (progress.visitedAnimals.length >= 1 && !progress.badges.includes('first_discovery')) {
+      progress.badges.push('first_discovery');
+      newBadges.push({ id: 'first_discovery', name: 'First Discovery!', emoji: '🔍', description: 'You met your first animal!' });
+    }
+    if (progress.visitedAnimals.length >= 5 && !progress.badges.includes('curious_explorer')) {
+      progress.badges.push('curious_explorer');
+      newBadges.push({ id: 'curious_explorer', name: 'Curious Explorer', emoji: '🧭', description: 'You\'ve met 5 animals!' });
+    }
+    if (progress.visitedAnimals.length >= 9 && !progress.badges.includes('animal_expert')) {
+      progress.badges.push('animal_expert');
+      newBadges.push({ id: 'animal_expert', name: 'Animal Expert', emoji: '🏆', description: 'You\'ve met ALL the animals!' });
+    }
+
+    // Quiz badges
+    if (progress.quizCompleted && !progress.badges.includes('quiz_taker')) {
+      progress.badges.push('quiz_taker');
+      newBadges.push({ id: 'quiz_taker', name: 'Quiz Champion', emoji: '🎯', description: 'You completed the quiz!' });
+    }
+    if (progress.quizScore === progress.totalQuizQuestions && progress.totalQuizQuestions > 0 && !progress.badges.includes('myth_buster')) {
+      progress.badges.push('myth_buster');
+      newBadges.push({ id: 'myth_buster', name: 'Myth Buster Master', emoji: '💥', description: 'Perfect quiz score!' });
+    }
+
+    if (newBadges.length > 0) {
+      this.saveProgress(progress);
+      this.showBadgeNotification(newBadges[0]);
+    }
+
+    return newBadges;
+  },
+
+  showBadgeNotification(badge) {
+    const notification = document.createElement('div');
+    notification.className = 'badge-notification';
+    notification.innerHTML = `
+      <div class="badge-notification__content">
+        <span class="badge-notification__emoji">${badge.emoji}</span>
+        <div class="badge-notification__text">
+          <strong>New Badge Unlocked!</strong>
+          <span>${badge.name}</span>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(notification);
+
+    // Animate in
+    setTimeout(() => notification.classList.add('show'), 100);
+
+    // Remove after 4 seconds
+    setTimeout(() => {
+      notification.classList.remove('show');
+      setTimeout(() => notification.remove(), 300);
+    }, 4000);
+  },
+
+  getBadgeInfo(badgeId) {
+    const badges = {
+      'first_discovery': { name: 'First Discovery!', emoji: '🔍', description: 'Met your first animal' },
+      'curious_explorer': { name: 'Curious Explorer', emoji: '🧭', description: 'Met 5 animals' },
+      'animal_expert': { name: 'Animal Expert', emoji: '🏆', description: 'Met all 9 animals' },
+      'quiz_taker': { name: 'Quiz Champion', emoji: '🎯', description: 'Completed the quiz' },
+      'myth_buster': { name: 'Myth Buster Master', emoji: '💥', description: 'Perfect quiz score' }
+    };
+    return badges[badgeId] || null;
+  },
+
+  renderProgressBar(totalAnimals = 9) {
+    const progress = this.getProgress();
+    const visited = progress.visitedAnimals.length;
+    const percentage = Math.round((visited / totalAnimals) * 100);
+
+    return `
+      <div class="progress-tracker">
+        <div class="progress-tracker__header">
+          <span class="progress-tracker__label">Your Progress</span>
+          <span class="progress-tracker__count">${visited} of ${totalAnimals} animals</span>
+        </div>
+        <div class="progress-tracker__bar">
+          <div class="progress-tracker__fill" style="width: ${percentage}%"></div>
+        </div>
+        ${progress.badges.length > 0 ? `
+          <div class="progress-tracker__badges">
+            ${progress.badges.map(b => {
+              const info = this.getBadgeInfo(b);
+              return info ? `<span class="progress-tracker__badge" title="${info.description}">${info.emoji}</span>` : '';
+            }).join('')}
+          </div>
+        ` : '<p class="progress-tracker__hint">Visit animals to earn badges! 🏅</p>'}
+      </div>
+    `;
+  }
+};
+
+// Add CSS for progress tracker and badge notifications
+(function() {
+  const style = document.createElement('style');
+  style.textContent = `
+    .progress-tracker {
+      background: var(--color-bg-alt);
+      border-radius: var(--border-radius-xl);
+      padding: var(--spacing-lg);
+      margin-bottom: var(--spacing-xl);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .progress-tracker__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--spacing-sm);
+    }
+
+    .progress-tracker__label {
+      font-weight: var(--font-weight-bold);
+      font-size: var(--font-size-lg);
+    }
+
+    .progress-tracker__count {
+      color: var(--color-text-light);
+      font-size: var(--font-size-sm);
+    }
+
+    .progress-tracker__bar {
+      height: 12px;
+      background: var(--color-border);
+      border-radius: var(--border-radius-full);
+      overflow: hidden;
+    }
+
+    .progress-tracker__fill {
+      height: 100%;
+      background: linear-gradient(90deg, #10b981 0%, #059669 100%);
+      border-radius: var(--border-radius-full);
+      transition: width 0.5s ease;
+    }
+
+    .progress-tracker__badges {
+      display: flex;
+      gap: var(--spacing-sm);
+      margin-top: var(--spacing-md);
+      flex-wrap: wrap;
+    }
+
+    .progress-tracker__badge {
+      font-size: 1.5rem;
+      cursor: help;
+    }
+
+    .progress-tracker__hint {
+      color: var(--color-text-light);
+      font-size: var(--font-size-sm);
+      margin: var(--spacing-sm) 0 0 0;
+    }
+
+    .badge-notification {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+      color: #78350f;
+      padding: var(--spacing-md) var(--spacing-lg);
+      border-radius: var(--border-radius-xl);
+      box-shadow: var(--shadow-lg);
+      z-index: 10000;
+      transform: translateX(120%);
+      transition: transform 0.3s ease;
+    }
+
+    .badge-notification.show {
+      transform: translateX(0);
+    }
+
+    .badge-notification__content {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-md);
+    }
+
+    .badge-notification__emoji {
+      font-size: 2rem;
+    }
+
+    .badge-notification__text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .badge-notification__text strong {
+      font-size: var(--font-size-sm);
+    }
+
+    .badge-notification__text span {
+      font-size: var(--font-size-lg);
+      font-weight: var(--font-weight-bold);
+    }
+  `;
+  document.head.appendChild(style);
+})();
+
 // Mobile navigation toggle
 document.addEventListener('DOMContentLoaded', function() {
   const navToggle = document.querySelector('.nav-toggle');

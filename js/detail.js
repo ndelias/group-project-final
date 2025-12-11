@@ -22,7 +22,12 @@ document.addEventListener('DOMContentLoaded', async function() {
     }
     
     renderAnimalDetail(animal);
-    
+
+    // Track this animal visit for progress
+    if (typeof ProgressTracker !== 'undefined') {
+      ProgressTracker.visitAnimal(animal.id);
+    }
+
   } catch (error) {
     console.error('Error loading animal:', error);
     showNotFound();
@@ -89,10 +94,22 @@ document.addEventListener('DOMContentLoaded', async function() {
       })
       .join('');
     
-    // Create ecological benefits
-    const benefitsHTML = animal.ecologicalBenefits
+    // Create how they help section (was ecologicalBenefits)
+    const helpItems = animal.howTheyHelp || animal.ecologicalBenefits || [];
+    const benefitsHTML = helpItems
       .map(benefit => `<li class="impact-list__item">${benefit}</li>`)
       .join('');
+
+    // Create fun fact callout
+    const funFactHTML = animal.funFact ? `
+      <div class="fun-fact-callout">
+        <span class="fun-fact-callout__emoji">🤯</span>
+        <div class="fun-fact-callout__content">
+          <strong>Mind-Blowing Fact!</strong>
+          <p>${animal.funFact}</p>
+        </div>
+      </div>
+    ` : '';
     
     // Create sources
     const sourcesHTML = animal.sources
@@ -124,40 +141,42 @@ document.addEventListener('DOMContentLoaded', async function() {
       </div>
       
       <div class="container">
+      ${funFactHTML}
+
       <section class="mb-3xl" aria-labelledby="facts-heading">
-        <h2 id="facts-heading" class="mb-lg">Quick Facts</h2>
+        <h2 id="facts-heading" class="mb-lg">Cool Facts! 📚</h2>
         <div class="detail-facts">
           ${factsHTML}
         </div>
       </section>
-      
+
       <section class="impact-section mb-3xl" aria-labelledby="benefits-heading">
-        <h2 id="benefits-heading" class="mb-lg">Ecological Benefits</h2>
+        <h2 id="benefits-heading" class="mb-lg">How They Help Us 🌍</h2>
         <ul class="impact-list">
           ${benefitsHTML}
         </ul>
       </section>
-      
+
       <section class="mb-3xl" aria-labelledby="myths-heading">
-        <h2 id="myths-heading" class="mb-lg">Myths vs Facts</h2>
+        <h2 id="myths-heading" class="mb-lg">Myth Busters! 💥</h2>
         <p class="mb-lg" style="color: var(--color-text-light);">
-          Click on each myth to reveal the scientific fact that debunks it.
+          Think you know the truth? Tap each myth to reveal what's really going on!
         </p>
         ${mythsHTML}
       </section>
-      
+
       <section class="sources-section" id="sources" aria-labelledby="sources-heading">
-        <h2 id="sources-heading" class="mb-lg">Sources</h2>
+        <h2 id="sources-heading" class="mb-lg">Want to Learn More? 🔍</h2>
         <p class="mb-md" style="color: var(--color-text-light);">
-          All information on this page is backed by credible scientific sources.
+          Check out these awesome resources to become an even bigger expert!
         </p>
         <ul class="sources-list">
           ${sourcesHTML}
         </ul>
       </section>
-      
+
       <div class="text-center mt-3xl">
-        <a href="browse.html" class="btn btn--outline btn--lg">Browse All Animals</a>
+        <a href="browse.html" class="btn btn--outline btn--lg">← Back to All Animals</a>
       </div>
       </div>
     `;

@@ -1,27 +1,56 @@
 [
   {
-    "question": "Sharks actively seek out humans as prey.",
+    "question": "Sharks love to hunt and eat humans.",
     "answer": "myth",
-    "explanation": "Humans are not natural prey. Most shark bites are cases of mistaken identity and sharks quickly swim away."
+    "explanation": "Nope! Sharks don't even like how we taste! When sharks bite people, it's usually because they thought we were a seal. Oops! Once they realize their mistake, they swim away fast.",
+    "animal": "shark"
   },
   {
-    "question": "Bats are essential pollinators and pest controllers.",
+    "question": "Bats eat thousands of bugs every single night.",
     "answer": "fact",
-    "explanation": "Many bats pollinate night-blooming plants and each bat can eat thousands of insects in a single night."
+    "explanation": "Yep, it's true! One little bat can eat over 1,000 mosquitoes in just ONE hour. They're like flying bug vacuums! Without bats, we'd have way more itchy mosquito bites.",
+    "animal": "bat"
   },
   {
-    "question": "House spiders usually pose little danger to people.",
+    "question": "House spiders are super dangerous to people.",
+    "answer": "myth",
+    "explanation": "Most house spiders are totally harmless! Their venom is way too weak to hurt humans. They're actually scared of YOU and just want to be left alone to catch flies.",
+    "animal": "spider"
+  },
+  {
+    "question": "Vultures help stop diseases from spreading.",
     "answer": "fact",
-    "explanation": "Most house spiders avoid humans and have venom too weak to cause medical issues for healthy adults."
+    "explanation": "Vultures are like nature's cleanup crew! Their super-strong stomach acid destroys germs that would make other animals sick. They actually STOP diseases, not spread them!",
+    "animal": "vulture"
   },
   {
-    "question": "Vultures spread disease when they eat carrion.",
+    "question": "Wolves attack people all the time.",
     "answer": "myth",
-    "explanation": "Their powerful stomach acids kill harmful bacteria, helping prevent the spread of disease in ecosystems."
+    "explanation": "Wild wolves are super shy around people! Wolf attacks on humans are incredibly rare. Wolves would much rather run away from you than come anywhere near you.",
+    "animal": "wolf"
   },
   {
-    "question": "Wolves commonly attack humans in the wild.",
+    "question": "Opossums eat thousands of ticks every year.",
+    "answer": "fact",
+    "explanation": "Opossums are tick-eating machines! They can gobble up 5,000 ticks per year, which helps protect people and pets from Lyme disease. Thanks, opossums!",
+    "animal": "opossum"
+  },
+  {
+    "question": "Hyenas only steal food from other animals.",
     "answer": "myth",
-    "explanation": "Wild wolves avoid people and verified attacks are extremely rare; they prefer to hunt their natural prey."
+    "explanation": "Plot twist! Hyenas are actually amazing hunters. They catch up to 95% of their own food! Lions actually steal from THEM more often than the other way around.",
+    "animal": "hyena"
+  },
+  {
+    "question": "Rats can learn their names and come when called.",
+    "answer": "fact",
+    "explanation": "Rats are super smart! Pet rats can learn tricks, solve puzzles, and yes - come running when you call their name, just like dogs do!",
+    "animal": "rat"
+  },
+  {
+    "question": "Snakes are slimy and wet to touch.",
+    "answer": "myth",
+    "explanation": "Snake skin is actually completely dry and smooth - kind of like leather! They might look slimy, but they're not at all. Pretty cool, right?",
+    "animal": "snake"
   }
 ]

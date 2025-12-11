@@ -835,3 +835,68 @@
   .card { padding: var(--spacing-md); }
   .quiz-question { padding: var(--spacing-md); }
 }
+
+/* Fun Fact Callout */
+.fun-fact-callout {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  border: 2px solid #f59e0b;
+  border-radius: var(--border-radius-xl);
+  padding: var(--spacing-lg);
+  margin: var(--spacing-xl) 0 var(--spacing-2xl) 0;
+  box-shadow: var(--shadow-md);
+}
+
+.fun-fact-callout__emoji {
+  font-size: 2.5rem;
+  flex-shrink: 0;
+}
+
+.fun-fact-callout__content {
+  flex: 1;
+}
+
+.fun-fact-callout__content strong {
+  display: block;
+  font-size: var(--font-size-lg);
+  color: #92400e;
+  margin-bottom: var(--spacing-xs);
+}
+
+.fun-fact-callout__content p {
+  margin: 0;
+  font-size: var(--font-size-base);
+  color: #78350f;
+  line-height: var(--line-height-relaxed);
+}
+
+/* Quiz Card Animal Image */
+.swipe-card__image {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+  background: var(--color-bg-alt);
+}
+
+.swipe-card__animal-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.swipe-card__animal-name {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  color: white;
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  text-align: center;
+}

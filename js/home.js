@@ -5,9 +5,48 @@
 document.addEventListener('DOMContentLoaded', async function() {
   const featuredContainer = document.getElementById('featured-animals');
   const mapContainer = document.querySelector('.map-container');
-  
+  const heroSlideshow = document.getElementById('hero-slideshow');
+  const progressContainer = document.getElementById('progress-container');
+
   try {
     const animals = await Misunderstood.fetchAnimals();
+
+    // Render progress tracker
+    if (progressContainer && typeof ProgressTracker !== 'undefined') {
+      progressContainer.innerHTML = ProgressTracker.renderProgressBar(animals.length);
+    }
+
+    // Render hero slideshow with one image per animal
+    if (heroSlideshow && animals.length > 0) {
+      // Create slideshow images
+      const slideshowHTML = animals.map((animal, index) => `
+        <img
+          src="${animal.image}"
+          alt="${animal.name}"
+          class="hero-slideshow__image ${index === 0 ? 'active' : ''}"
+          data-name="${animal.name}"
+          loading="${index === 0 ? 'eager' : 'lazy'}"
+        >
+      `).join('');
+
+      heroSlideshow.innerHTML = slideshowHTML + `
+        <div class="hero-slideshow__caption" id="hero-caption">${animals[0].name}</div>
+      `;
+
+      // Auto-advance slideshow
+      const images = heroSlideshow.querySelectorAll('.hero-slideshow__image');
+      const caption = document.getElementById('hero-caption');
+      let currentIndex = 0;
+
+      setInterval(() => {
+        images[currentIndex].classList.remove('active');
+        currentIndex = (currentIndex + 1) % images.length;
+        images[currentIndex].classList.add('active');
+        if (caption) {
+          caption.textContent = images[currentIndex].dataset.name;
+        }
+      }, 3000); // Change every 3 seconds
+    }
     
     // Render featured animals
     if (featuredContainer) {

@@ -14,24 +14,25 @@
       "images/sharks/WEF_7206181_2.jpg"
     ],
     "quickFacts": [
-      "Humans are not part of a shark's diet; most bites are cases of mistaken identity.",
-      "Sharks help keep ocean food webs in balance by preying on sick or weak animals.",
-      "Overfishing threatens many shark species more than sharks threaten people."
+      "Sharks don't actually like how humans taste! When they bite, it's usually a case of mistaken identity - oops!",
+      "Sharks are like ocean doctors - they keep fish families healthy by catching sick or weak fish.",
+      "Here's a twist: sharks are more scared of us! Humans catch way more sharks than sharks ever bite humans."
     ],
-    "ecologicalBenefits": [
-      "Maintain healthy fish populations by removing weak and sick individuals.",
-      "Prevent mid-level predators from overwhelming coral reefs and seagrass beds."
+    "howTheyHelp": [
+      "They keep the ocean balanced by being the top predator - without them, too many fish would eat all the coral!",
+      "Sharks have been around since before the dinosaurs. They're living fossils!"
     ],
     "myths": [
       {
-        "myth": "Sharks actively hunt humans.",
-        "fact": "Humans are not prey. Most bites occur because a shark mistakes a surfer or swimmer for a seal and quickly lets go."
+        "myth": "Sharks hunt humans on purpose.",
+        "fact": "Nope! Sharks think surfers look like seals from below. Once they realize their mistake, they swim away super fast!"
       },
       {
-        "myth": "Killing sharks makes beaches safer.",
-        "fact": "Culls remove key predators, harm ecosystems, and do not measurably reduce risk. Education and smart beach practices work better."
+        "myth": "Getting rid of sharks makes swimming safer.",
+        "fact": "Actually, we need sharks! Without them, the whole ocean gets out of whack. Learning about sharks keeps us safer than fear does!"
       }
     ],
+    "funFact": "A shark can smell a single drop of blood in an Olympic-sized swimming pool!",
     "sources": [
       {
         "title": "NOAA Fisheries — Shark Conservation",
@@ -58,24 +59,25 @@
       "images/bats/5-Surprising-Ways-Bats-Help-the-Environment_WAWMNorthernLongearedBat_Michael_Druham.jpg"
     ],
     "quickFacts": [
-      "Less than 1% of bats carry rabies; they avoid people.",
-      "A single bat can eat thousands of insects in one night.",
-      "Many bats pollinate plants like agave and disperse seeds."
+      "Less than 1 in 100 bats carry rabies - and they stay far away from people anyway!",
+      "One tiny bat can gobble up 1,000 mosquitoes in just ONE hour. Bug zappers wish they were this good!",
+      "Without bats, we wouldn't have bananas, mangoes, or chocolate! They help plants grow."
     ],
-    "ecologicalBenefits": [
-      "Natural pest control for farms and forests.",
-      "Pollinate night-blooming plants and spread seeds that regrow forests."
+    "howTheyHelp": [
+      "Bats are nature's pest control - they eat tons of bugs that would otherwise munch on our crops!",
+      "They're amazing pollinators! Many plants only bloom at night, and bats help them make seeds."
     ],
     "myths": [
       {
-        "myth": "All bats carry rabies.",
-        "fact": "Rabies is rare in bats, and they generally avoid people. Never handle wildlife and risk is extremely low."
+        "myth": "All bats have rabies.",
+        "fact": "Super rare! Most bats are totally healthy. Just don't pick up any wild animals and you'll be fine!"
       },
       {
-        "myth": "Bats are flying rodents.",
-        "fact": "Bats belong to their own order, Chiroptera, and are more closely related to primates than rodents."
+        "myth": "Bats are just flying mice.",
+        "fact": "Mind = blown! Bats are actually more closely related to US (humans) than to mice!"
       }
     ],
+    "funFact": "Bats are the ONLY mammals that can truly fly. Flying squirrels just glide - bats are the real deal!",
     "sources": [
       {
         "title": "Bat Conservation International — Rabies Facts",
@@ -99,24 +101,25 @@
       "images/wolves/52014798407_5bd16e058d_b-1.jpg"
     ],
     "quickFacts": [
-      "Healthy wild wolves rarely approach people and avoid towns.",
-      "Wolves help control deer and elk populations, allowing forests to regenerate.",
-      "Livestock losses to wolves are far lower than losses to weather or disease."
+      "Wild wolves are super shy around people - they'd rather run away than say hi!",
+      "Wolves are amazing parents! The whole pack helps raise the pups together.",
+      "A wolf's howl can be heard from 10 miles away. That's like howling from one end of town to the other!"
     ],
-    "ecologicalBenefits": [
-      "Prevent overgrazing by keeping large herbivore numbers in check.",
-      "Create carrion that feeds scavengers like ravens and eagles."
+    "howTheyHelp": [
+      "Wolves keep deer and elk moving, which lets trees and plants grow back. They literally reshape forests!",
+      "When wolves hunt, they leave leftovers that feed eagles, ravens, and even bears. Sharing is caring!"
     ],
     "myths": [
       {
-        "myth": "Wolves are a major threat to people.",
-        "fact": "Documented wolf attacks on humans are extremely rare; wolves avoid human contact."
+        "myth": "Wolves attack people all the time.",
+        "fact": "In real life, wolf attacks on humans are super, super rare. Wolves are way more scared of you!"
       },
       {
-        "myth": "Wolves decimate livestock herds.",
-        "fact": "In North America, wolves account for a small fraction of livestock losses compared to weather, illness, and other predators."
+        "myth": "Wolves destroy all the farm animals.",
+        "fact": "Weather and sickness actually cause way more problems for farmers than wolves ever do."
       }
     ],
+    "funFact": "Wolves can run up to 40 miles per hour - that's faster than the fastest human on Earth!",
     "sources": [
       {
         "title": "International Wolf Center — Wolf Facts",
@@ -143,24 +146,25 @@
       "images/vultures/6b855940-81cf-11f0-b1b7-d5227004453f.jpg"
     ],
     "quickFacts": [
-      "Vultures rarely get sick from carcasses thanks to powerful stomach acids.",
-      "By removing carrion, vultures prevent the spread of dangerous bacteria.",
-      "They prefer open fields and seldom bother live animals."
+      "Vultures have super-powered stomachs! They can eat stuff that would make any other animal sick.",
+      "They're nature's cleanup crew - without them, the world would be way stinkier and germier!",
+      "Vultures can soar for hours without flapping their wings. Talk about energy-efficient!"
     ],
-    "ecologicalBenefits": [
-      "Rapidly clean up carcasses, reducing disease risk for other wildlife and people.",
-      "Recycle nutrients back into the ecosystem."
+    "howTheyHelp": [
+      "They clean up dead animals before germs can spread. Vultures are basically nature's sanitation workers!",
+      "By eating things other animals can't, they stop diseases from spreading to people and pets."
     ],
     "myths": [
       {
-        "myth": "Vultures spread disease.",
-        "fact": "They do the opposite: their digestive system destroys harmful pathogens, preventing outbreaks."
+        "myth": "Vultures spread disease everywhere.",
+        "fact": "It's the opposite! Their super-strong stomach acid destroys germs. They STOP diseases from spreading!"
       },
       {
-        "myth": "Vultures hunt healthy animals.",
-        "fact": "They are scavengers that rely on already-dead animals and rarely attack living creatures."
+        "myth": "Vultures attack healthy animals.",
+        "fact": "Vultures only eat animals that have already died. They're not hunters - they're recyclers!"
       }
     ],
+    "funFact": "Vultures pee on their own legs! It sounds gross, but it actually kills bacteria and keeps them cool.",
     "sources": [
       {
         "title": "Audubon Society — Turkey Vulture",
@@ -187,24 +191,25 @@
       "images/oppossums/RS46293_2024_03_27 Skookum-3_ohi.jpg"
     ],
     "quickFacts": [
-      "Opossums groom constantly and carry far fewer diseases than many urban mammals.",
-      "They eat thousands of ticks, reducing Lyme disease risk.",
-      "When threatened they \"play dead\" rather than attack."
+      "Opossums eat up to 5,000 ticks per year! They're like tiny tick-destroying machines!",
+      "When scared, opossums \"play dead\" - they even drool and smell bad to trick predators. Oscar-worthy acting!",
+      "Opossums are super clean! They spend tons of time grooming themselves, just like cats."
     ],
-    "ecologicalBenefits": [
-      "Consume ticks, cockroaches, and other pests that bother humans.",
-      "Clean up carrion and fallen fruit, recycling nutrients."
+    "howTheyHelp": [
+      "By eating SO many ticks, opossums help protect people and pets from Lyme disease!",
+      "They also eat cockroaches, snails, and slugs - all the pests we don't want around."
     ],
     "myths": [
       {
-        "myth": "Opossums are dirty and dangerous.",
-        "fact": "They are clean, shy animals that rarely bite and help control pests."
+        "myth": "Opossums are dirty, mean animals.",
+        "fact": "They're actually super clean AND super shy! They'd rather play dead than fight anyone."
       },
       {
-        "myth": "Opossums spread rabies widely.",
-        "fact": "Their low body temperature makes rabies very uncommon compared to raccoons or skunks."
+        "myth": "Opossums spread rabies.",
+        "fact": "Almost never! Opossums have a lower body temperature than most mammals, so rabies doesn't like living in them."
       }
     ],
+    "funFact": "Opossums are North America's ONLY marsupial! That means they carry babies in a pouch, just like kangaroos!",
     "sources": [
       {
         "title": "National Wildlife Federation — Opossum Facts",
@@ -231,24 +236,25 @@
       "images/spiders/closeup-female-spider-tarantula-lasiodora-600nw-1353778946.jpeg"
     ],
     "quickFacts": [
-      "Most house spiders have venom too weak to harm humans.",
-      "They reduce indoor pests like mosquitoes and flies.",
-      "Spiders avoid people and bites are very uncommon."
+      "Most house spiders couldn't hurt you even if they tried - their venom is way too weak for humans!",
+      "Spiders are amazing engineers! Some spider silk is stronger than steel of the same thickness.",
+      "You're never more than a few feet from a spider (don't worry, they're ignoring you!)."
     ],
-    "ecologicalBenefits": [
-      "Provide natural pest control indoors and outdoors.",
-      "Serve as food for birds and small mammals, supporting food webs."
+    "howTheyHelp": [
+      "Spiders eat mosquitoes, flies, and other annoying bugs. They're like having free pest control!",
+      "Without spiders, we'd be overrun by insects. They eat BILLIONS of bugs every year worldwide."
     ],
     "myths": [
       {
-        "myth": "House spiders are dangerous to people.",
-        "fact": "Common house spiders rarely bite and their venom is not medically significant for healthy adults."
+        "myth": "House spiders are super dangerous.",
+        "fact": "Most are totally harmless! They're way more scared of you than you are of them."
       },
       {
-        "myth": "Killing spiders makes homes safer.",
-        "fact": "Spiders quietly control pest insects; removing them can increase mosquitoes and flies."
+        "myth": "You should squish spiders when you see them.",
+        "fact": "Spiders are helpers! They catch flies and mosquitoes. Maybe just move them outside instead?"
       }
     ],
+    "funFact": "Spiders can't eat solid food! They have to turn their prey into liquid before slurping it up. Weird, right?",
     "sources": [
       {
         "title": "Smithsonian — Spider Myths",
@@ -275,24 +281,25 @@
       "images/hyena/images.jpg"
     ],
     "quickFacts": [
-      "Hyenas are more closely related to cats than dogs despite their appearance.",
-      "They have one of the strongest bites in the animal kingdom, allowing them to crush bones.",
-      "Spotted hyenas live in complex social groups led by females."
+      "Plot twist: Hyenas are more closely related to CATS than dogs! Mind blown!",
+      "Hyenas have the strongest bite of almost any mammal - they can crunch through bones like we eat chips!",
+      "Girl power! Hyena clans are led by females, and the girls are bigger and stronger than the boys."
     ],
-    "ecologicalBenefits": [
-      "Clean up carcasses quickly, preventing disease spread across the savanna.",
-      "Regulate herbivore populations, maintaining ecosystem balance."
+    "howTheyHelp": [
+      "Hyenas clean up the savanna by eating leftovers from other predators. Nothing goes to waste!",
+      "They help keep other animal populations balanced - that's super important for healthy ecosystems."
     ],
     "myths": [
       {
-        "myth": "Hyenas are cowardly scavengers.",
-        "fact": "Spotted hyenas are skilled hunters that catch up to 95% of their own food and have complex social intelligence."
+        "myth": "Hyenas are cowardly scavengers who just steal food.",
+        "fact": "Hyenas are actually amazing hunters! They catch most of their own food - up to 95% of it!"
       },
       {
-        "myth": "Hyenas are dirty and spread disease.",
-        "fact": "Their powerful digestive systems destroy pathogens, and they help keep ecosystems clean by consuming carrion."
+        "myth": "Hyenas are dirty and gross.",
+        "fact": "Their powerful stomachs kill germs dead! They actually help keep nature clean."
       }
     ],
+    "funFact": "That famous hyena \"laugh\" is actually a sign of excitement or nervousness - not because something's funny!",
     "sources": [
       {
         "title": "National Geographic — Spotted Hyena",
@@ -319,24 +326,25 @@
       "images/rat/how-to-get-rid-of-rats-64994bc3bf2cc.jpeg"
     ],
     "quickFacts": [
-      "Rats are highly intelligent and can be trained to perform complex tasks.",
-      "They are extremely social animals that show empathy toward other rats.",
-      "Laboratory rats have contributed enormously to medical research and saved countless human lives."
+      "Rats are SUPER smart! They can learn tricks, solve puzzles, and even giggle when they play!",
+      "Rats are caring friends - they'll share food with other rats and even help free trapped buddies!",
+      "Pet rats can learn their names and come when called, just like dogs!"
     ],
-    "ecologicalBenefits": [
-      "Disperse seeds and help with soil aeration through their burrowing.",
-      "Serve as an important food source for many predators including owls, hawks, and snakes."
+    "howTheyHelp": [
+      "Rats have helped scientists discover life-saving medicines. They're heroes of medical research!",
+      "In nature, rats spread seeds and dig holes that help plants grow. They're tiny gardeners!"
     ],
     "myths": [
       {
-        "myth": "Rats are inherently dirty animals.",
-        "fact": "Rats groom themselves frequently and are quite clean; urban sanitation issues attract them, not the reverse."
+        "myth": "Rats are dirty animals.",
+        "fact": "Rats are actually super clean! They spend hours grooming themselves every day, like cats do."
       },
       {
-        "myth": "All rats carry dangerous diseases.",
-        "fact": "While rats can carry some diseases, transmission to humans is rare with proper sanitation and pest management."
+        "myth": "All rats carry scary diseases.",
+        "fact": "With proper care, rats are safe pets! Wild rats in dirty areas can have germs, but that's about the environment, not the rats."
       }
     ],
+    "funFact": "Rats laugh! When scientists tickle rats, they make happy ultrasonic chirps that we can't even hear!",
     "sources": [
       {
         "title": "Smithsonian Magazine — The Misunderstood Rat",
@@ -363,24 +371,25 @@
       "images/snake/resting-racer-picture-id801439690.jpg"
     ],
     "quickFacts": [
-      "Most snakes are non-venomous and pose no threat to humans.",
-      "Snakes control rodent and insect populations naturally.",
-      "They would rather flee than confront humans and only bite as a last resort."
+      "Most snakes are harmless! Only about 15% of snake species can hurt humans with venom.",
+      "Snakes don't have eyelids - they sleep with their eyes open! Creepy cool!",
+      "Snakes smell with their tongues! That's why they flick them in and out so much."
     ],
-    "ecologicalBenefits": [
-      "Control pest populations including mice, rats, and insects that damage crops.",
-      "Serve as both predator and prey, forming crucial links in food webs."
+    "howTheyHelp": [
+      "Snakes eat mice and rats that would otherwise eat our crops. They're farm heroes!",
+      "Without snakes, we'd have WAY more rodents everywhere. Snakes keep everything in balance."
     ],
     "myths": [
       {
         "myth": "All snakes are dangerous and should be killed.",
-        "fact": "The vast majority of snakes are harmless; even venomous snakes avoid humans and rarely bite unless threatened."
+        "fact": "Most snakes are harmless and helpful! Even venomous ones run away from people when they can."
       },
       {
         "myth": "Snakes are slimy and aggressive.",
-        "fact": "Snake skin is dry and smooth. They are shy creatures that prefer to escape rather than confront."
+        "fact": "Snake skin is actually dry and smooth - like leather! And they're super shy. They just want to be left alone."
       }
     ],
+    "funFact": "Snakes can go a whole year without eating! Some big snakes only need to eat 4-5 times a year.",
     "sources": [
       {
         "title": "National Wildlife Federation — Snakes",

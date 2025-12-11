@@ -3,6 +3,7 @@
  */
 
 let quizData = [];
+let animalsData = [];
 let currentQuestionIndex = 0;
 let userAnswers = [];
 let score = 0;
@@ -10,16 +11,18 @@ let score = 0;
 document.addEventListener('DOMContentLoaded', async function() {
   const bestScoreContainer = document.getElementById('best-score-container');
   const bestScoreElement = document.getElementById('best-score');
-  
+
   // Load best score from localStorage
   const bestScore = localStorage.getItem('misunderstood-best-score');
   if (bestScore !== null && bestScoreContainer && bestScoreElement) {
     bestScoreContainer.style.display = 'block';
     bestScoreElement.textContent = bestScore;
   }
-  
+
   try {
+    // Load both quiz and animals data
     quizData = await Misunderstood.fetchQuiz();
+    animalsData = await Misunderstood.fetchAnimals();
     
     if (quizData.length === 0) {
       showError('No quiz questions available.');
@@ -68,6 +71,11 @@ function renderQuestion() {
   const question = quizData[currentQuestionIndex];
   const questionNumber = currentQuestionIndex + 1;
 
+  // Find the animal for this question
+  const animal = animalsData.find(a => a.id === question.animal);
+  const animalImage = animal ? animal.image : '';
+  const animalName = animal ? animal.name : '';
+
   // Render a swipeable card. Swipe right = fact, swipe left = myth.
   questionsElement.innerHTML = `
     <div class="swipe-instructions">Swipe right for <strong>Fact</strong>, left for <strong>Myth</strong></div>
@@ -78,9 +86,12 @@ function renderQuestion() {
             <div class="swipe-card__front" id="swipe-card-front">
               <div class="swipe-stamp swipe-stamp--myth" id="stamp-myth">MYTH</div>
               <div class="swipe-stamp swipe-stamp--fact" id="stamp-fact">FACT</div>
+              ${animalImage ? `
               <div class="swipe-card__image" aria-hidden="true">
-                <!-- image placeholder - add <img> here later -->
+                <img src="${animalImage}" alt="${animalName}" class="swipe-card__animal-img">
+                <span class="swipe-card__animal-name">${animalName}</span>
               </div>
+              ` : '<div class="swipe-card__image" aria-hidden="true"></div>'}
               <div class="swipe-card__content">
                 <h2 id="question-${questionNumber}" class="swipe-card__text">
                   ${question.question}
@@ -465,41 +476,56 @@ function showResults() {
   const finalScoreElement = document.getElementById('final-score');
   const scoreMessageElement = document.getElementById('score-message');
   const restartButton = document.getElementById('restart-quiz');
-  
+
   if (questionsElement) questionsElement.classList.add('hidden');
   if (resultsElement) resultsElement.classList.remove('hidden');
-  
+
   const percentage = (score / quizData.length) * 100;
-  
+
   if (finalScoreElement) {
     finalScoreElement.textContent = `${score}/${quizData.length}`;
   }
-  
+
+  // Track quiz completion for badges
+  if (typeof ProgressTracker !== 'undefined') {
+    ProgressTracker.completeQuiz(score, quizData.length);
+  }
+
   if (scoreMessageElement) {
     let message = '';
+    let emoji = '';
     if (percentage === 100) {
-      message = 'Perfect! You\'re a wildlife myth-busting expert! 🎉';
+      message = 'WOW! PERFECT SCORE! You\'re officially a Myth Buster Master!';
+      emoji = '🏆🎉💥';
+      launchConfetti();
     } else if (percentage >= 80) {
-      message = 'Excellent! You know your facts! 🌟';
+      message = 'AMAZING! You really know your animal facts! So close to perfect!';
+      emoji = '🌟⭐✨';
+      launchConfetti();
     } else if (percentage >= 60) {
-      message = 'Good job! You\'re learning! 👍';
+      message = 'Great job! You\'re becoming an animal expert! Keep exploring!';
+      emoji = '👏🎯💪';
+    } else if (percentage >= 40) {
+      message = 'Nice try! Check out more animals to level up your knowledge!';
+      emoji = '📚🔍🧠';
     } else {
-      message = 'Keep learning! Explore our animal profiles to discover more facts! 📚';
+      message = 'No worries! Every expert was once a beginner. Explore our animals and try again!';
+      emoji = '🚀💡🌈';
     }
-    scoreMessageElement.textContent = message;
+    scoreMessageElement.innerHTML = `<span style="font-size: 2rem; display: block; margin-bottom: 0.5rem;">${emoji}</span>${message}`;
   }
-  
+
   // Update best score
   const bestScore = localStorage.getItem('misunderstood-best-score');
   const bestScoreElement = document.getElementById('best-score');
   const bestScoreContainer = document.getElementById('best-score-container');
-  
+
   if (bestScore === null || score > parseInt(bestScore)) {
     localStorage.setItem('misunderstood-best-score', score.toString());
     if (bestScoreElement) bestScoreElement.textContent = score;
     if (bestScoreContainer) bestScoreContainer.style.display = 'block';
   }
-  
+
   // Restart button
   if (restartButton) {
     restartButton.addEventListener('click', function() {
@@ -507,12 +533,58 @@ function showResults() {
       renderQuestion();
     });
   }
-  
+
   // Scroll to results
   if (resultsElement) {
     resultsElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 }
+
+// Confetti celebration effect
+function launchConfetti() {
+  const colors = ['#ff6b6b', '#4ecdc4', '#ffe66d', '#95e1d3', '#f38181', '#aa96da', '#fcbad3'];
+  const confettiCount = 100;
+
+  for (let i = 0; i < confettiCount; i++) {
+    const confetti = document.createElement('div');
+    confetti.className = 'confetti';
+    confetti.style.cssText = `
+      position: fixed;
+      width: ${Math.random() * 10 + 5}px;
+      height: ${Math.random() * 10 + 5}px;
+      background: ${colors[Math.floor(Math.random() * colors.length)]};
+      left: ${Math.random() * 100}vw;
+      top: -20px;
+      border-radius: ${Math.random() > 0.5 ? '50%' : '0'};
+      z-index: 10000;
+      pointer-events: none;
+      animation: confetti-fall ${Math.random() * 2 + 2}s linear forwards;
+      animation-delay: ${Math.random() * 0.5}s;
+    `;
+    document.body.appendChild(confetti);
+
+    // Remove after animation
+    setTimeout(() => confetti.remove(), 4000);
+  }
+}
+
+// Add confetti animation CSS
+(function() {
+  const style = document.createElement('style');
+  style.textContent = `
+    @keyframes confetti-fall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+})();
 
 function showError(message) {
   const questionsElement = document.getElementById('quiz-questions');
