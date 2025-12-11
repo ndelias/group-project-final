@@ -323,11 +323,10 @@
     "name": "Brown Rat",
     "scientificName": "Rattus norvegicus",
     "category": "dirty-diseased",
-    "location": { "top": "30%", "left": "70%" },
-    "image": "images/rat/Brown_Rat_(Rattus_norvegicus).jpg",
+    "location": { "top": "32%", "left": "68%" },
+    "image": "images/rat/black-rat.jpeg",
     "cardImage": "images/Collectible Card/RatCard.png",
     "images": [
-      "images/rat/Brown_Rat_(Rattus_norvegicus).jpg",
       "images/rat/black-rat.jpeg",
       "images/rat/CC-Rat-Banner.jpg",
       "images/rat/Urban-rat-disease-scaled.jpg",
