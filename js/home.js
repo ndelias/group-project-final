@@ -81,11 +81,17 @@ document.addEventListener('DOMContentLoaded', async function() {
           pin.className = 'map-pin';
           pin.style.top = animal.location.top;
           pin.style.left = animal.location.left;
-          pin.style.backgroundImage = `url(${animal.image})`;
           pin.setAttribute('data-name', animal.name);
           pin.setAttribute('data-tooltip', animal.name);
+          pin.setAttribute('data-category', animal.category);
           pin.setAttribute('aria-label', `${animal.name} habitat`);
           pin.setAttribute('title', animal.name);
+          
+          // Create inner image wrapper
+          const imageWrapper = document.createElement('div');
+          imageWrapper.className = 'map-pin__image';
+          imageWrapper.style.backgroundImage = `url(${animal.image})`;
+          pin.appendChild(imageWrapper);
           
           // Add click handler to navigate to detail page
           pin.addEventListener('click', function() {

@@ -523,6 +523,44 @@
 }
 
 /* ===========================================
+   HERO BUTTON - Vivid Mustard Yellow
+   =========================================== */
+.hero .btn,
+.hero .btn--outline,
+.hero .btn-pill {
+  background: #F2C14E !important;
+  color: #1c1c1a !important;
+  border: none !important;
+  border-radius: 50px !important;
+  font-weight: 800 !important;
+  font-size: var(--font-size-lg) !important;
+  padding: var(--spacing-md) var(--spacing-2xl) !important;
+  box-shadow: 0 4px 15px rgba(242, 193, 78, 0.5) !important;
+  animation: gentle-bounce 2s infinite ease-in-out !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+  text-decoration: none !important;
+  display: inline-block !important;
+}
+
+.hero .btn:hover,
+.hero .btn--outline:hover,
+.hero .btn-pill:hover {
+  animation-play-state: paused !important;
+  transform: scale(1.1) !important;
+  box-shadow: 0 6px 20px rgba(242, 193, 78, 0.7) !important;
+  text-decoration: none !important;
+}
+
+@keyframes gentle-bounce {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-3px) scale(1.05);
+  }
+}
+
+/* ===========================================
    FILTERS & SEARCH
    Pill controls with chunky borders
    =========================================== */
@@ -1098,35 +1136,73 @@ select:not(.form-select) {
 }
 
 /* ===========================================
-   INTERACTIVE HABITAT MAP PINS
+   INTERACTIVE HABITAT MAP PINS - Teardrop Shape
    =========================================== */
 .map-pin {
   position: absolute;
-  transform: translate(-50%, -50%);
-  width: 48px;
-  height: 48px;
+  /* Position pin so the tip (sharp corner) is at the coordinate */
+  /* The pin is rotated -45deg, so we position it to account for the rotation */
+  /* Using transform-origin: bottom center and positioning bottom at coordinate */
+  transform-origin: 50% 100%;
+  transform: translate(-50%, -100%) rotate(-45deg);
+  width: 60px;
+  height: 60px;
+  /* Teardrop/marker pin shape: 3 rounded corners, 1 sharp corner (bottom-right) */
+  border-radius: 50% 50% 50% 0;
+  border: 4px solid;
+  background: var(--parchment);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+  animation: pin-pulse 2s ease-in-out infinite;
+  padding: 0;
+  overflow: hidden;
+  /* Category border colors - default to dangerous */
+  border-color: var(--color-dangerous, var(--rust));
+}
+
+/* Category-specific border colors */
+.map-pin[data-category="dangerous"] {
+  border-color: var(--color-dangerous, var(--rust));
+}
+
+.map-pin[data-category="dirty-diseased"] {
+  border-color: var(--card-mustard, var(--gold));
+}
+
+.map-pin[data-category="useless-nuisance"],
+.map-pin[data-category="nuisance"] {
+  border-color: var(--color-nuisance, var(--olive));
+}
+
+/* Inner image container - unrotated */
+.map-pin__image {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  width: calc(100% - 16px);
+  height: calc(100% - 16px);
   border-radius: 50%;
-  border: var(--border-thick) solid var(--parchment);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  box-shadow: var(--shadow-1);
-  cursor: pointer;
-  transition: transform 200ms ease;
-  animation: pin-pulse 2s ease-in-out infinite;
+  transform: rotate(45deg);
+  /* Ensure image doesn't overflow the pin shape */
+  overflow: hidden;
 }
 
 .map-pin:hover {
-  transform: translate(-50%, -50%) scale(1.2);
+  transform: translate(-50%, -100%) rotate(-45deg) scale(1.15);
   z-index: 10;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
 }
 
 .map-pin::after {
   content: attr(data-name);
   position: absolute;
-  bottom: 100%;
+  bottom: calc(100% + 8px);
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) rotate(45deg);
   margin-bottom: var(--spacing-sm);
   padding: var(--spacing-xs) var(--spacing-sm);
   background: var(--pine);
@@ -1139,20 +1215,21 @@ select:not(.form-select) {
   opacity: 0;
   pointer-events: none;
   transition: opacity 200ms ease, transform 200ms ease;
-  transform: translateX(-50%) translateY(5px);
+  transform: translateX(-50%) translateY(5px) rotate(45deg);
 }
 
 .map-pin:hover::after {
   opacity: 1;
-  transform: translateX(-50%) translateY(0);
+  transform: translateX(-50%) translateY(0) rotate(45deg);
 }
 
+/* Pulse animation - radiates from bottom tip */
 @keyframes pin-pulse {
   0%, 100% {
-    transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -100%) rotate(-45deg) scale(1);
   }
   50% {
-    transform: translate(-50%, -50%) scale(1.1);
+    transform: translate(-50%, -100%) rotate(-45deg) scale(1.1);
   }
 }
 
@@ -1161,6 +1238,93 @@ select:not(.form-select) {
   .section { padding: var(--spacing-xl) 0; }
   .card { padding: 0; }
   .quiz-question { padding: var(--spacing-md); }
+}
+
+/* ===========================================
+   INTERACTIVE STICKERS - Tickle Effect
+   =========================================== */
+/* Increase size of all stickers by 10% and make them interactive */
+.sticker,
+.section-sticker,
+.cta-sticker,
+.map-pin {
+  cursor: pointer !important;
+  transition: filter 0.2s ease;
+}
+
+/* Scale stickers using a wrapper or by adjusting the base size */
+.sticker {
+  transform: scale(1.1);
+}
+
+.section-sticker {
+  transform: scale(1.1);
+}
+
+.cta-sticker {
+  transform: scale(1.1);
+}
+
+.map-pin {
+  transform: scale(1.1);
+}
+
+.sticker:hover,
+.section-sticker:hover,
+.cta-sticker:hover,
+.map-pin:hover {
+  filter: drop-shadow(4px 6px 12px rgba(0,0,0,0.4)) brightness(1.1);
+}
+
+/* Wiggle animation for tickle effect - overrides other animations temporarily */
+@keyframes wiggle {
+  0% {
+    transform: scale(1.1) rotate(0deg);
+  }
+  25% {
+    transform: scale(1.2) rotate(-5deg);
+  }
+  50% {
+    transform: scale(1.2) rotate(5deg);
+  }
+  75% {
+    transform: scale(1.2) rotate(-3deg);
+  }
+  100% {
+    transform: scale(1.1) rotate(0deg);
+  }
+}
+
+.sticker.wiggle,
+.section-sticker.wiggle,
+.cta-sticker.wiggle,
+.map-pin.wiggle {
+  animation: wiggle 0.4s ease-in-out !important;
+}
+
+/* Floating emoji effect */
+.floating-emoji {
+  position: fixed;
+  pointer-events: none;
+  font-size: 2rem;
+  z-index: 10000;
+  user-select: none;
+  animation: floatEmoji 1.5s ease-out forwards;
+}
+
+@keyframes floatEmoji {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -150%) scale(1.2) rotate(180deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -200%) scale(0.8) rotate(360deg);
+  }
 }
 
 /* ===========================================
@@ -1231,4 +1395,245 @@ select:not(.form-select) {
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-bold);
   text-align: center;
+}
+
+/* ===========================================
+   QUIZ CTA SECTION - High Contrast Emphasis
+   =========================================== */
+#quiz-cta {
+  background: #15802b;
+  background: var(--color-header-bg, #15802b);
+  position: relative;
+  padding: var(--spacing-4xl) 0;
+  overflow: hidden;
+}
+
+#quiz-cta .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+#quiz-cta .cta-title {
+  font-size: 3rem;
+  font-weight: var(--font-weight-bold);
+  color: #ffffff;
+  margin-bottom: var(--spacing-lg);
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 0, 0, 0.3);
+  line-height: 1.2;
+}
+
+#quiz-cta .cta-subtitle {
+  font-size: var(--font-size-lg);
+  color: #ffffff !important;
+  margin-bottom: var(--spacing-lg);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+#quiz-cta p {
+  font-size: var(--font-size-lg);
+  color: #ffffff !important;
+  margin-bottom: var(--spacing-lg);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+#quiz-cta .btn--quiz-cta {
+  background: #F2C14E;
+  color: #000000;
+  padding: 1.2rem 3rem;
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-bold);
+  border-radius: 50px;
+  border: none;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.2s ease;
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+#quiz-cta .btn--quiz-cta:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  10%, 30% {
+    transform: scale(1.05);
+  }
+  20%, 40% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08);
+  }
+}
+
+/* CTA Stickers positioning */
+#quiz-cta .cta-sticker {
+  position: absolute;
+  top: 50%;
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  opacity: 0.95;
+  filter: drop-shadow(4px 6px 10px rgba(0,0,0,0.3));
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Opossum (Left) - Peek Animation */
+#quiz-cta .cta-sticker--1 {
+  left: 15%;
+  transform: translateY(-50%) translateX(0);
+  opacity: 0.95;
+  animation: opossumPeek 4s ease-in-out infinite;
+  animation-delay: 0.5s;
+}
+
+@keyframes opossumPeek {
+  0%, 100% {
+    transform: translateY(-50%) translateX(0) rotate(0deg);
+    opacity: 0.95;
+  }
+  10% {
+    transform: translateY(-50%) translateX(-5px) rotate(-5deg);
+    opacity: 0.95;
+  }
+  20% {
+    transform: translateY(-50%) translateX(0) rotate(5deg);
+    opacity: 0.95;
+  }
+  30% {
+    transform: translateY(-50%) translateX(-3px) rotate(-3deg);
+    opacity: 0.95;
+  }
+  40% {
+    transform: translateY(-50%) translateX(0) rotate(3deg);
+    opacity: 0.95;
+  }
+  50% {
+    transform: translateY(-50%) translateX(-2px) rotate(-2deg);
+    opacity: 0.95;
+  }
+  60% {
+    transform: translateY(-50%) translateX(0) rotate(2deg);
+    opacity: 0.95;
+  }
+  70% {
+    transform: translateY(-50%) translateX(-1px) rotate(-1deg);
+    opacity: 0.95;
+  }
+  80% {
+    transform: translateY(-50%) translateX(0) rotate(1deg);
+    opacity: 0.95;
+  }
+  90% {
+    transform: translateY(-50%) translateX(0) rotate(0deg);
+    opacity: 0.95;
+  }
+}
+
+/* Bat (Right) - Hover/Flying Animation */
+#quiz-cta .cta-sticker--2 {
+  right: 15%;
+  transform: translateY(-50%) translateX(0);
+  animation: batHover 2.5s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+@keyframes batHover {
+  0%, 100% {
+    transform: translateY(-50%) translateX(0) rotate(-8deg);
+  }
+  25% {
+    transform: translateY(calc(-50% - 12px)) translateX(0) rotate(-5deg);
+  }
+  50% {
+    transform: translateY(calc(-50% - 20px)) translateX(0) rotate(0deg);
+  }
+  75% {
+    transform: translateY(calc(-50% - 12px)) translateX(0) rotate(5deg);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  #quiz-cta .cta-title {
+    font-size: 2rem;
+  }
+
+  #quiz-cta .btn--quiz-cta {
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+  }
+
+  /* Reposition mascots above and below text on mobile */
+  #quiz-cta .cta-sticker {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    opacity: 0.8;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+  }
+
+  #quiz-cta .cta-sticker--1 {
+    top: 10%;
+    animation: opossumPeekMobile 2s ease-out forwards;
+    animation-delay: 0.3s;
+  }
+
+  #quiz-cta .cta-sticker--2 {
+    bottom: 10%;
+    top: auto;
+    animation: batHoverMobile 2s ease-in-out infinite;
+    animation-delay: 0.8s;
+  }
+
+  /* Mobile-specific animations */
+  @keyframes opossumPeekMobile {
+    0% {
+      transform: translateX(-50%) translateY(-100%) scale(0.8);
+      opacity: 0;
+    }
+    50% {
+      transform: translateX(-50%) translateY(0) scale(0.9) rotate(-3deg);
+      opacity: 0.8;
+    }
+    60% {
+      transform: translateX(-50%) translateY(0) scale(0.9) rotate(3deg);
+    }
+    70% {
+      transform: translateX(-50%) translateY(0) scale(0.9) rotate(-2deg);
+    }
+    100% {
+      transform: translateX(-50%) translateY(0) scale(1) rotate(0deg);
+      opacity: 0.8;
+    }
+  }
+
+  @keyframes batHoverMobile {
+    0%, 100% {
+      transform: translateX(-50%) translateY(0) rotate(-5deg);
+    }
+    50% {
+      transform: translateX(-50%) translateY(-8px) rotate(5deg);
+    }
+  }
+}
+
+/* Hide mascots on very small screens if needed */
+@media (max-width: 480px) {
+  #quiz-cta .cta-sticker {
+    display: none;
+  }
 }

@@ -4,7 +4,7 @@
     "name": "Great White Shark",
     "scientificName": "Carcharodon carcharias",
     "category": "dangerous",
-    "location": { "top": "75%", "left": "82%" },
+    "location": { "top": "75%", "left": "85%" },
     "image": "images/sharks/shark.jpeg",
     "cardImage": "images/Collectible Card/SharkCard.png",
     "images": [
@@ -50,7 +50,7 @@
     "name": "Little Brown Bat",
     "scientificName": "Myotis lucifugus",
     "category": "dirty-diseased",
-    "location": { "top": "28%", "left": "22%" },
+    "location": { "top": "28%", "left": "19%" },
     "image": "images/bats/bat_feature.jpg",
     "cardImage": "images/Collectible Card/BatCard.png",
     "images": [
@@ -96,7 +96,7 @@
     "name": "Gray Wolf",
     "scientificName": "Canis lupus",
     "category": "dangerous",
-    "location": { "top": "22%", "left": "15%" },
+    "location": { "top": "20%", "left": "16%" },
     "image": "images/wolves/gray-wolf-colorado-nc-jt-200107_hpMain.jpg",
     "cardImage": "images/Collectible Card/WolfCard.png",
     "images": [
@@ -139,7 +139,7 @@
     "name": "Turkey Vulture",
     "scientificName": "Cathartes aura",
     "category": "dirty-diseased",
-    "location": { "top": "35%", "left": "18%" },
+    "location": { "top": "38%", "left": "18%" },
     "image": "images/vultures/griffon-vulture.jpeg",
     "cardImage": "images/Collectible Card/VultureCard.png",
     "images": [
@@ -185,7 +185,7 @@
     "name": "Virginia Opossum",
     "scientificName": "Didelphis virginiana",
     "category": "dirty-diseased",
-    "location": { "top": "32%", "left": "24%" },
+    "location": { "top": "32%", "left": "22%" },
     "image": "images/oppossums/opossum.png",
     "cardImage": "images/Collectible Card/OpposumCard.png",
     "images": [
@@ -231,7 +231,7 @@
     "name": "House Spider",
     "scientificName": "Parasteatoda tepidariorum",
     "category": "dangerous",
-    "location": { "top": "25%", "left": "48%" },
+    "location": { "top": "26%", "left": "51%" },
     "image": "images/spiders/Spider-Body-1-Factfile_BBC-Earth-Factfiles-.jpeg",
     "cardImage": "images/Collectible Card/SpiderCarrd.png",
     "images": [
@@ -277,7 +277,7 @@
     "name": "Spotted Hyena",
     "scientificName": "Crocuta crocuta",
     "category": "dangerous",
-    "location": { "top": "55%", "left": "52%" },
+    "location": { "top": "58%", "left": "53%" },
     "image": "images/hyena/hyena-1.jpg",
     "cardImage": "images/Collectible Card/HyenaCard.png",
     "images": [
@@ -323,7 +323,7 @@
     "name": "Brown Rat",
     "scientificName": "Rattus norvegicus",
     "category": "dirty-diseased",
-    "location": { "top": "32%", "left": "68%" },
+    "location": { "top": "28%", "left": "56%" },
     "image": "images/rat/black-rat.jpeg",
     "cardImage": "images/Collectible Card/RatCard.png",
     "images": [
@@ -368,7 +368,7 @@
     "name": "Common Garter Snake",
     "scientificName": "Thamnophis sirtalis",
     "category": "dangerous",
-    "location": { "top": "58%", "left": "28%" },
+    "location": { "top": "48%", "left": "72%" },
     "image": "images/snake/roughgreensnake_crop.jpg",
     "cardImage": "images/Collectible Card/SnakeCard.png",
     "images": [

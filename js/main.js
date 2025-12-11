@@ -1604,3 +1604,108 @@ window.Misunderstood = {
   `;
   document.head.appendChild(style);
 })();
+
+// ========================================
+// Interactive Stickers - Tickle Effect
+// ========================================
+(function() {
+  // Emojis that can spawn when clicking stickers
+  const tickleEmojis = ['❤️', '😂', '🎵', '🎉', '✨', '🌟', '💫', '🎊', '😄', '🤗'];
+  
+  // Function to spawn a floating emoji
+  function spawnFloatingEmoji(x, y) {
+    const emoji = document.createElement('div');
+    emoji.className = 'floating-emoji';
+    emoji.textContent = tickleEmojis[Math.floor(Math.random() * tickleEmojis.length)];
+    emoji.style.left = x + 'px';
+    emoji.style.top = y + 'px';
+    document.body.appendChild(emoji);
+    
+    // Remove after animation completes
+    setTimeout(() => {
+      emoji.remove();
+    }, 1500);
+  }
+  
+  // Function to trigger wiggle animation
+  function triggerWiggle(element) {
+    // Remove existing wiggle class if present
+    element.classList.remove('wiggle');
+    
+    // Force reflow to restart animation
+    void element.offsetWidth;
+    
+    // Add wiggle class
+    element.classList.add('wiggle');
+    
+    // Remove class after animation completes
+    setTimeout(() => {
+      element.classList.remove('wiggle');
+    }, 400);
+  }
+  
+  // Setup click handlers for all stickers
+  function setupStickerInteractions() {
+    // Select all sticker types
+    const stickers = document.querySelectorAll('.sticker, .section-sticker, .cta-sticker, .map-pin');
+    
+    stickers.forEach(sticker => {
+      // Enable pointer events
+      sticker.style.pointerEvents = 'auto';
+      
+      // Add click handler
+      sticker.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        // Get click position
+        const rect = sticker.getBoundingClientRect();
+        const x = rect.left + rect.width / 2;
+        const y = rect.top + rect.height / 2;
+        
+        // Trigger wiggle animation
+        triggerWiggle(sticker);
+        
+        // Spawn floating emoji
+        spawnFloatingEmoji(x, y);
+      });
+    });
+  }
+  
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupStickerInteractions);
+  } else {
+    setupStickerInteractions();
+  }
+  
+  // Also setup for dynamically added stickers
+  const observer = new MutationObserver(function(mutations) {
+    mutations.forEach(function(mutation) {
+      mutation.addedNodes.forEach(function(node) {
+        if (node.nodeType === 1) { // Element node
+          if (node.classList && (node.classList.contains('sticker') || 
+              node.classList.contains('section-sticker') || 
+              node.classList.contains('cta-sticker') || 
+              node.classList.contains('map-pin'))) {
+            node.style.pointerEvents = 'auto';
+            node.addEventListener('click', function(e) {
+              e.preventDefault();
+              e.stopPropagation();
+              const rect = node.getBoundingClientRect();
+              const x = rect.left + rect.width / 2;
+              const y = rect.top + rect.height / 2;
+              triggerWiggle(node);
+              spawnFloatingEmoji(x, y);
+            });
+          }
+        }
+      });
+    });
+  });
+  
+  observer.observe(document.body, {
+    childList: true,
+    subtree: true
+  });
+})();

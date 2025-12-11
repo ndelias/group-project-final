@@ -207,14 +207,16 @@
 
     .map-container {
       position: relative;
-      min-width: 800px;
       width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
     }
 
     .map-image {
       display: block;
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: contain;
       border-radius: var(--border-radius-md);
     }
 
@@ -282,13 +284,13 @@
       opacity: 0.9;
       animation: float 4s ease-in-out infinite;
       filter: drop-shadow(3px 5px 8px rgba(0,0,0,0.25));
-      pointer-events: none;
+      pointer-events: auto;
       z-index: 2;
     }
 
     @keyframes float {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      50% { transform: translateY(-12px) rotate(3deg); }
+      0%, 100% { transform: scale(1.1) translateY(0) rotate(0deg); }
+      50% { transform: scale(1.1) translateY(-12px) rotate(3deg); }
     }
 
     .sticker--1 { top: 15%; left: 3%; animation-delay: 0s; width: 65px; height: 65px; }
@@ -308,33 +310,21 @@
       object-fit: contain;
       opacity: 0.85;
       filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.2));
-      pointer-events: none;
+      pointer-events: auto;
       z-index: 1;
     }
 
-    .section-sticker--1 { top: -20px; left: 5%; transform: rotate(-10deg); }
-    .section-sticker--2 { top: -15px; right: 8%; transform: rotate(12deg); }
-    .section-sticker--3 { bottom: 30px; left: 2%; transform: rotate(8deg); }
-    .section-sticker--4 { bottom: 40px; right: 3%; transform: rotate(-8deg); }
+    .section-sticker--1 { top: -20px; left: 5%; transform: scale(1.1) rotate(-10deg); }
+    .section-sticker--2 { top: -15px; right: 8%; transform: scale(1.1) rotate(12deg); }
+    .section-sticker--3 { bottom: 30px; left: 2%; transform: scale(1.1) rotate(8deg); }
+    .section-sticker--4 { bottom: 40px; right: 3%; transform: scale(1.1) rotate(-8deg); }
 
     /* CTA stickers */
     .cta-stickers {
       position: relative;
     }
 
-    .cta-sticker {
-      position: absolute;
-      width: 80px;
-      height: 80px;
-      object-fit: contain;
-      opacity: 0.9;
-      filter: drop-shadow(3px 5px 8px rgba(0,0,0,0.25));
-      pointer-events: none;
-      animation: float 5s ease-in-out infinite;
-    }
-
-    .cta-sticker--1 { top: 50%; left: 5%; transform: translateY(-50%); animation-delay: 0.3s; }
-    .cta-sticker--2 { top: 50%; right: 5%; transform: translateY(-50%); animation-delay: 0.8s; }
+    /* CTA sticker styles moved to components.css for #quiz-cta section */
 
     @media (max-width: 768px) {
       .hero-split {
@@ -357,10 +347,10 @@
       }
 
       .sticker,
-      .section-sticker,
-      .cta-sticker {
+      .section-sticker {
         display: none;
       }
+      /* CTA stickers are handled in components.css for #quiz-cta */
     }
   </style>
 </head>
@@ -428,7 +418,7 @@
         <div class="hero-content">
           <h1 class="hero__title">Scary? Nope. Just Misunderstood!</h1>
           <p class="hero__subtitle">These animals aren't as scary as you think. Ready to find out why they're actually awesome?</p>
-          <a href="browse.html" class="btn btn--outline btn-pill" style="background-color: rgba(255,255,255,0.2); color: white; border-color: white; align-self: flex-start;">Let's Go! 🚀</a>
+          <a href="browse.html" class="btn btn--outline btn-pill" style="align-self: flex-start;">Let's Go! 🚀</a>
         </div>
         <div class="hero-image-container">
           <div class="hero-slideshow" id="hero-slideshow">
@@ -439,36 +429,13 @@
     </div>
   </section>
 
-  <!-- Featured Animals Section -->
-  <section class="section featured-section section-stickers" aria-labelledby="featured-heading">
-    <!-- Section Stickers -->
-    <img src="images/animal sticks/snakesticker.PNG" alt="" class="section-sticker section-sticker--1" aria-hidden="true">
-    <img src="images/animal sticks/vulturesticker.PNG" alt="" class="section-sticker section-sticker--2" aria-hidden="true">
-    <img src="images/animal sticks/hyenasticker.PNG" alt="" class="section-sticker section-sticker--3" aria-hidden="true">
-    <img src="images/animal sticks/ratsticker.PNG" alt="" class="section-sticker section-sticker--4" aria-hidden="true">
-
-    <div class="container">
-      <div id="progress-container"></div>
-      <h2 id="featured-heading" class="text-center mb-xl" style="font-size: var(--font-size-3xl); font-weight: var(--font-weight-bold);">Meet the Crew! 🦇</h2>
-      <div class="grid grid--3 featured-animals" id="featured-animals">
-        <!-- Animals will be loaded here by JavaScript -->
-        <div class="loading">
-          <div class="spinner"></div>
-        </div>
-      </div>
-      <div class="text-center mt-xl">
-        <a href="browse.html" class="btn btn--primary btn--lg" style="border-radius: var(--border-radius-xl);">See All 9 Animals! →</a>
-      </div>
-    </div>
-  </section>
-
   <!-- Interactive Habitat Map Section -->
   <section id="habitat-map" class="section section-large" aria-labelledby="habitat-heading">
     <div class="container">
       <h2 id="habitat-heading" class="text-center mb-xl" style="font-size: var(--font-size-3xl); font-weight: var(--font-weight-bold);">Where Do They Live? 🗺️</h2>
       <div class="map-wrapper">
         <div class="map-container">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg" alt="World Habitat Map" class="map-image">
+          <img src="images/world-map-illustrated.png" alt="Illustrated World Map of Animal Habitats" class="map-image">
           <!-- Map pins will be dynamically rendered by JavaScript from animals.json -->
         </div>
       </div>
@@ -476,15 +443,15 @@
   </section>
 
   <!-- CTA Section -->
-  <section class="section cta-simple cta-stickers" aria-labelledby="cta-heading">
+  <section id="quiz-cta" class="section cta-simple cta-stickers" aria-labelledby="cta-heading">
     <!-- CTA Stickers -->
     <img src="images/animal sticks/opossumsticker.PNG" alt="" class="cta-sticker cta-sticker--1" aria-hidden="true">
     <img src="images/animal sticks/batsticker.PNG" alt="" class="cta-sticker cta-sticker--2" aria-hidden="true">
 
     <div class="container">
       <h2 id="cta-heading" class="cta-title">Think You Know the Truth? 🤔</h2>
-      <p style="font-size: var(--font-size-lg); margin-bottom: var(--spacing-lg); color: var(--color-text-light);">Test your myth-busting skills and become an Animal Expert!</p>
-      <a href="quiz.html" class="btn btn--secondary btn-huge">Take the Quiz! 🎯</a>
+      <p class="cta-subtitle">Test your myth-busting skills and become an Animal Expert!</p>
+      <a href="quiz.html" class="btn btn--quiz-cta">Take the Quiz! 🎯</a>
     </div>
   </section>
 
