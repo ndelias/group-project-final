@@ -69,25 +69,43 @@
     /* Floating Stickers */
     .sticker {
       position: absolute;
-      font-size: 3rem;
-      opacity: 0.9;
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      opacity: 0.95;
       animation: float 4s ease-in-out infinite;
-      filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.2));
+      filter: drop-shadow(3px 5px 8px rgba(0,0,0,0.3));
       z-index: 1;
       pointer-events: none;
     }
 
-    .sticker--1 { top: 15%; left: 5%; animation-delay: 0s; }
-    .sticker--2 { top: 20%; right: 8%; animation-delay: 0.5s; }
-    .sticker--3 { bottom: 20%; left: 10%; animation-delay: 1s; }
-    .sticker--4 { bottom: 15%; right: 5%; animation-delay: 1.5s; }
-    .sticker--5 { top: 50%; left: 3%; animation-delay: 2s; }
-    .sticker--6 { top: 40%; right: 3%; animation-delay: 2.5s; }
+    .sticker--1 { top: 10%; left: 3%; animation-delay: 0s; width: 70px; height: 70px; }
+    .sticker--2 { top: 15%; right: 5%; animation-delay: 0.5s; width: 85px; height: 85px; }
+    .sticker--3 { bottom: 25%; left: 5%; animation-delay: 1s; width: 75px; height: 75px; }
+    .sticker--4 { bottom: 15%; right: 3%; animation-delay: 1.5s; width: 80px; height: 80px; }
+    .sticker--5 { top: 50%; left: 2%; animation-delay: 2s; width: 65px; height: 65px; }
+    .sticker--6 { top: 45%; right: 2%; animation-delay: 2.5s; width: 70px; height: 70px; }
 
     @keyframes float {
       0%, 100% { transform: translateY(0) rotate(-5deg); }
       50% { transform: translateY(-15px) rotate(5deg); }
     }
+
+    /* Form Stickers (decorative around form) */
+    .form-sticker {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      opacity: 0.2;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .form-sticker--1 { top: 80px; right: -20px; transform: rotate(15deg); }
+    .form-sticker--2 { top: 350px; left: -30px; transform: rotate(-10deg); }
+    .form-sticker--3 { bottom: 300px; right: -15px; transform: rotate(20deg); }
+    .form-sticker--4 { bottom: 100px; left: -25px; transform: rotate(-15deg); }
 
     /* Journey Steps */
     .journey-steps {
@@ -508,12 +526,12 @@
   <!-- Fun Hero Section -->
   <section class="submit-hero">
     <!-- Floating Animal Stickers -->
-    <span class="sticker sticker--1" aria-hidden="true">🦇</span>
-    <span class="sticker sticker--2" aria-hidden="true">🦈</span>
-    <span class="sticker sticker--3" aria-hidden="true">🕷️</span>
-    <span class="sticker sticker--4" aria-hidden="true">🐍</span>
-    <span class="sticker sticker--5" aria-hidden="true">🦂</span>
-    <span class="sticker sticker--6" aria-hidden="true">🐺</span>
+    <img src="images/animal sticks/batsticker.PNG" alt="" class="sticker sticker--1" aria-hidden="true">
+    <img src="images/animal sticks/sharksticker.PNG" alt="" class="sticker sticker--2" aria-hidden="true">
+    <img src="images/animal sticks/spidersticker.PNG" alt="" class="sticker sticker--3" aria-hidden="true">
+    <img src="images/animal sticks/snakesticker.PNG" alt="" class="sticker sticker--4" aria-hidden="true">
+    <img src="images/animal sticks/ratsticker.PNG" alt="" class="sticker sticker--5" aria-hidden="true">
+    <img src="images/animal sticks/wolfsticker.PNG" alt="" class="sticker sticker--6" aria-hidden="true">
 
     <div class="container" style="position: relative; z-index: 2;">
       <div class="submit-hero__badge">
@@ -550,10 +568,10 @@
   <main class="section" role="main" style="background: var(--color-bg); padding-top: 0;">
     <div class="submit-form-wrapper">
       <!-- Decorative Stickers -->
-      <span class="form-sticker form-sticker--1" aria-hidden="true">🦎</span>
-      <span class="form-sticker form-sticker--2" aria-hidden="true">🐝</span>
-      <span class="form-sticker form-sticker--3" aria-hidden="true">🦔</span>
-      <span class="form-sticker form-sticker--4" aria-hidden="true">🐸</span>
+      <img src="images/animal sticks/vulturesticker.PNG" alt="" class="form-sticker form-sticker--1" aria-hidden="true">
+      <img src="images/animal sticks/hyenasticker.PNG" alt="" class="form-sticker form-sticker--2" aria-hidden="true">
+      <img src="images/animal sticks/opossumsticker.PNG" alt="" class="form-sticker form-sticker--3" aria-hidden="true">
+      <img src="images/animal sticks/batsticker.PNG" alt="" class="form-sticker form-sticker--4" aria-hidden="true">
 
       <form id="submit-form" class="submit-form fun-form" novalidate>
 

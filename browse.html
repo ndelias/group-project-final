@@ -7,6 +7,55 @@
   <title>Browse Animals — Misunderstood</title>
   <link rel="stylesheet" href="design-system/main.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦈</text></svg>">
+  <style>
+    /* Browse page stickers */
+    .page-header {
+      position: relative;
+      overflow: visible;
+    }
+
+    .header-sticker {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      opacity: 0.85;
+      filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.2));
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .header-sticker--1 { top: 10px; left: 5%; transform: rotate(-8deg); }
+    .header-sticker--2 { top: 20px; right: 5%; transform: rotate(10deg); }
+
+    /* Grid area stickers */
+    .grid-wrapper {
+      position: relative;
+    }
+
+    .grid-sticker {
+      position: absolute;
+      width: 55px;
+      height: 55px;
+      object-fit: contain;
+      opacity: 0.75;
+      filter: drop-shadow(2px 3px 5px rgba(0,0,0,0.15));
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .grid-sticker--1 { top: 50px; left: -30px; transform: rotate(-12deg); }
+    .grid-sticker--2 { top: 200px; right: -25px; transform: rotate(8deg); }
+    .grid-sticker--3 { bottom: 100px; left: -35px; transform: rotate(5deg); }
+    .grid-sticker--4 { bottom: 200px; right: -30px; transform: rotate(-10deg); }
+
+    @media (max-width: 768px) {
+      .header-sticker,
+      .grid-sticker {
+        display: none;
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- Site Header -->
@@ -61,6 +110,10 @@
 
   <!-- Page Header -->
   <section class="section section--sm page-header">
+    <!-- Header Stickers -->
+    <img src="images/animal sticks/wolfsticker.PNG" alt="" class="header-sticker header-sticker--1" aria-hidden="true">
+    <img src="images/animal sticks/sharksticker.PNG" alt="" class="header-sticker header-sticker--2" aria-hidden="true">
+
     <div class="container">
       <h1 class="text-center mb-md">Browse Animals</h1>
       <p class="text-center" style="max-width: 600px; margin: 0 auto;">
@@ -91,7 +144,13 @@
 
   <!-- Animals Grid -->
   <section class="section" aria-live="polite" aria-atomic="true">
-    <div class="container">
+    <div class="container grid-wrapper">
+      <!-- Grid Stickers -->
+      <img src="images/animal sticks/batsticker.PNG" alt="" class="grid-sticker grid-sticker--1" aria-hidden="true">
+      <img src="images/animal sticks/snakesticker.PNG" alt="" class="grid-sticker grid-sticker--2" aria-hidden="true">
+      <img src="images/animal sticks/spidersticker.PNG" alt="" class="grid-sticker grid-sticker--3" aria-hidden="true">
+      <img src="images/animal sticks/vulturesticker.PNG" alt="" class="grid-sticker grid-sticker--4" aria-hidden="true">
+
       <div id="animals-grid" class="grid grid--3">
         <!-- Animals will be loaded here by JavaScript -->
         <div class="loading">

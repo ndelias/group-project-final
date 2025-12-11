@@ -295,6 +295,60 @@
         right: -50px;
       }
     }
+
+    /* Quiz page stickers */
+    .page-header {
+      position: relative;
+      overflow: visible;
+    }
+
+    .quiz-sticker {
+      position: absolute;
+      width: 65px;
+      height: 65px;
+      object-fit: contain;
+      opacity: 0.85;
+      filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.2));
+      pointer-events: none;
+      z-index: 1;
+      animation: quiz-bounce 3s ease-in-out infinite;
+    }
+
+    @keyframes quiz-bounce {
+      0%, 100% { transform: translateY(0) rotate(var(--rotate, 0deg)); }
+      50% { transform: translateY(-8px) rotate(var(--rotate, 0deg)); }
+    }
+
+    .quiz-sticker--1 { top: 5px; left: 3%; --rotate: -10deg; animation-delay: 0s; }
+    .quiz-sticker--2 { top: 15px; right: 3%; --rotate: 12deg; animation-delay: 0.5s; }
+
+    /* Quiz section stickers */
+    .quiz-wrapper {
+      position: relative;
+    }
+
+    .quiz-area-sticker {
+      position: absolute;
+      width: 55px;
+      height: 55px;
+      object-fit: contain;
+      opacity: 0.7;
+      filter: drop-shadow(2px 3px 5px rgba(0,0,0,0.15));
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .quiz-area-sticker--1 { top: 20px; left: -40px; transform: rotate(-15deg); }
+    .quiz-area-sticker--2 { top: 150px; right: -35px; transform: rotate(10deg); }
+    .quiz-area-sticker--3 { bottom: 80px; left: -45px; transform: rotate(8deg); }
+    .quiz-area-sticker--4 { bottom: 20px; right: -40px; transform: rotate(-12deg); }
+
+    @media (max-width: 768px) {
+      .quiz-sticker,
+      .quiz-area-sticker {
+        display: none;
+      }
+    }
   </style>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦈</text></svg>">
 </head>
@@ -351,6 +405,10 @@
 
   <!-- Page Header -->
   <section class="section section--sm page-header">
+    <!-- Quiz Header Stickers -->
+    <img src="images/animal sticks/opossumsticker.PNG" alt="" class="quiz-sticker quiz-sticker--1" aria-hidden="true">
+    <img src="images/animal sticks/hyenasticker.PNG" alt="" class="quiz-sticker quiz-sticker--2" aria-hidden="true">
+
     <div class="container">
       <h1 class="text-center mb-md">Test Your Knowledge</h1>
       <p class="text-center" style="max-width: 600px; margin: 0 auto;">
@@ -366,14 +424,20 @@
 
   <!-- Quiz Section -->
   <section class="section">
-    <div class="container">
+    <div class="container quiz-wrapper">
+      <!-- Quiz Area Stickers -->
+      <img src="images/animal sticks/batsticker.PNG" alt="" class="quiz-area-sticker quiz-area-sticker--1" aria-hidden="true">
+      <img src="images/animal sticks/wolfsticker.PNG" alt="" class="quiz-area-sticker quiz-area-sticker--2" aria-hidden="true">
+      <img src="images/animal sticks/ratsticker.PNG" alt="" class="quiz-area-sticker quiz-area-sticker--3" aria-hidden="true">
+      <img src="images/animal sticks/snakesticker.PNG" alt="" class="quiz-area-sticker quiz-area-sticker--4" aria-hidden="true">
+
       <div class="quiz-container">
         <div id="quiz-progress" class="text-center mb-xl">
           <p style="color: var(--color-text-light);">
             <span style="font-weight: var(--font-weight-bold); color: var(--color-primary); font-size: var(--font-size-lg);">Question <span id="current-question">1</span></span> of <span id="total-questions">5</span>
           </p>
         </div>
-        
+
         <div id="quiz-questions">
           <!-- Questions will be loaded here by JavaScript -->
           <div class="loading">

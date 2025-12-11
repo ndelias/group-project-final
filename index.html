@@ -271,6 +271,69 @@
       }
     }
 
+    /* Floating Stickers */
+    .sticker {
+      position: absolute;
+      width: 70px;
+      height: 70px;
+      object-fit: contain;
+      opacity: 0.9;
+      animation: float 4s ease-in-out infinite;
+      filter: drop-shadow(3px 5px 8px rgba(0,0,0,0.25));
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(-12px) rotate(3deg); }
+    }
+
+    .sticker--1 { top: 15%; left: 3%; animation-delay: 0s; width: 65px; height: 65px; }
+    .sticker--2 { top: 60%; left: 5%; animation-delay: 0.5s; width: 60px; height: 60px; }
+    .sticker--3 { top: 25%; right: 2%; animation-delay: 1s; width: 55px; height: 55px; }
+    .sticker--4 { top: 70%; right: 4%; animation-delay: 1.5s; width: 65px; height: 65px; }
+
+    /* Section stickers */
+    .section-stickers {
+      position: relative;
+    }
+
+    .section-sticker {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      opacity: 0.85;
+      filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.2));
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .section-sticker--1 { top: -20px; left: 5%; transform: rotate(-10deg); }
+    .section-sticker--2 { top: -15px; right: 8%; transform: rotate(12deg); }
+    .section-sticker--3 { bottom: 30px; left: 2%; transform: rotate(8deg); }
+    .section-sticker--4 { bottom: 40px; right: 3%; transform: rotate(-8deg); }
+
+    /* CTA stickers */
+    .cta-stickers {
+      position: relative;
+    }
+
+    .cta-sticker {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      opacity: 0.9;
+      filter: drop-shadow(3px 5px 8px rgba(0,0,0,0.25));
+      pointer-events: none;
+      animation: float 5s ease-in-out infinite;
+    }
+
+    .cta-sticker--1 { top: 50%; left: 5%; transform: translateY(-50%); animation-delay: 0.3s; }
+    .cta-sticker--2 { top: 50%; right: 5%; transform: translateY(-50%); animation-delay: 0.8s; }
+
     @media (max-width: 768px) {
       .hero-split {
         grid-template-columns: 1fr;
@@ -289,6 +352,12 @@
 
       .mission-icon {
         font-size: 3rem;
+      }
+
+      .sticker,
+      .section-sticker,
+      .cta-sticker {
+        display: none;
       }
     }
   </style>
@@ -346,6 +415,12 @@
 
   <!-- Hero Section -->
   <section class="hero" role="banner">
+    <!-- Floating Stickers -->
+    <img src="images/animal sticks/batsticker.PNG" alt="" class="sticker sticker--1" aria-hidden="true">
+    <img src="images/animal sticks/sharksticker.PNG" alt="" class="sticker sticker--2" aria-hidden="true">
+    <img src="images/animal sticks/wolfsticker.PNG" alt="" class="sticker sticker--3" aria-hidden="true">
+    <img src="images/animal sticks/spidersticker.PNG" alt="" class="sticker sticker--4" aria-hidden="true">
+
     <div class="container">
       <div class="hero-split">
         <div class="hero-content">
@@ -363,7 +438,13 @@
   </section>
 
   <!-- Featured Animals Section -->
-  <section class="section featured-section" aria-labelledby="featured-heading">
+  <section class="section featured-section section-stickers" aria-labelledby="featured-heading">
+    <!-- Section Stickers -->
+    <img src="images/animal sticks/snakesticker.PNG" alt="" class="section-sticker section-sticker--1" aria-hidden="true">
+    <img src="images/animal sticks/vulturesticker.PNG" alt="" class="section-sticker section-sticker--2" aria-hidden="true">
+    <img src="images/animal sticks/hyenasticker.PNG" alt="" class="section-sticker section-sticker--3" aria-hidden="true">
+    <img src="images/animal sticks/ratsticker.PNG" alt="" class="section-sticker section-sticker--4" aria-hidden="true">
+
     <div class="container">
       <div id="progress-container"></div>
       <h2 id="featured-heading" class="text-center mb-xl" style="font-size: var(--font-size-3xl); font-weight: var(--font-weight-bold);">Meet the Crew! 🦇</h2>
@@ -393,7 +474,11 @@
   </section>
 
   <!-- CTA Section -->
-  <section class="section cta-simple" aria-labelledby="cta-heading">
+  <section class="section cta-simple cta-stickers" aria-labelledby="cta-heading">
+    <!-- CTA Stickers -->
+    <img src="images/animal sticks/opossumsticker.PNG" alt="" class="cta-sticker cta-sticker--1" aria-hidden="true">
+    <img src="images/animal sticks/batsticker.PNG" alt="" class="cta-sticker cta-sticker--2" aria-hidden="true">
+
     <div class="container">
       <h2 id="cta-heading" class="cta-title">Think You Know the Truth? 🤔</h2>
       <p style="font-size: var(--font-size-lg); margin-bottom: var(--spacing-lg); color: var(--color-text-light);">Test your myth-busting skills and become an Animal Expert!</p>

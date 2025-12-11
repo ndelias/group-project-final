@@ -7,6 +7,62 @@
   <title>My Collection — Misunderstood</title>
   <link rel="stylesheet" href="design-system/main.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦈</text></svg>">
+  <style>
+    /* Collection page stickers */
+    .collection-hero {
+      position: relative;
+      overflow: visible;
+    }
+
+    .hero-sticker {
+      position: absolute;
+      width: 70px;
+      height: 70px;
+      object-fit: contain;
+      opacity: 0.9;
+      filter: drop-shadow(3px 5px 8px rgba(0,0,0,0.25));
+      pointer-events: none;
+      z-index: 2;
+      animation: collect-float 4s ease-in-out infinite;
+    }
+
+    @keyframes collect-float {
+      0%, 100% { transform: translateY(0) rotate(var(--rotate, 0deg)); }
+      50% { transform: translateY(-10px) rotate(var(--rotate, 0deg)); }
+    }
+
+    .hero-sticker--1 { top: 20%; left: 5%; --rotate: -8deg; animation-delay: 0s; }
+    .hero-sticker--2 { top: 60%; left: 8%; --rotate: 5deg; animation-delay: 0.4s; width: 55px; height: 55px; }
+    .hero-sticker--3 { top: 25%; right: 5%; --rotate: 10deg; animation-delay: 0.8s; }
+    .hero-sticker--4 { top: 65%; right: 7%; --rotate: -6deg; animation-delay: 1.2s; width: 60px; height: 60px; }
+
+    /* Section decorative stickers */
+    .collection-content {
+      position: relative;
+    }
+
+    .section-deco-sticker {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      opacity: 0.6;
+      filter: drop-shadow(2px 3px 4px rgba(0,0,0,0.15));
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .section-deco-sticker--1 { top: 50px; right: -20px; transform: rotate(12deg); }
+    .section-deco-sticker--2 { top: 300px; left: -25px; transform: rotate(-10deg); }
+    .section-deco-sticker--3 { bottom: 200px; right: -15px; transform: rotate(8deg); }
+
+    @media (max-width: 768px) {
+      .hero-sticker,
+      .section-deco-sticker {
+        display: none;
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- Site Header -->
@@ -61,6 +117,12 @@
 
   <!-- Collection Hero -->
   <section class="collection-hero">
+    <!-- Hero Stickers -->
+    <img src="images/animal sticks/sharksticker.PNG" alt="" class="hero-sticker hero-sticker--1" aria-hidden="true">
+    <img src="images/animal sticks/spidersticker.PNG" alt="" class="hero-sticker hero-sticker--2" aria-hidden="true">
+    <img src="images/animal sticks/vulturesticker.PNG" alt="" class="hero-sticker hero-sticker--3" aria-hidden="true">
+    <img src="images/animal sticks/wolfsticker.PNG" alt="" class="hero-sticker hero-sticker--4" aria-hidden="true">
+
     <div class="container">
       <h1 class="collection-hero__title">My Collection</h1>
       <p class="collection-hero__subtitle">Your cards, badges, and achievements from exploring the world of misunderstood animals!</p>
@@ -69,7 +131,11 @@
 
   <!-- Main Collection Content -->
   <main class="section" role="main">
-    <div class="container">
+    <div class="container collection-content">
+      <!-- Section Decorative Stickers -->
+      <img src="images/animal sticks/batsticker.PNG" alt="" class="section-deco-sticker section-deco-sticker--1" aria-hidden="true">
+      <img src="images/animal sticks/hyenasticker.PNG" alt="" class="section-deco-sticker section-deco-sticker--2" aria-hidden="true">
+      <img src="images/animal sticks/opossumsticker.PNG" alt="" class="section-deco-sticker section-deco-sticker--3" aria-hidden="true">
 
       <!-- Overall Progress -->
       <section class="mb-3xl" id="overall-progress">

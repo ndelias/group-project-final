@@ -33,24 +33,64 @@
 
     .hero-sticker {
       position: absolute;
-      font-size: 4rem;
-      opacity: 0.8;
+      width: 90px;
+      height: 90px;
+      object-fit: contain;
+      opacity: 0.95;
       animation: float 4s ease-in-out infinite;
-      filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.3));
+      filter: drop-shadow(3px 5px 8px rgba(0,0,0,0.4));
       z-index: 1;
+      pointer-events: none;
     }
 
-    .hero-sticker--1 { top: 10%; left: 5%; animation-delay: 0s; }
-    .hero-sticker--2 { top: 15%; right: 8%; animation-delay: 0.5s; }
-    .hero-sticker--3 { bottom: 25%; left: 8%; animation-delay: 1s; }
-    .hero-sticker--4 { bottom: 20%; right: 5%; animation-delay: 1.5s; }
-    .hero-sticker--5 { top: 45%; left: 3%; animation-delay: 2s; font-size: 3rem; }
-    .hero-sticker--6 { top: 50%; right: 3%; animation-delay: 2.5s; font-size: 3rem; }
+    .hero-sticker--1 { top: 8%; left: 3%; animation-delay: 0s; width: 80px; height: 80px; }
+    .hero-sticker--2 { top: 12%; right: 5%; animation-delay: 0.5s; width: 95px; height: 95px; }
+    .hero-sticker--3 { bottom: 20%; left: 5%; animation-delay: 1s; width: 85px; height: 85px; }
+    .hero-sticker--4 { bottom: 15%; right: 3%; animation-delay: 1.5s; width: 90px; height: 90px; }
+    .hero-sticker--5 { top: 45%; left: 2%; animation-delay: 2s; width: 70px; height: 70px; }
+    .hero-sticker--6 { top: 50%; right: 2%; animation-delay: 2.5s; width: 75px; height: 75px; }
 
     @keyframes float {
       0%, 100% { transform: translateY(0) rotate(-5deg); }
       50% { transform: translateY(-15px) rotate(5deg); }
     }
+
+    /* Page Section Stickers */
+    .section-sticker {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      opacity: 0.15;
+      pointer-events: none;
+    }
+
+    /* Scattered stickers throughout page */
+    .scattered-stickers {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .scattered-sticker {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      opacity: 0.08;
+      pointer-events: none;
+    }
+
+    .scattered-sticker--1 { top: 25%; left: 2%; }
+    .scattered-sticker--2 { top: 40%; right: 1%; }
+    .scattered-sticker--3 { top: 60%; left: 1%; }
+    .scattered-sticker--4 { top: 75%; right: 2%; }
+    .scattered-sticker--5 { top: 90%; left: 3%; }
 
     .about-hero__badge {
       display: inline-flex;
@@ -326,6 +366,7 @@
     /* Responsive */
     @media (max-width: 768px) {
       .hero-sticker { display: none; }
+      .scattered-stickers { display: none; }
 
       .parade-grid {
         grid-template-columns: repeat(3, 1fr);
@@ -389,14 +430,23 @@
     </div>
   </header>
 
+  <!-- Scattered Stickers Throughout Page -->
+  <div class="scattered-stickers" aria-hidden="true">
+    <img src="images/animal sticks/hyenasticker.PNG" alt="" class="scattered-sticker scattered-sticker--1">
+    <img src="images/animal sticks/vulturesticker.PNG" alt="" class="scattered-sticker scattered-sticker--2">
+    <img src="images/animal sticks/opossumsticker.PNG" alt="" class="scattered-sticker scattered-sticker--3">
+    <img src="images/animal sticks/ratsticker.PNG" alt="" class="scattered-sticker scattered-sticker--4">
+    <img src="images/animal sticks/snakesticker.PNG" alt="" class="scattered-sticker scattered-sticker--5">
+  </div>
+
   <!-- Fun Hero Section -->
   <section class="about-hero">
-    <span class="hero-sticker hero-sticker--1" aria-hidden="true">🦇</span>
-    <span class="hero-sticker hero-sticker--2" aria-hidden="true">🦈</span>
-    <span class="hero-sticker hero-sticker--3" aria-hidden="true">🕷️</span>
-    <span class="hero-sticker hero-sticker--4" aria-hidden="true">🐺</span>
-    <span class="hero-sticker hero-sticker--5" aria-hidden="true">🐍</span>
-    <span class="hero-sticker hero-sticker--6" aria-hidden="true">🦔</span>
+    <img src="images/animal sticks/batsticker.PNG" alt="" class="hero-sticker hero-sticker--1" aria-hidden="true">
+    <img src="images/animal sticks/sharksticker.PNG" alt="" class="hero-sticker hero-sticker--2" aria-hidden="true">
+    <img src="images/animal sticks/spidersticker.PNG" alt="" class="hero-sticker hero-sticker--3" aria-hidden="true">
+    <img src="images/animal sticks/wolfsticker.PNG" alt="" class="hero-sticker hero-sticker--4" aria-hidden="true">
+    <img src="images/animal sticks/snakesticker.PNG" alt="" class="hero-sticker hero-sticker--5" aria-hidden="true">
+    <img src="images/animal sticks/hyenasticker.PNG" alt="" class="hero-sticker hero-sticker--6" aria-hidden="true">
 
     <div class="container" style="position: relative; z-index: 2;">
       <div class="about-hero__badge">
