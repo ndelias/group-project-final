@@ -249,7 +249,10 @@ const CardCollection = {
         </div>
         <p class="card-unlock-modal__name">${animal.name}</p>
         <p class="card-unlock-modal__message">Added to your collection!</p>
-        <button class="btn btn--primary card-unlock-modal__close">Awesome! 🎉</button>
+        <div class="card-unlock-modal__buttons">
+          <a href="collection.html" class="btn btn--primary">View My Collection 🎉</a>
+          <button class="btn btn--outline card-unlock-modal__close">Continue Learning</button>
+        </div>
       </div>
     `;
 
@@ -524,6 +527,18 @@ const CardCollection = {
       color: #6b8c42;
       font-size: 1.1rem;
       margin-bottom: 1.5rem;
+    }
+
+    .card-unlock-modal__buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .card-unlock-modal__buttons .btn {
+      font-size: 1rem;
+      padding: 0.8rem 1.5rem;
     }
 
     .card-unlock-modal__close {
