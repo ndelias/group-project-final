@@ -543,8 +543,11 @@
 
 .accordion__icon {
   transition: transform var(--transition-base);
-  font-size: var(--font-size-lg);
+  font-size: var(--font-size-xl);
   color: var(--pine);
+  font-weight: var(--font-weight-bold);
+  margin-left: var(--spacing-md);
+  flex-shrink: 0;
 }
 
 .accordion[aria-expanded="true"] .accordion__icon { transform: rotate(180deg); }

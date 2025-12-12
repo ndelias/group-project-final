@@ -139,7 +139,7 @@
     "name": "Turkey Vulture",
     "scientificName": "Cathartes aura",
     "category": "dirty-diseased",
-    "location": { "top": "38%", "left": "18%" },
+    "location": { "top": "48%", "left": "53%" },
     "image": "images/vultures/griffon-vulture.jpeg",
     "cardImage": "images/Collectible Card/VultureCard.png",
     "images": [
