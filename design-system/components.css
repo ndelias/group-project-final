@@ -124,10 +124,18 @@
   border: none;
   border-radius: 0;
   box-shadow: none;
-  padding: var(--spacing-3xl) 0 var(--spacing-4xl);
+  height: 268px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   position: relative;
   overflow: hidden;
+}
+
+.page-header--submit,
+.page-header--about {
+  height: 520px;
 }
 
 .page-header h1,
