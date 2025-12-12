@@ -167,22 +167,22 @@ document.addEventListener('DOMContentLoaded', async function() {
       </section>
     ` : '';
 
-    // Create a feature image to break up text sections
-    const featureImage1 = images[1] || images[0];
-    const featureImage2 = images[2] || images[0];
+    // Create feature images row - all images with captions in one row
+    const featureImages = images.slice(1, 4); // Get up to 3 additional images
+    const captions = [
+      `Look at this amazing ${animal.name.split(' ').pop()}! 🤩`,
+      `Nature is pretty cool, right? 🌿`,
+      `What a beautiful creature! 💚`
+    ];
 
-    // Feature image HTML for between sections
-    const featureImageHTML1 = `
-      <div class="feature-image mb-3xl">
-        <img src="${featureImage1}" alt="${animal.name}" class="feature-image__img" loading="lazy">
-        <div class="feature-image__caption">Look at this amazing ${animal.name.split(' ').pop()}! 🤩</div>
-      </div>
-    `;
-
-    const featureImageHTML2 = images.length > 2 ? `
-      <div class="feature-image feature-image--right mb-3xl">
-        <img src="${featureImage2}" alt="${animal.name}" class="feature-image__img" loading="lazy">
-        <div class="feature-image__caption">Nature is pretty cool, right? 🌿</div>
+    const featureImagesRowHTML = featureImages.length > 0 ? `
+      <div class="feature-images-row mb-3xl">
+        ${featureImages.map((img, index) => `
+          <div class="feature-image">
+            <img src="${img}" alt="${animal.name}" class="feature-image__img" loading="lazy">
+            <div class="feature-image__caption">${captions[index] || captions[0]}</div>
+          </div>
+        `).join('')}
       </div>
     ` : '';
 
@@ -232,6 +232,14 @@ document.addEventListener('DOMContentLoaded', async function() {
           display: block;
         }
 
+        /* Feature Images Row */
+        .feature-images-row {
+          display: flex;
+          gap: var(--spacing-lg);
+          justify-content: center;
+          flex-wrap: wrap;
+        }
+
         /* Feature Image Styles */
         .feature-image {
           background: var(--parchment);
@@ -239,11 +247,9 @@ document.addEventListener('DOMContentLoaded', async function() {
           border-radius: var(--radius-lg);
           overflow: hidden;
           box-shadow: var(--shadow-1);
-          max-width: 500px;
-        }
-
-        .feature-image--right {
-          margin-left: auto;
+          flex: 1;
+          min-width: 280px;
+          max-width: 350px;
         }
 
         .feature-image__img {
@@ -299,8 +305,14 @@ document.addEventListener('DOMContentLoaded', async function() {
             grid-column: span 1;
           }
 
+          .feature-images-row {
+            flex-direction: column;
+            align-items: center;
+          }
+
           .feature-image {
             max-width: 100%;
+            min-width: auto;
           }
 
           .feature-image__img {
@@ -341,7 +353,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         </div>
       </section>
 
-      ${featureImageHTML1}
+      ${featureImagesRowHTML}
 
       <section class="impact-section mb-3xl" aria-labelledby="benefits-heading">
         <h2 id="benefits-heading" class="mb-lg">How They Help Us 🌍</h2>
@@ -355,8 +367,6 @@ document.addEventListener('DOMContentLoaded', async function() {
         <span>💡</span>
         <span class="section-divider__line"></span>
       </div>
-
-      ${featureImageHTML2}
 
       <section class="mb-3xl" aria-labelledby="myths-heading">
         <h2 id="myths-heading" class="mb-lg">Myth Busters! 💥</h2>
