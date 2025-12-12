@@ -1647,7 +1647,7 @@ window.Misunderstood = {
   // Setup click handlers for all stickers
   function setupStickerInteractions() {
     // Select all sticker types
-    const stickers = document.querySelectorAll('.sticker, .section-sticker, .cta-sticker, .map-pin');
+    const stickers = document.querySelectorAll('.sticker, .section-sticker, .cta-sticker, .map-pin, .form-sticker');
     
     stickers.forEach(sticker => {
       // Enable pointer events
@@ -1687,7 +1687,8 @@ window.Misunderstood = {
           if (node.classList && (node.classList.contains('sticker') || 
               node.classList.contains('section-sticker') || 
               node.classList.contains('cta-sticker') || 
-              node.classList.contains('map-pin'))) {
+              node.classList.contains('map-pin') ||
+              node.classList.contains('form-sticker'))) {
             node.style.pointerEvents = 'auto';
             node.addEventListener('click', function(e) {
               e.preventDefault();

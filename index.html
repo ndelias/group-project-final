@@ -14,6 +14,8 @@
       position: relative;
       overflow: hidden;
       background: var(--color-header-bg);
+      border: none;
+      border-radius: 0;
     }
 
     .hero::before {
@@ -118,7 +120,7 @@
       padding: var(--spacing-md) var(--spacing-lg);
       background: linear-gradient(transparent, rgba(0,0,0,0.7));
       color: white;
-      font-size: var(--font-size-lg);
+      font-size: calc(var(--font-size-lg) * 0.8);
       font-weight: var(--font-weight-bold);
       text-align: center;
     }
@@ -298,6 +300,24 @@
     .sticker--3 { top: 25%; right: 2%; animation-delay: 1s; width: 55px; height: 55px; }
     .sticker--4 { top: 70%; right: 4%; animation-delay: 1.5s; width: 65px; height: 65px; }
 
+    /* Map Section Stickers */
+    .map-sticker {
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      opacity: 0.9;
+      animation: float 4s ease-in-out infinite;
+      filter: drop-shadow(3px 5px 8px rgba(0,0,0,0.25));
+      pointer-events: auto;
+      z-index: 2;
+    }
+
+    .map-sticker--1 { top: 10%; left: 2%; animation-delay: 0.2s; width: 55px; height: 55px; }
+    .map-sticker--2 { top: 50%; left: 1%; animation-delay: 0.7s; width: 60px; height: 60px; }
+    .map-sticker--3 { top: 20%; right: 1%; animation-delay: 1.2s; width: 58px; height: 58px; }
+    .map-sticker--4 { bottom: 15%; right: 3%; animation-delay: 1.7s; width: 62px; height: 62px; }
+
     /* Section stickers */
     .section-stickers {
       position: relative;
@@ -347,7 +367,8 @@
       }
 
       .sticker,
-      .section-sticker {
+      .section-sticker,
+      .map-sticker {
         display: none;
       }
       /* CTA stickers are handled in components.css for #quiz-cta */
@@ -430,9 +451,15 @@
   </section>
 
   <!-- Interactive Habitat Map Section -->
-  <section id="habitat-map" class="section section-large" aria-labelledby="habitat-heading">
+  <section id="habitat-map" class="section section-large" aria-labelledby="habitat-heading" style="position: relative;">
+    <!-- Map Section Stickers -->
+    <img src="images/animal sticks/hyenasticker.PNG" alt="" class="sticker map-sticker map-sticker--1" aria-hidden="true">
+    <img src="images/animal sticks/ratsticker.PNG" alt="" class="sticker map-sticker map-sticker--2" aria-hidden="true">
+    <img src="images/animal sticks/snakesticker.PNG" alt="" class="sticker map-sticker map-sticker--3" aria-hidden="true">
+    <img src="images/animal sticks/vulturesticker.PNG" alt="" class="sticker map-sticker map-sticker--4" aria-hidden="true">
+    
     <div class="container">
-      <h2 id="habitat-heading" class="text-center mb-xl" style="font-size: var(--font-size-3xl); font-weight: var(--font-weight-bold);">Where Do They Live? 🗺️</h2>
+      <h2 id="habitat-heading" class="text-center mb-xl" style="font-size: var(--font-size-3xl); font-weight: var(--font-weight-bold);">Let's Explore! 🗺️</h2>
       <div class="map-wrapper">
         <div class="map-container">
           <img src="images/world-map-illustrated.png" alt="Illustrated World Map of Animal Habitats" class="map-image">

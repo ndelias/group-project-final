@@ -26,33 +26,52 @@
   --ink: #1A1D17;
 
   /* ===========================================
-     MAPPED COLORS (Legacy support)
+     MAPPED COLORS - Nature/National Geographic Palette
      =========================================== */
-  --color-primary: var(--moss);
-  --color-primary-dark: var(--pine);
-  --color-primary-light: var(--sage);
-  --color-secondary: var(--olive);
-  --color-secondary-dark: var(--pine);
-  --color-accent: var(--rust);
-  --color-accent-light: var(--gold);
+  /* Primary Brand Colors - Deep Forest Green (replaces blue) */
+  --color-primary: #2E7D32; /* Deep Forest Green */
+  --color-primary-dark: #1B5E20; /* Darker Green for hover */
+  --color-primary-light: #4CAF50; /* Lighter Green for focus rings */
+  
+  /* Secondary & Accent - Mustard Yellow */
+  --color-secondary: #F2C14E; /* Mustard Yellow - matches accent */
+  --color-secondary-dark: #1B5E20; /* Use primary-dark for consistency */
+  --color-accent: #F2C14E; /* Mustard Yellow */
+  --color-accent-light: #F2C14E; /* Keep accent light same as accent */
+  
+  /* Text Colors */
   --color-text: var(--ink);
   --color-text-light: #4a4d47;
-  --color-text-inverse: var(--parchment);
-  --color-bg: var(--tan);
-  --color-bg-alt: var(--sand);
+  --color-text-inverse: #FFFFFF;
+  
+  /* Backgrounds - Warm Beige */
+  --color-bg: #FAF7F0; /* Warm Beige */
+  --color-bg-alt: #F0EBDF; /* Slightly darker beige */
   --color-bg-dark: var(--pine);
   --color-bg-card: var(--parchment);
+  
+  /* Borders */
   --color-border: var(--pine);
   --color-border-light: var(--sand);
-  --color-success: var(--moss);
+  
+  /* Semantic Colors */
+  --color-success: #2E7D32; /* Match Primary - Deep Forest Green */
   --color-warning: var(--gold);
   --color-error: var(--rust);
-  --color-info: var(--olive);
+  --color-info: #2E7D32; /* Use primary green */
+  
+  /* Category Colors */
   --color-dangerous: var(--rust);
   --color-dirty: var(--gold);
   --color-nuisance: var(--olive);
-  --color-header-bg: var(--pine);
-  --color-header-text: var(--parchment);
+  
+  /* Header Colors */
+  --color-header-bg: #2E7D32; /* Match Primary - Deep Forest Green */
+  --color-header-text: #FFFFFF; /* White text on green header */
+  
+  /* Link & Button Colors */
+  --color-link: #2E7D32; /* Use primary green for links */
+  --color-btn-primary-bg: #2E7D32; /* Use primary green for primary buttons */
 
   /* Card colors */
   --card-ink: var(--ink);
@@ -75,25 +94,25 @@
   --shadow-card-hover: 0 6px 0 rgba(26, 29, 23, 0.9);
   --focus-ring: 4px solid var(--gold);
 
-  /* Typography */
+  /* Typography - Kid-Friendly Scale */
   --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --font-family-heading: 'Georgia', 'Times New Roman', serif;
-  --font-size-xs: 0.75rem;
-  --font-size-sm: 0.875rem;
-  --font-size-base: 1rem;
-  --font-size-lg: 1.125rem;
-  --font-size-xl: 1.25rem;
-  --font-size-2xl: 1.5rem;
-  --font-size-3xl: 1.875rem;
-  --font-size-4xl: 2.25rem;
-  --font-size-5xl: 3rem;
+  --font-size-xs: 0.875rem; /* 14px - Minimum legible size */
+  --font-size-sm: 1rem; /* 16px - For secondary text */
+  --font-size-base: 1.125rem; /* 18px - Base size for accessibility */
+  --font-size-lg: 1.25rem; /* 20px - For intros/lead text */
+  --font-size-xl: 1.5rem; /* 24px - For card titles */
+  --font-size-2xl: 2rem; /* 32px - For section headings */
+  --font-size-3xl: 2.5rem; /* 40px */
+  --font-size-4xl: 3.5rem; /* 56px - For page titles */
+  --font-size-5xl: 4.5rem; /* 72px - For Hero display text */
   --font-weight-normal: 400;
   --font-weight-medium: 500;
   --font-weight-semibold: 600;
-  --font-weight-bold: 700;
+  --font-weight-bold: 800; /* Extra Bold for chunky, fun look */
   --font-weight-black: 800;
   --line-height-tight: 1.25;
-  --line-height-normal: 1.5;
+  --line-height-normal: 1.6; /* More space between lines for kids */
   --line-height-relaxed: 1.75;
 
   /* Spacing */

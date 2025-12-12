@@ -47,26 +47,26 @@
   gap: var(--spacing-xs);
   font-weight: var(--font-weight-bold);
   color: var(--ink);
-  padding: var(--spacing-sm) var(--spacing-md);
+  padding: calc(var(--spacing-sm) * 0.8) calc(var(--spacing-md) * 0.8);
   background: var(--sand);
   border: var(--border-thick) solid var(--pine);
   border-radius: var(--radius-pill);
   box-shadow: var(--shadow-1);
   transition: all var(--transition-fast);
   text-decoration: none;
-  min-height: 44px;
-  min-width: 44px;
+  min-height: 35px;
+  min-width: 35px;
 }
 
 .main-nav__link svg {
-  width: 28px;
-  height: 28px;
+  width: 22px;
+  height: 22px;
   fill: currentColor;
   display: block;
 }
 
 .main-nav__link span {
-  font-size: calc(var(--font-size-sm) * 1.5);
+  font-size: calc(var(--font-size-sm) * 1.2);
   font-weight: var(--font-weight-bold);
   line-height: 1;
 }
@@ -117,26 +117,94 @@
 .site-footer__link:hover { color: var(--olive); }
 
 /* ===========================================
-   PAGE HEADER STRIP
+   PAGE HEADER STRIP - Base Style
    =========================================== */
 .page-header {
-  background: linear-gradient(180deg, var(--olive) 0%, var(--pine) 100%) !important;
-  color: var(--parchment);
-  border: var(--border-thick) solid var(--pine);
-  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
-  box-shadow: var(--shadow-1);
+  color: #ffffff;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: var(--spacing-3xl) 0 var(--spacing-4xl);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .page-header h1,
 .page-header h2,
 .page-header h3,
 .page-header p {
-  color: var(--parchment);
+  color: #ffffff;
 }
 
 .page-header .form-help,
 .page-header small {
-  color: rgba(246, 241, 227, 0.9);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Page Header Modifiers - Deep Nature Palette */
+.page-header--submit {
+  background: linear-gradient(135deg, #2E7D32 0%, #1B5E20 50%, #2E7D32 100%);
+}
+
+.page-header--browse {
+  background: linear-gradient(135deg, #00695C 0%, #004D40 50%, #00695C 100%);
+}
+
+.page-header--quiz {
+  background: linear-gradient(135deg, #1565C0 0%, #0D47A1 50%, #1565C0 100%);
+}
+
+.page-header--about {
+  background: linear-gradient(135deg, #5D4037 0%, #3E2723 50%, #5D4037 100%);
+}
+
+.page-header--collection {
+  background: linear-gradient(135deg, #7B1FA2 0%, #4A148C 50%, #7B1FA2 100%);
+}
+
+/* Unified height for Browse, Quiz, and Collection hero sections */
+.page-header--browse {
+  min-height: 162px; /* 20% shorter than others (200px * 0.8) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-header--collection {
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-header--quiz {
+  min-height: 220px; /* 10% taller than others (200px * 1.1) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-header--browse .container,
+.page-header--quiz .container,
+.page-header--collection .container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+.page-header--browse h1,
+.page-header--quiz h1,
+.page-header--collection h1 {
+  margin-bottom: var(--spacing-md);
+}
+
+.page-header--browse p,
+.page-header--quiz p,
+.page-header--collection p {
+  margin: 0 auto;
+  max-width: 600px;
 }
 
 /* ===========================================
@@ -237,7 +305,7 @@
   color: var(--ink);
   padding: 0;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  overflow: hidden;
+  overflow: hidden; /* Clip image corners to match rounded card */
   display: flex;
   flex-direction: column;
   cursor: pointer;
@@ -387,7 +455,7 @@
   color: #0d140d;
   border: var(--border-thick) solid var(--pine);
   border-radius: var(--radius-pill);
-  box-shadow: var(--shadow-1);
+  box-shadow: 0 3px 0 rgba(40, 66, 43, 0.85); /* Green shadow instead of brown */
   cursor: pointer;
   transition: all var(--transition-fast);
   min-height: 44px;
@@ -406,7 +474,8 @@
 .chip[data-selected="true"] {
   background: var(--gold);
   color: var(--ink);
-  border-color: var(--pine);
+  border: var(--border-thick) solid var(--pine); /* Ensure green border */
+  box-shadow: 0 3px 0 rgba(40, 66, 43, 0.85); /* Green shadow */
 }
 
 .chip-group {
@@ -414,6 +483,8 @@
   flex-wrap: wrap;
   gap: var(--spacing-sm);
   margin-bottom: var(--spacing-lg);
+  margin-top: calc(var(--spacing-lg) * 1.05); /* Moved down 6% (was 11%, moved up 5%) */
+  justify-content: center;
 }
 
 /* ===========================================
@@ -1079,7 +1150,14 @@ select:not(.form-select) {
 .form-error { display: block; font-size: var(--font-size-sm); color: var(--rust); margin-top: var(--spacing-xs); min-height: 1.5em; opacity: 0; transform: translateY(-5px); transition: opacity var(--transition-base), transform var(--transition-base); }
 .form-error--show { opacity: 1; transform: translateY(0); }
 
-.form-actions { display: flex; gap: var(--spacing-md); justify-content: center; margin-top: var(--spacing-2xl); flex-wrap: wrap; }
+.form-actions { 
+  display: flex; 
+  flex-direction: column;
+  gap: 1rem; 
+  justify-content: center; 
+  margin-top: var(--spacing-2xl); 
+  text-align: center;
+}
 
 .form-success {
   background: #e8f5e1;
@@ -1233,6 +1311,95 @@ select:not(.form-select) {
   }
 }
 
+/* ===========================================
+   SUBMIT FORM & MODAL BUTTONS
+   Clean, structured button styles
+   =========================================== */
+/* Reset styles for buttons in submit form and modals */
+.submit-form .btn,
+.submit-form .btn--submit,
+.submit-form .btn--reset-fun,
+.card-unlock-modal .btn,
+.badge-notification .btn,
+.modal .btn {
+  animation: none !important;
+  font-size: 1.125rem;
+  padding: 0.75rem 1.5rem;
+  width: 100%;
+  border-radius: var(--border-radius-md);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+/* Form actions layout */
+.submit-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: center;
+}
+
+/* Primary submit button */
+.submit-form .btn--submit,
+.card-unlock-modal .btn--primary,
+.modal .btn--primary {
+  background: var(--color-success, var(--moss));
+  color: white;
+  border: none;
+  font-weight: var(--font-weight-bold);
+}
+
+.submit-form .btn--submit:hover,
+.card-unlock-modal .btn--primary:hover,
+.modal .btn--primary:hover {
+  background: var(--olive);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+}
+
+.submit-form .btn--submit:active,
+.card-unlock-modal .btn--primary:active,
+.modal .btn--primary:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Secondary reset button - simple text link style */
+.submit-form .btn--reset-fun {
+  background: transparent;
+  color: var(--color-text-light);
+  border: none;
+  font-weight: var(--font-weight-normal);
+  text-decoration: none;
+  margin-top: 1rem;
+  box-shadow: none;
+  padding: 0.5rem 1rem;
+}
+
+.submit-form .btn--reset-fun:hover {
+  color: var(--color-text);
+  text-decoration: underline;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Modal close button - ensure it follows the same clean style */
+.card-unlock-modal__close,
+.card-unlock-modal .btn {
+  width: 100% !important;
+  font-size: 1.125rem !important;
+  padding: 0.75rem 1.5rem !important;
+  border-radius: var(--border-radius-md) !important;
+  animation: none !important;
+}
+
+/* Modal content - ensure overflow hidden for rounded corners */
+.card-unlock-modal__content,
+.card-viewer-modal__content,
+.modal-content {
+  overflow: hidden; /* Clip image corners to match rounded modal */
+}
+
 @media (max-width: 480px) {
   .container { padding: 0 var(--spacing-md); }
   .section { padding: var(--spacing-xl) 0; }
@@ -1368,6 +1535,11 @@ select:not(.form-select) {
 /* ===========================================
    QUIZ CARD ANIMAL IMAGE
    =========================================== */
+/* Swipe card - ensure overflow hidden for rounded corners */
+.swipe-card {
+  overflow: hidden; /* Clip image corners to match rounded card */
+}
+
 .swipe-card__image {
   position: relative;
   width: 100%;
@@ -1487,6 +1659,7 @@ select:not(.form-select) {
   filter: drop-shadow(4px 6px 10px rgba(0,0,0,0.3));
   pointer-events: none;
   z-index: 1;
+  mix-blend-mode: multiply; /* Remove white background corners */
 }
 
 /* Opossum (Left) - Peek Animation */

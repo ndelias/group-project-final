@@ -8,50 +8,44 @@
   <link rel="stylesheet" href="design-system/main.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🦈</text></svg>">
   <style>
-    /* Browse page stickers */
+    /* Browse page stickers - Same as home page */
     .page-header {
       position: relative;
       overflow: visible;
     }
 
-    .header-sticker {
-      position: absolute;
-      width: 60px;
-      height: 60px;
-      object-fit: contain;
-      opacity: 0.85;
-      filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.2));
-      pointer-events: none;
-      z-index: 1;
-    }
-
-    .header-sticker--1 { top: 10px; left: 5%; transform: rotate(-8deg); }
-    .header-sticker--2 { top: 20px; right: 5%; transform: rotate(10deg); }
-
-    /* Grid area stickers */
     .grid-wrapper {
       position: relative;
     }
 
-    .grid-sticker {
+    /* Floating Stickers - Same as home page */
+    .sticker {
       position: absolute;
-      width: 55px;
-      height: 55px;
+      width: 70px;
+      height: 70px;
       object-fit: contain;
-      opacity: 0.75;
-      filter: drop-shadow(2px 3px 5px rgba(0,0,0,0.15));
-      pointer-events: none;
-      z-index: 0;
+      opacity: 0.9;
+      animation: float 4s ease-in-out infinite;
+      filter: drop-shadow(3px 5px 8px rgba(0,0,0,0.25));
+      pointer-events: auto;
+      z-index: 2;
+      cursor: pointer;
     }
 
-    .grid-sticker--1 { top: 50px; left: -30px; transform: rotate(-12deg); }
-    .grid-sticker--2 { top: 200px; right: -25px; transform: rotate(8deg); }
-    .grid-sticker--3 { bottom: 100px; left: -35px; transform: rotate(5deg); }
-    .grid-sticker--4 { bottom: 200px; right: -30px; transform: rotate(-10deg); }
+    @keyframes float {
+      0%, 100% { transform: scale(1.1) translateY(0) rotate(0deg); }
+      50% { transform: scale(1.1) translateY(-12px) rotate(3deg); }
+    }
+
+    .sticker--1 { top: 10px; left: 5%; animation-delay: 0s; width: 65px; height: 65px; }
+    .sticker--2 { top: 20px; right: 5%; animation-delay: 0.5s; width: 60px; height: 60px; }
+    .sticker--3 { top: 50px; left: -30px; animation-delay: 1s; width: 55px; height: 55px; }
+    .sticker--4 { top: 200px; right: -25px; animation-delay: 1.5s; width: 55px; height: 55px; }
+    .sticker--5 { bottom: 100px; left: -35px; animation-delay: 2s; width: 55px; height: 55px; }
+    .sticker--6 { bottom: 200px; right: -30px; animation-delay: 2.5s; width: 55px; height: 55px; }
 
     @media (max-width: 768px) {
-      .header-sticker,
-      .grid-sticker {
+      .sticker {
         display: none;
       }
     }
@@ -109,10 +103,10 @@
   </header>
 
   <!-- Page Header -->
-  <section class="section section--sm page-header">
+  <section class="section section--sm page-header page-header--browse">
     <!-- Header Stickers -->
-    <img src="images/animal sticks/wolfsticker.PNG" alt="" class="header-sticker header-sticker--1" aria-hidden="true">
-    <img src="images/animal sticks/sharksticker.PNG" alt="" class="header-sticker header-sticker--2" aria-hidden="true">
+    <img src="images/animal sticks/wolfsticker.PNG" alt="" class="sticker sticker--1" aria-hidden="true">
+    <img src="images/animal sticks/sharksticker.PNG" alt="" class="sticker sticker--2" aria-hidden="true">
 
     <div class="container">
       <h1 class="text-center mb-md">Browse Animals</h1>
@@ -146,10 +140,10 @@
   <section class="section" aria-live="polite" aria-atomic="true">
     <div class="container grid-wrapper">
       <!-- Grid Stickers -->
-      <img src="images/animal sticks/batsticker.PNG" alt="" class="grid-sticker grid-sticker--1" aria-hidden="true">
-      <img src="images/animal sticks/snakesticker.PNG" alt="" class="grid-sticker grid-sticker--2" aria-hidden="true">
-      <img src="images/animal sticks/spidersticker.PNG" alt="" class="grid-sticker grid-sticker--3" aria-hidden="true">
-      <img src="images/animal sticks/vulturesticker.PNG" alt="" class="grid-sticker grid-sticker--4" aria-hidden="true">
+      <img src="images/animal sticks/batsticker.PNG" alt="" class="sticker sticker--3" aria-hidden="true">
+      <img src="images/animal sticks/snakesticker.PNG" alt="" class="sticker sticker--4" aria-hidden="true">
+      <img src="images/animal sticks/spidersticker.PNG" alt="" class="sticker sticker--5" aria-hidden="true">
+      <img src="images/animal sticks/vulturesticker.PNG" alt="" class="sticker sticker--6" aria-hidden="true">
 
       <div id="animals-grid" class="grid grid--3">
         <!-- Animals will be loaded here by JavaScript -->

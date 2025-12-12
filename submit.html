@@ -11,11 +11,10 @@
     /* Submit Page - Fun & Interactive Styles */
 
     /* Hero Section */
+    /* submit-hero styles now handled by .page-header--submit */
     .submit-hero {
-      background: linear-gradient(135deg, #15802b 0%, #1a472a 50%, #2d5a3d 100%);
+      /* Background removed - now handled by .page-header--submit */
       color: white;
-      padding: var(--spacing-3xl) 0 var(--spacing-4xl);
-      text-align: center;
       position: relative;
       overflow: hidden;
     }
@@ -66,46 +65,50 @@
       line-height: var(--line-height-relaxed);
     }
 
-    /* Floating Stickers */
+    /* Floating Stickers - Same as home page */
     .sticker {
       position: absolute;
-      width: 80px;
-      height: 80px;
+      width: 70px;
+      height: 70px;
       object-fit: contain;
-      opacity: 0.95;
+      opacity: 0.9;
       animation: float 4s ease-in-out infinite;
-      filter: drop-shadow(3px 5px 8px rgba(0,0,0,0.3));
-      z-index: 1;
-      pointer-events: none;
+      filter: drop-shadow(3px 5px 8px rgba(0,0,0,0.25));
+      pointer-events: auto;
+      z-index: 2;
+      cursor: pointer;
     }
-
-    .sticker--1 { top: 10%; left: 3%; animation-delay: 0s; width: 70px; height: 70px; }
-    .sticker--2 { top: 15%; right: 5%; animation-delay: 0.5s; width: 85px; height: 85px; }
-    .sticker--3 { bottom: 25%; left: 5%; animation-delay: 1s; width: 75px; height: 75px; }
-    .sticker--4 { bottom: 15%; right: 3%; animation-delay: 1.5s; width: 80px; height: 80px; }
-    .sticker--5 { top: 50%; left: 2%; animation-delay: 2s; width: 65px; height: 65px; }
-    .sticker--6 { top: 45%; right: 2%; animation-delay: 2.5s; width: 70px; height: 70px; }
 
     @keyframes float {
-      0%, 100% { transform: translateY(0) rotate(-5deg); }
-      50% { transform: translateY(-15px) rotate(5deg); }
+      0%, 100% { transform: scale(1.1) translateY(0) rotate(0deg); }
+      50% { transform: scale(1.1) translateY(-12px) rotate(3deg); }
     }
 
-    /* Form Stickers (decorative around form) */
+    .sticker--1 { top: 10%; left: 3%; animation-delay: 0s; width: 65px; height: 65px; }
+    .sticker--2 { top: 15%; right: 5%; animation-delay: 0.5s; width: 60px; height: 60px; }
+    .sticker--3 { bottom: 25%; left: 5%; animation-delay: 1s; width: 55px; height: 55px; }
+    .sticker--4 { bottom: 15%; right: 3%; animation-delay: 1.5s; width: 65px; height: 65px; }
+    .sticker--5 { top: 50%; left: 2%; animation-delay: 2s; width: 70px; height: 70px; }
+    .sticker--6 { top: 45%; right: 2%; animation-delay: 2.5s; width: 75px; height: 75px; }
+
+    /* Form Stickers (decorative around form) - Make them interactive too */
     .form-sticker {
       position: absolute;
       width: 60px;
       height: 60px;
       object-fit: contain;
-      opacity: 0.2;
-      pointer-events: none;
-      z-index: 0;
+      opacity: 0.9;
+      animation: float 4s ease-in-out infinite;
+      filter: drop-shadow(3px 5px 8px rgba(0,0,0,0.25));
+      pointer-events: auto;
+      z-index: 2;
+      cursor: pointer;
     }
 
-    .form-sticker--1 { top: 80px; right: -20px; transform: rotate(15deg); }
-    .form-sticker--2 { top: 350px; left: -30px; transform: rotate(-10deg); }
-    .form-sticker--3 { bottom: 300px; right: -15px; transform: rotate(20deg); }
-    .form-sticker--4 { bottom: 100px; left: -25px; transform: rotate(-15deg); }
+    .form-sticker--1 { top: 80px; right: -20px; animation-delay: 0s; }
+    .form-sticker--2 { top: 350px; left: -30px; animation-delay: 0.5s; }
+    .form-sticker--3 { bottom: 300px; right: -15px; animation-delay: 1s; }
+    .form-sticker--4 { bottom: 100px; left: -25px; animation-delay: 1.5s; }
 
     /* Journey Steps */
     .journey-steps {
@@ -154,7 +157,7 @@
     }
 
     .submit-form.fun-form {
-      background: white;
+      background: var(--color-bg, var(--tan));
       border-radius: var(--border-radius-xl);
       padding: var(--spacing-2xl);
       box-shadow: 0 20px 60px rgba(0,0,0,0.15);
@@ -266,19 +269,24 @@
       flex-shrink: 0;
     }
 
-    /* Decorative Form Stickers */
+    /* Decorative Form Stickers - Same styling as other stickers */
     .form-sticker {
       position: absolute;
-      font-size: 2.5rem;
-      opacity: 0.15;
-      pointer-events: none;
-      z-index: 0;
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      opacity: 0.9;
+      animation: float 4s ease-in-out infinite;
+      filter: drop-shadow(3px 5px 8px rgba(0,0,0,0.25));
+      pointer-events: auto;
+      z-index: 2;
+      cursor: pointer;
     }
 
-    .form-sticker--1 { top: 80px; right: -30px; transform: rotate(15deg); }
-    .form-sticker--2 { top: 350px; left: -40px; transform: rotate(-10deg); }
-    .form-sticker--3 { bottom: 300px; right: -25px; transform: rotate(20deg); }
-    .form-sticker--4 { bottom: 100px; left: -35px; transform: rotate(-15deg); }
+    .form-sticker--1 { top: 80px; right: -20px; animation-delay: 0s; }
+    .form-sticker--2 { top: 350px; left: -30px; animation-delay: 0.5s; }
+    .form-sticker--3 { bottom: 300px; right: -15px; animation-delay: 1s; }
+    .form-sticker--4 { bottom: 100px; left: -25px; animation-delay: 1.5s; }
 
     /* Fun Divider */
     .fun-divider {
@@ -321,54 +329,14 @@
       font-weight: var(--font-weight-medium);
     }
 
-    .btn--submit {
-      background: linear-gradient(135deg, #15802b 0%, #1a9932 100%);
-      color: white;
-      padding: var(--spacing-md) var(--spacing-2xl);
-      font-size: var(--font-size-lg);
-      font-weight: var(--font-weight-bold);
-      border: none;
-      border-radius: var(--border-radius-full);
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(21, 128, 43, 0.3);
-      display: inline-flex;
-      align-items: center;
-      gap: var(--spacing-sm);
-    }
-
-    .btn--submit:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(21, 128, 43, 0.4);
-    }
-
-    .btn--submit:active {
-      transform: translateY(-1px);
-    }
-
-    .btn--reset-fun {
-      background: transparent;
-      color: var(--color-text-light);
-      border: 2px solid var(--color-border);
-      padding: var(--spacing-sm) var(--spacing-xl);
-      font-size: var(--font-size-base);
-      border-radius: var(--border-radius-full);
-      cursor: pointer;
-      transition: all 0.2s ease;
-      margin-left: var(--spacing-md);
-    }
-
-    .btn--reset-fun:hover {
-      border-color: var(--color-text-light);
-      color: var(--color-text);
-    }
+    /* Button styles are now handled in components.css for clean, structured look */
 
     /* Success State */
     .success-celebration {
       display: none;
       text-align: center;
       padding: var(--spacing-3xl) var(--spacing-xl);
-      background: white;
+      background: var(--color-bg, var(--tan));
       border-radius: var(--border-radius-xl);
       box-shadow: 0 20px 60px rgba(0,0,0,0.15);
       position: relative;
@@ -524,7 +492,7 @@
   </header>
 
   <!-- Fun Hero Section -->
-  <section class="submit-hero">
+  <section class="section section--sm page-header page-header--submit">
     <!-- Floating Animal Stickers -->
     <img src="images/animal sticks/batsticker.PNG" alt="" class="sticker sticker--1" aria-hidden="true">
     <img src="images/animal sticks/sharksticker.PNG" alt="" class="sticker sticker--2" aria-hidden="true">
