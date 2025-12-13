@@ -121,6 +121,43 @@ group-project-final/
 - Safari (latest)
 - Edge (latest)
 
+## Reflection: Lessons Learned
+
+### What We Learned
+
+**Technical Skills**
+- Building a cohesive design system with CSS custom properties makes maintaining consistent styling much easier across multiple pages
+- Vanilla JavaScript is powerful enough for complex interactivity without needing frameworks
+- Using JSON for data storage keeps content separate from code, making updates simpler
+- LocalStorage is a great solution for persisting user progress without needing a backend
+
+**Design & UX**
+- A playful, kid-friendly design can make educational content more engaging
+- Micro-interactions (animations, confetti, card flips) add delight and keep users engaged
+- Consistent navigation and visual language help users feel oriented across the site
+- Gamification elements like collectible cards motivate users to explore more content
+
+**Collaboration**
+- Clear communication and dividing responsibilities helps a small team move efficiently
+- Regular testing on different devices catches responsive design issues early
+- Version control with Git is essential for collaborating without overwriting each other's work
+
+### Challenges We Overcame
+
+- Balancing fun visuals with accessibility requirements
+- Creating a responsive layout that works well on all screen sizes
+- Implementing the interactive quiz with swipe gestures and animations
+- Ensuring consistent styling across all pages while allowing for page-specific customizations
+
+### What We Would Do Differently
+
+- Start with mobile-first design from the beginning
+- Create more detailed wireframes before jumping into code
+- Write more reusable CSS components earlier in the process
+- Add more animals to the collection for a richer experience
+
+---
+
 ## Credits
 
 All animal facts are sourced from reputable scientific organizations including:
