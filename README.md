@@ -37,7 +37,7 @@ An educational web application dedicated to debunking myths about commonly misun
 
 | Name | Role |
 |------|------|
-| Nahuel Delias | Developer & Designer |
+| Nahuel | Developer & Designer |
 | Joanna | Developer & Designer |
 
 ## Setup Instructions
@@ -120,6 +120,7 @@ group-project-final/
 - Firefox (latest)
 - Safari (latest)
 - Edge (latest)
+
 
 ## Reflection: Lessons Learned
 
