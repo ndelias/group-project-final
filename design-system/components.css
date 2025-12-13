@@ -16,6 +16,7 @@
 }
 
 .site-header__inner {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1200,10 +1201,49 @@ select:not(.form-select) {
     padding: var(--spacing-md);
     box-shadow: var(--shadow-lg);
     border-top: var(--border-thick) solid var(--pine);
+    gap: var(--spacing-xs);
+    z-index: var(--z-dropdown);
   }
 
   .main-nav--open { display: flex; }
   .nav-toggle { display: flex; align-items: center; justify-content: center; }
+
+  .main-nav__link {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-lg);
+    background: var(--sand);
+    border: 2px solid var(--pine);
+  }
+
+  .main-nav__link:hover,
+  .main-nav__link:focus {
+    background: var(--sage);
+  }
+
+  .main-nav__link svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .main-nav__link span {
+    font-size: var(--font-size-base);
+  }
+
+  /* Page headers responsive */
+  .page-header {
+    height: auto;
+    min-height: 200px;
+    padding: var(--spacing-2xl) 0;
+  }
+
+  .page-header--submit,
+  .page-header--about {
+    height: auto;
+    min-height: 280px;
+  }
 
   .hero__title { font-size: var(--font-size-4xl); }
   .hero__subtitle { font-size: var(--font-size-lg); }
@@ -1416,6 +1456,47 @@ select:not(.form-select) {
   .section { padding: var(--spacing-xl) 0; }
   .card { padding: 0; }
   .quiz-question { padding: var(--spacing-md); }
+
+  /* Page headers on small screens */
+  .page-header {
+    height: auto;
+    min-height: 180px;
+    padding: var(--spacing-xl) 0;
+  }
+
+  .page-header--submit,
+  .page-header--about {
+    height: auto;
+    min-height: 220px;
+  }
+
+  .page-header h1 {
+    font-size: var(--font-size-2xl);
+  }
+
+  .page-header p {
+    font-size: var(--font-size-sm);
+  }
+
+  /* Map pins smaller on mobile */
+  .map-pin {
+    width: 40px;
+    height: 40px;
+  }
+
+  .map-pin::after {
+    font-size: var(--font-size-xs);
+    padding: 2px 6px;
+  }
+
+  /* Buttons stack on mobile */
+  .card-unlock-modal__buttons {
+    flex-direction: column;
+  }
+
+  .card-unlock-modal__buttons .btn {
+    width: 100%;
+  }
 }
 
 /* ===========================================
