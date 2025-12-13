@@ -2,6 +2,12 @@
 
 An educational web application dedicated to debunking myths about commonly misunderstood animals. Learn the truth about sharks, bats, wolves, spiders, and more!
 
+**Live Site:** [https://ndelias.github.io/group-project-final/](https://ndelias.github.io/group-project-final/)
+
+**Repository:** [https://github.com/ndelias/group-project-final](https://github.com/ndelias/group-project-final)
+
+---
+
 ## Features
 
 ### Core Features
